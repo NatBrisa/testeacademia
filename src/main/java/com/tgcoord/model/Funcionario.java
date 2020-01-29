@@ -55,6 +55,7 @@ public class Funcionario extends Pessoa implements Serializable {
 	 *
 	 */
 	public Funcionario() {
+		super();
 	}
 
 	/**

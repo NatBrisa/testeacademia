@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.logging.Logger;
 
 /**
  * @author natal
@@ -208,4 +209,5 @@ public class Curso implements Serializable {
 	public void setSituacao(String situacao) {
 		this.situacao = situacao;
 	}
+    private static final Logger LOG = Logger.getLogger(Curso.class.getName());
 }

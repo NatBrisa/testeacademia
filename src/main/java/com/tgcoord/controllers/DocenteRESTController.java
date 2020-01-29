@@ -3,29 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tgcoord.endpoint;
+package com.tgcoord.controllers;
 
 import com.tgcoord.model.Docente;
 import com.tgcoord.repository.DocenteRepository;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.logging.Logger;
-
 /**
  * @author natal
  */
 @RestController
 @RequestMapping("docentes")
-public class DocenteEndPoint {
+public class DocenteRESTController {
 
 	@SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(DocenteEndPoint.class.getName());
+	private static final Logger LOG = Logger.getLogger(DocenteRESTController.class.getName());
 
 	private final DocenteRepository docenteDAO;
 
@@ -33,7 +32,7 @@ public class DocenteEndPoint {
 	 * @param docenteDAO
 	 */
 	@Autowired
-	public DocenteEndPoint(DocenteRepository docenteDAO) {
+	public DocenteRESTController(DocenteRepository docenteDAO) {
 		this.docenteDAO = docenteDAO;
 	}
 
@@ -57,7 +56,13 @@ public class DocenteEndPoint {
 		return new ResponseEntity<>(docente, HttpStatus.FOUND);
 	}
 
-	@GetMapping("/{nome}")
+    /**
+     *
+     * @param nome
+     * @return
+     * @throws NoSuchElementException
+     */
+    @GetMapping("/{nome}")
 	public ResponseEntity<?> getByName(@PathVariable String nome) throws NoSuchElementException {
 		List<Docente> docente = docenteDAO.findByNomeIgnoreCaseContaining(nome);
 		return new ResponseEntity<>(docente, HttpStatus.FOUND);
@@ -93,12 +98,5 @@ public class DocenteEndPoint {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	/**
-	 *
-	 */
-	@ExceptionHandler(Exception.class)
-	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
-	public void handleError() {
-	}
 
 }

@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  * @author natal
@@ -36,7 +36,7 @@ public class Pessoa {
 	private String cpf;
 
 	@Basic(optional = true)
-	@Column()
+	@Column
 	private Character gen;
 
 	@Column(name = "dt_nasc", nullable = false)
@@ -49,7 +49,7 @@ public class Pessoa {
 	}
 
 	/**
-	 * @param l
+     * @param l
 	 * @param id
 	 */
 	public Pessoa(Long id) {
@@ -57,6 +57,7 @@ public class Pessoa {
 	}
 
 	/**
+     * @param string
 	 * @param nome
 	 */
 	public Pessoa(String nome) {

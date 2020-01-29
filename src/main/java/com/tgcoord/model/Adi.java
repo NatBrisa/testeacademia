@@ -5,6 +5,7 @@
  */
 package com.tgcoord.model;
 
+import java.util.logging.Logger;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -23,4 +24,7 @@ public class Adi extends Funcionario {
 	@OneToOne
 	private Funcionario id;
 
+	public Adi() {
+	}
+    private static final Logger LOG = Logger.getLogger(Adi.class.getName());
 }

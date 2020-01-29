@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.time.LocalDate;
+import java.util.logging.Logger;
 
 /**
  * @author natal
@@ -127,5 +128,6 @@ public class FuncExtra extends Funcionario {
 	public String toString() {
 		return "com.tgcoord.model.FuncExtra[ id=" + id + " ]";
 	}
+    private static final Logger LOG = Logger.getLogger(FuncExtra.class.getName());
 
 }

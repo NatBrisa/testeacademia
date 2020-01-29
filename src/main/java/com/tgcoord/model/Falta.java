@@ -8,6 +8,7 @@ package com.tgcoord.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.logging.Logger;
 
 /**
  * @author natal
@@ -89,4 +90,5 @@ public class Falta implements Serializable {
 	public String toString() {
 		return "com.tgcoord.model.Falta[ id=" + id + " ]";
 	}
+    private static final Logger LOG = Logger.getLogger(Falta.class.getName());
 }

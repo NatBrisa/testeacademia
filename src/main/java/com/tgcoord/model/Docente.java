@@ -48,9 +48,11 @@ public class Docente extends Funcionario {
 	 *
 	 */
 	public Docente() {
+		super();
 	}
 
 	public Docente(Funcionario id) {
+		super();
 		this.id = id;
 	}
 
