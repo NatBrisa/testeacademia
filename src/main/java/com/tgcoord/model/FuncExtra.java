@@ -17,6 +17,8 @@ import java.util.logging.Logger;
  */
 @Entity
 public class FuncExtra extends Funcionario {
+	@SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(FuncExtra.class.getName());
 
 	private static final long serialVersionUID = 1L;
 
@@ -49,85 +51,81 @@ public class FuncExtra extends Funcionario {
 	}
 
 	public String getConjuge() {
-		return conjuge;
+		return this.conjuge;
 	}
 
-	public void setConjuge(String conjuge) {
+	public void setConjuge(final String conjuge) {
 		this.conjuge = conjuge;
 	}
 
 	public LocalDate getDataExpRg() {
-		return dataExpRg;
+		return this.dataExpRg;
 	}
 
-	public void setDataExpRg(LocalDate dataExpRg) {
+	public void setDataExpRg(final LocalDate dataExpRg) {
 		this.dataExpRg = dataExpRg;
 	}
 
 	public String getOrgaoExpRg() {
-		return orgaoExpRg;
+		return this.orgaoExpRg;
 	}
 
-	public void setOrgaoExpRg(String orgaoExpRg) {
+	public void setOrgaoExpRg(final String orgaoExpRg) {
 		this.orgaoExpRg = orgaoExpRg;
 	}
 
 	public String getEstadoCivil() {
-		return estadoCivil;
+		return this.estadoCivil;
 	}
 
-	public void setEstadoCivil(String estadoCivil) {
+	public void setEstadoCivil(final String estadoCivil) {
 		this.estadoCivil = estadoCivil;
 	}
 
 	public String getEtnia() {
-		return etnia;
+		return this.etnia;
 	}
 
-	public void setEtnia(String etnia) {
+	public void setEtnia(final String etnia) {
 		this.etnia = etnia;
 	}
 
 	public String getNomeMae() {
-		return nomeMae;
+		return this.nomeMae;
 	}
 
-	public void setNomeMae(String nomeMae) {
+	public void setNomeMae(final String nomeMae) {
 		this.nomeMae = nomeMae;
 	}
 
 	public String getNomePai() {
-		return nomePai;
+		return this.nomePai;
 	}
 
-	public void setNomePai(String nomePai) {
+	public void setNomePai(final String nomePai) {
 		this.nomePai = nomePai;
 	}
 
 	@Override
 	public int hashCode() {
 		int hash = 0;
-		hash += (id != null ? id.hashCode() : 0);
+		hash += (this.id != null ? this.id.hashCode() : 0);
 		return hash;
 	}
 
 	@Override
-	public boolean equals(Object object) {
+	public boolean equals(final Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
 		if (!(object instanceof FuncExtra)) {
 			return false;
 		}
-		FuncExtra other = (FuncExtra) object;
-		if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-			return false;
-		}
-		return true;
+		final FuncExtra other = (FuncExtra) object;
+		return id == null ? other.id == null : id.equals(other.id);
 	}
 
 	@Override
 	public String toString() {
-		return "com.tgcoord.model.FuncExtra[ id=" + id + " ]";
+		return "com.tgcoord.model.FuncExtra[ id=" + this.id + " ]";
 	}
-    private static final Logger LOG = Logger.getLogger(FuncExtra.class.getName());
 
 }

@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.io.Serializable;
+import java.util.logging.Logger;
 
 /**
  * @author natal
@@ -46,13 +46,13 @@ public class Endereco implements Serializable {
 	 * @return
 	 */
 	public String getUf() {
-		return uf;
+		return this.uf;
 	}
 
 	/**
 	 * @param uf
 	 */
-	public void setUf(String uf) {
+	public void setUf(final String uf) {
 		this.uf = uf;
 	}
 
@@ -60,13 +60,13 @@ public class Endereco implements Serializable {
 	 * @return
 	 */
 	public String getMunicipio() {
-		return municipio;
+		return this.municipio;
 	}
 
 	/**
 	 * @param municipio
 	 */
-	public void setMunicipio(String municipio) {
+	public void setMunicipio(final String municipio) {
 		this.municipio = municipio;
 	}
 
@@ -74,13 +74,13 @@ public class Endereco implements Serializable {
 	 * @return
 	 */
 	public String getBairro() {
-		return bairro;
+		return this.bairro;
 	}
 
 	/**
 	 * @param bairro
 	 */
-	public void setBairro(String bairro) {
+	public void setBairro(final String bairro) {
 		this.bairro = bairro;
 	}
 
@@ -88,13 +88,13 @@ public class Endereco implements Serializable {
 	 * @return
 	 */
 	public String getRua() {
-		return rua;
+		return this.rua;
 	}
 
 	/**
 	 * @param rua
 	 */
-	public void setRua(String rua) {
+	public void setRua(final String rua) {
 		this.rua = rua;
 	}
 
@@ -102,13 +102,13 @@ public class Endereco implements Serializable {
 	 * @return
 	 */
 	public int getNum() {
-		return num;
+		return this.num;
 	}
 
 	/**
 	 * @param num
 	 */
-	public void setNum(int num) {
+	public void setNum(final int num) {
 		this.num = num;
 	}
 }

@@ -5,94 +5,103 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html lang="pt">
-    <head>
-        <title>Coordenadoria de Educação de Fartura</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <header><hgroup><h1>Coordenadoria de Educação de Fartura</h1><h2>Busca Resumida</h2></hgroup></header>
-        
-        <nav><button>Apresentação</button><button>Busca</button><button>Login</button><button>Ajuda</button></nav>
-        
-        <section>
-            <h3>Busca Resumida</h3>
-            
-            <form method="POST">
-                <ul>
-                    <li><label><input type="radio" name="tipo" value="Docente" />Docente</label></li>
-                    <li><label><input type="radio" name="tipo" value="Monitor" />Monitor</label></li>
-                    <li><label><input type="radio" name="tipo" value="ADI" />ADI</label></li>
-                </ul>
+<head>
+	<title>Coordenadoria de Educação de Fartura</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<link href="../static/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<header>
+	<hgroup><h1>Coordenadoria de Educação de Fartura</h1>
+		<h2>Busca Resumida</h2></hgroup>
+</header>
 
-                <label>Nome: <input type="text" name="nome" value="" /></label>
-                <label>RG: <input type="text" name="rg" value="" /></label>
-                <label>CPF: <input type="text" name="cpf" value="" /></label>
-                
-                <table border="2" cellpadding="5" >
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>RG</th>
-                            <th>CPF</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            </form>
-        </section>
-        <footer></footer>
-    </body>
+<nav>
+	<button>Apresentação</button>
+	<button>Busca</button>
+	<button>Login</button>
+	<button>Ajuda</button>
+</nav>
+
+<section>
+	<h3>Busca Resumida</h3>
+
+	<form method="POST">
+		<ul>
+			<li><label><input name="tipo" type="radio" value="Docente"/>Docente</label></li>
+			<li><label><input name="tipo" type="radio" value="Monitor"/>Monitor</label></li>
+			<li><label><input name="tipo" type="radio" value="ADI"/>ADI</label></li>
+		</ul>
+
+		<label>Nome: <input name="nome" type="text" value=""/></label>
+		<label>RG: <input name="rg" type="text" value=""/></label>
+		<label>CPF: <input name="cpf" type="text" value=""/></label>
+
+		<table border="2" cellpadding="5">
+			<thead>
+			<tr>
+				<th>Nome</th>
+				<th>RG</th>
+				<th>CPF</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			</tbody>
+		</table>
+
+	</form>
+</section>
+<footer></footer>
+</body>
 </html>

@@ -5,11 +5,11 @@
  */
 package com.tgcoord.model;
 
-import java.util.logging.Logger;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.logging.Logger;
 
 /**
  * @author natal
@@ -17,6 +17,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "adi")
 public class Adi extends Funcionario {
+	@SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(Adi.class.getName());
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,5 +28,5 @@ public class Adi extends Funcionario {
 
 	public Adi() {
 	}
-    private static final Logger LOG = Logger.getLogger(Adi.class.getName());
+
 }

@@ -14,6 +14,8 @@ import java.util.logging.Logger;
  */
 @Entity
 public class Dependente extends Pessoa implements Serializable {
+	@SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(Dependente.class.getName());
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,14 +23,13 @@ public class Dependente extends Pessoa implements Serializable {
 //    private Collection<Funcionario> dependentes = new ArrayList<>();
 
 	public Dependente() {
-		super();
 	}
 
-	public Dependente(Long id) {
+	public Dependente(final Long id) {
 		super(id);
 	}
 
-	public Dependente(String nome) {
+	public Dependente(final String nome) {
 		super(nome);
 	}
 
@@ -39,5 +40,5 @@ public class Dependente extends Pessoa implements Serializable {
 //    public void setDependentes(Collection<Funcionario> dependentes) {
 //        this.dependentes = dependentes;
 //    }
-    private static final Logger LOG = Logger.getLogger(Dependente.class.getName());
+
 }

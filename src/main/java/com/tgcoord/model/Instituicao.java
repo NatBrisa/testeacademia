@@ -61,13 +61,13 @@ public class Instituicao implements Serializable {
 	 * @return
 	 */
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	/**
 	 * @param id
 	 */
-	public void setId(int id) {
+	public void setId(final int id) {
 		this.id = id;
 	}
 
@@ -75,13 +75,13 @@ public class Instituicao implements Serializable {
 	 * @return
 	 */
 	public String getNomeCompleto() {
-		return nomeCompleto;
+		return this.nomeCompleto;
 	}
 
 	/**
 	 * @param nomeCompleto
 	 */
-	public void setNomeCompleto(String nomeCompleto) {
+	public void setNomeCompleto(final String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
 	}
 
@@ -89,13 +89,13 @@ public class Instituicao implements Serializable {
 	 * @return
 	 */
 	public String getNomeSimples() {
-		return nomeSimples;
+		return this.nomeSimples;
 	}
 
 	/**
 	 * @param nomeSimples
 	 */
-	public void setNomeSimples(String nomeSimples) {
+	public void setNomeSimples(final String nomeSimples) {
 		this.nomeSimples = nomeSimples;
 	}
 
@@ -103,13 +103,13 @@ public class Instituicao implements Serializable {
 	 * @return
 	 */
 	public String getTel() {
-		return tel;
+		return this.tel;
 	}
 
 	/**
 	 * @param tel
 	 */
-	public void setTel(String tel) {
+	public void setTel(final String tel) {
 		this.tel = tel;
 	}
 
@@ -117,13 +117,13 @@ public class Instituicao implements Serializable {
 	 * @return
 	 */
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	/**
 	 * @param email
 	 */
-	public void setEmail(String email) {
+	public void setEmail(final String email) {
 		this.email = email;
 	}
 }

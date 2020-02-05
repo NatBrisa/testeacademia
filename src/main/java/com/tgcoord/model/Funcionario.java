@@ -55,20 +55,19 @@ public class Funcionario extends Pessoa implements Serializable {
 	 *
 	 */
 	public Funcionario() {
-		super();
 	}
 
 	/**
 	 * @return
 	 */
 	public LocalDate getDtAdmissao() {
-		return dtAdmissao;
+		return this.dtAdmissao;
 	}
 
 	/**
 	 * @param dtAdmissao
 	 */
-	public void setDtAdmissao(LocalDate dtAdmissao) {
+	public void setDtAdmissao(final LocalDate dtAdmissao) {
 		this.dtAdmissao = dtAdmissao;
 	}
 
@@ -76,21 +75,21 @@ public class Funcionario extends Pessoa implements Serializable {
 	 * @return
 	 */
 	public LocalDate getDtTermino() {
-		return dtTermino;
+		return this.dtTermino;
 	}
 
 	/**
 	 * @param dtTermino
 	 */
-	public void setDtTermino(LocalDate dtTermino) {
+	public void setDtTermino(final LocalDate dtTermino) {
 		this.dtTermino = dtTermino;
 	}
 
 	public Endereco getEndereco() {
-		return endereco;
+		return this.endereco;
 	}
 
-	public void setEndereco(Endereco endereco) {
+	public void setEndereco(final Endereco endereco) {
 		this.endereco = endereco;
 	}
 
@@ -98,13 +97,13 @@ public class Funcionario extends Pessoa implements Serializable {
 	 * @return
 	 */
 	public String getTel() {
-		return tel;
+		return this.tel;
 	}
 
 	/**
 	 * @param tel
 	 */
-	public void setTel(String tel) {
+	public void setTel(final String tel) {
 		this.tel = tel;
 	}
 
@@ -112,13 +111,13 @@ public class Funcionario extends Pessoa implements Serializable {
 	 * @return
 	 */
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	/**
 	 * @param email
 	 */
-	public void setEmail(String email) {
+	public void setEmail(final String email) {
 		this.email = email;
 	}
 
@@ -126,29 +125,29 @@ public class Funcionario extends Pessoa implements Serializable {
 	 * @return
 	 */
 	public String getPis() {
-		return pis;
+		return this.pis;
 	}
 
 	/**
 	 * @param pis
 	 */
-	public void setPis(String pis) {
+	public void setPis(final String pis) {
 		this.pis = pis;
 	}
 
 	public Collection<Curso> getCursos() {
-		return cursos;
+		return this.cursos;
 	}
 
-	public void setCursos(Collection<Curso> cursos) {
+	public void setCursos(final Collection<Curso> cursos) {
 		this.cursos = cursos;
 	}
 
 	public Collection<Dependente> getDependentes() {
-		return dependentes;
+		return this.dependentes;
 	}
 
-	public void setDependentes(Collection<Dependente> dependentes) {
+	public void setDependentes(final Collection<Dependente> dependentes) {
 		this.dependentes = dependentes;
 	}
 }

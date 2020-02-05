@@ -17,6 +17,8 @@ import java.util.logging.Logger;
 @Entity
 @Table(name = "curso")
 public class Curso implements Serializable {
+	@SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(Curso.class.getName());
 
 	private static final long serialVersionUID = 1L;
 
@@ -74,13 +76,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	/**
 	 * @param id
 	 */
-	public void setId(int id) {
+	public void setId(final int id) {
 		this.id = id;
 	}
 
@@ -88,13 +90,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	/**
 	 * @param nome
 	 */
-	public void setNome(String nome) {
+	public void setNome(final String nome) {
 		this.nome = nome;
 	}
 
@@ -102,13 +104,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public String getTpCurso() {
-		return tpCurso;
+		return this.tpCurso;
 	}
 
 	/**
 	 * @param tpCurso
 	 */
-	public void setTpCurso(String tpCurso) {
+	public void setTpCurso(final String tpCurso) {
 		this.tpCurso = tpCurso;
 	}
 
@@ -116,13 +118,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public String getTpInst() {
-		return tpInst;
+		return this.tpInst;
 	}
 
 	/**
 	 * @param tpInst
 	 */
-	public void setTpInst(String tpInst) {
+	public void setTpInst(final String tpInst) {
 		this.tpInst = tpInst;
 	}
 
@@ -130,13 +132,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public LocalDate getDtInicio() {
-		return dtInicio;
+		return this.dtInicio;
 	}
 
 	/**
 	 * @param dtInicio
 	 */
-	public void setDtInicio(LocalDate dtInicio) {
+	public void setDtInicio(final LocalDate dtInicio) {
 		this.dtInicio = dtInicio;
 	}
 
@@ -144,13 +146,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public LocalDate getDtFinal() {
-		return dtFinal;
+		return this.dtFinal;
 	}
 
 	/**
 	 * @param dtFinal
 	 */
-	public void setDtFinal(LocalDate dtFinal) {
+	public void setDtFinal(final LocalDate dtFinal) {
 		this.dtFinal = dtFinal;
 	}
 
@@ -158,13 +160,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public Duration getCargaHoraria() {
-		return cargaHoraria;
+		return this.cargaHoraria;
 	}
 
 	/**
 	 * @param cargaHoraria
 	 */
-	public void setCargaHoraria(Duration cargaHoraria) {
+	public void setCargaHoraria(final Duration cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
 
@@ -172,13 +174,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public String getNomeInst() {
-		return nomeInst;
+		return this.nomeInst;
 	}
 
 	/**
 	 * @param nomeInst
 	 */
-	public void setNomeInst(String nomeInst) {
+	public void setNomeInst(final String nomeInst) {
 		this.nomeInst = nomeInst;
 	}
 
@@ -186,13 +188,13 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public String getCidade() {
-		return cidade;
+		return this.cidade;
 	}
 
 	/**
 	 * @param cidade
 	 */
-	public void setCidade(String cidade) {
+	public void setCidade(final String cidade) {
 		this.cidade = cidade;
 	}
 
@@ -200,14 +202,14 @@ public class Curso implements Serializable {
 	 * @return
 	 */
 	public String getSituacao() {
-		return situacao;
+		return this.situacao;
 	}
 
 	/**
 	 * @param situacao
 	 */
-	public void setSituacao(String situacao) {
+	public void setSituacao(final String situacao) {
 		this.situacao = situacao;
 	}
-    private static final Logger LOG = Logger.getLogger(Curso.class.getName());
+
 }

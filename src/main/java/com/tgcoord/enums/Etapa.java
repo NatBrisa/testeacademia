@@ -28,7 +28,7 @@ public enum Etapa {
 	private final String etapa;
 	private final String grau;
 
-	private Etapa(String etapa, String grau) {
+	Etapa(final String etapa, final String grau) {
 		this.etapa = etapa;
 		this.grau = grau;
 	}
@@ -37,13 +37,13 @@ public enum Etapa {
 	 * @return the etapa
 	 */
 	public String getEtapa() {
-		return etapa;
+		return this.etapa;
 	}
 
 	/**
 	 * @return the grau
 	 */
 	public String getGrau() {
-		return grau;
+		return this.grau;
 	}
 }

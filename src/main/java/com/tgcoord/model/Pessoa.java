@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.logging.Logger;
-import javax.persistence.*;
 
 /**
  * @author natal
@@ -49,18 +49,16 @@ public class Pessoa {
 	}
 
 	/**
-     * @param l
-	 * @param id
+	 * @param l
 	 */
-	public Pessoa(Long id) {
+	public Pessoa(final Long id) {
 		this.id = id;
 	}
 
 	/**
-     * @param string
-	 * @param nome
+	 * @param string
 	 */
-	public Pessoa(String nome) {
+	public Pessoa(final String nome) {
 		this.nome = nome;
 	}
 
@@ -68,13 +66,13 @@ public class Pessoa {
 	 * @return Nome
 	 */
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	/**
 	 * @param id
 	 */
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
@@ -82,13 +80,13 @@ public class Pessoa {
 	 * @return Nome
 	 */
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	/**
 	 * @param nome
 	 */
-	public void setNome(String nome) {
+	public void setNome(final String nome) {
 		this.nome = nome;
 	}
 
@@ -96,13 +94,13 @@ public class Pessoa {
 	 * @return
 	 */
 	public String getRg() {
-		return rg;
+		return this.rg;
 	}
 
 	/**
 	 * @param rg
 	 */
-	public void setRg(String rg) {
+	public void setRg(final String rg) {
 		this.rg = rg;
 	}
 
@@ -110,13 +108,13 @@ public class Pessoa {
 	 * @return
 	 */
 	public String getCpf() {
-		return cpf;
+		return this.cpf;
 	}
 
 	/**
 	 * @param cpf
 	 */
-	public void setCpf(String cpf) {
+	public void setCpf(final String cpf) {
 		this.cpf = cpf;
 	}
 
@@ -124,13 +122,13 @@ public class Pessoa {
 	 * @return
 	 */
 	public Character getGen() {
-		return gen;
+		return this.gen;
 	}
 
 	/**
 	 * @param gen
 	 */
-	public void setGen(Character gen) {
+	public void setGen(final Character gen) {
 		this.gen = gen;
 	}
 
@@ -138,51 +136,51 @@ public class Pessoa {
 	 * @return
 	 */
 	public LocalDate getDtNasc() {
-		return dtNasc;
+		return this.dtNasc;
 	}
 
 	/**
 	 * @param dtNasc
 	 */
-	public void setDtNasc(LocalDate dtNasc) {
+	public void setDtNasc(final LocalDate dtNasc) {
 		this.dtNasc = dtNasc;
 	}
 
 	@Override
 	public int hashCode() {
 		int hash = 7;
-		hash = 59 * hash + Objects.hashCode(this.id);
+		hash = 59 * hash + Objects.hashCode(id);
 		return hash;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;
 		}
 		if (obj == null) {
 			return false;
 		}
-		if (getClass() != obj.getClass()) {
+		if (this.getClass() != obj.getClass()) {
 			return false;
 		}
-		final Pessoa other = (Pessoa) obj;
-		if (!Objects.equals(this.nome, other.nome)) {
+		Pessoa other = (Pessoa) obj;
+		if (!Objects.equals(nome, other.nome)) {
 			return false;
 		}
-		if (!Objects.equals(this.rg, other.rg)) {
+		if (!Objects.equals(rg, other.rg)) {
 			return false;
 		}
-		if (!Objects.equals(this.cpf, other.cpf)) {
+		if (!Objects.equals(cpf, other.cpf)) {
 			return false;
 		}
-		if (!Objects.equals(this.id, other.id)) {
+		if (!Objects.equals(id, other.id)) {
 			return false;
 		}
-		if (!Objects.equals(this.gen, other.gen)) {
+		if (!Objects.equals(gen, other.gen)) {
 			return false;
 		}
-		return Objects.equals(this.dtNasc, other.dtNasc);
+		return Objects.equals(dtNasc, other.dtNasc);
 	}
 
 }

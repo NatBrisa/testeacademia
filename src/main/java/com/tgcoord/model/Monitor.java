@@ -40,7 +40,7 @@ public class Monitor extends Funcionario {
 	public Monitor() {
 	}
 
-	public Monitor(Funcionario id) {
+	public Monitor(final Funcionario id) {
 		this.id = id;
 	}
 
@@ -48,13 +48,13 @@ public class Monitor extends Funcionario {
 	 * @return
 	 */
 	public Duration getQtdHoras() {
-		return qtdHoras;
+		return this.qtdHoras;
 	}
 
 	/**
 	 * @param qtdHoras
 	 */
-	public void setQtdHoras(Duration qtdHoras) {
+	public void setQtdHoras(final Duration qtdHoras) {
 		this.qtdHoras = qtdHoras;
 	}
 
@@ -62,13 +62,13 @@ public class Monitor extends Funcionario {
 	 * @return
 	 */
 	public Instituicao getInst() {
-		return inst;
+		return this.inst;
 	}
 
 	/**
 	 * @param inst
 	 */
-	public void setInst(Instituicao inst) {
+	public void setInst(final Instituicao inst) {
 		this.inst = inst;
 	}
 }

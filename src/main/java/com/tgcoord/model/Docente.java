@@ -48,11 +48,9 @@ public class Docente extends Funcionario {
 	 *
 	 */
 	public Docente() {
-		super();
 	}
 
-	public Docente(Funcionario id) {
-		super();
+	public Docente(final Funcionario id) {
 		this.id = id;
 	}
 
@@ -60,13 +58,13 @@ public class Docente extends Funcionario {
 	 * @return
 	 */
 	public String getCargo() {
-		return cargo;
+		return this.cargo;
 	}
 
 	/**
 	 * @param cargo
 	 */
-	public void setCargo(String cargo) {
+	public void setCargo(final String cargo) {
 		this.cargo = cargo;
 	}
 
@@ -74,13 +72,13 @@ public class Docente extends Funcionario {
 	 * @return
 	 */
 	public String getCategoria() {
-		return categoria;
+		return this.categoria;
 	}
 
 	/**
 	 * @param categoria
 	 */
-	public void setCategoria(String categoria) {
+	public void setCategoria(final String categoria) {
 		this.categoria = categoria;
 	}
 
@@ -88,13 +86,13 @@ public class Docente extends Funcionario {
 	 * @return
 	 */
 	public String getJornada() {
-		return jornada;
+		return this.jornada;
 	}
 
 	/**
 	 * @param jornada
 	 */
-	public void setJornada(String jornada) {
+	public void setJornada(final String jornada) {
 		this.jornada = jornada;
 	}
 
@@ -102,21 +100,21 @@ public class Docente extends Funcionario {
 	 * @return
 	 */
 	public String getDisciplina() {
-		return disciplina;
+		return this.disciplina;
 	}
 
 	/**
 	 * @param disciplina
 	 */
-	public void setDisciplina(String disciplina) {
+	public void setDisciplina(final String disciplina) {
 		this.disciplina = disciplina;
 	}
 
 	public Collection<Falta> getFaltas() {
-		return faltas;
+		return this.faltas;
 	}
 
-	public void setFaltas(Collection<Falta> faltas) {
+	public void setFaltas(final Collection<Falta> faltas) {
 		this.faltas = faltas;
 	}
 }

@@ -15,6 +15,8 @@ import java.util.logging.Logger;
  */
 @Entity
 public class Falta implements Serializable {
+	@SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(Falta.class.getName());
 
 	private static final long serialVersionUID = 1L;
 
@@ -35,60 +37,57 @@ public class Falta implements Serializable {
 	}
 
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
 	public String getCausa() {
-		return causa;
+		return this.causa;
 	}
 
-	public void setCausa(String causa) {
+	public void setCausa(final String causa) {
 		this.causa = causa;
 	}
 
 	public LocalDate getDia() {
-		return dia;
+		return this.dia;
 	}
 
-	public void setDia(LocalDate dia) {
+	public void setDia(final LocalDate dia) {
 		this.dia = dia;
 	}
 
 	public int getDuracao() {
-		return duracao;
+		return this.duracao;
 	}
 
-	public void setDuracao(int duracao) {
+	public void setDuracao(final int duracao) {
 		this.duracao = duracao;
 	}
 
 	@Override
 	public int hashCode() {
 		int hash = 0;
-		hash += (id != null ? id.hashCode() : 0);
+		hash += (this.id != null ? this.id.hashCode() : 0);
 		return hash;
 	}
 
 	@Override
-	public boolean equals(Object object) {
+	public boolean equals(final Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
 		if (!(object instanceof Falta)) {
 			return false;
 		}
-		Falta other = (Falta) object;
-		if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-			return false;
-		}
-		return true;
+		final Falta other = (Falta) object;
+		return id == null ? other.id == null : id.equals(other.id);
 	}
 
 	@Override
 	public String toString() {
-		return "com.tgcoord.model.Falta[ id=" + id + " ]";
+		return "com.tgcoord.model.Falta[ id=" + this.id + " ]";
 	}
-    private static final Logger LOG = Logger.getLogger(Falta.class.getName());
+
 }

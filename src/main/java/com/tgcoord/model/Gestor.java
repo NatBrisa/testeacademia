@@ -30,7 +30,7 @@ public class Gestor extends Funcionario {
 	@OneToOne
 	private final Funcionario id;
 
-	public Gestor(Funcionario id) {
+	public Gestor(final Funcionario id) {
 		this.id = id;
 	}
 }
