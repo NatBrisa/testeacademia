@@ -6,6 +6,7 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Docente;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -17,5 +18,5 @@ public interface DocenteRepository extends CrudRepository<Docente, Long> {
 	 * @param nome
 	 * @return
 	 */
-//	List<Docente> findByNomeIgnoreCaseContaining(String nome);
+	List<Docente> findByNomeIgnoreCaseContaining(String nome);
 }
