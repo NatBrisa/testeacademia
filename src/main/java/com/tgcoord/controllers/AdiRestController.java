@@ -5,8 +5,8 @@
  */
 package com.tgcoord.controllers;
 
-import com.tgcoord.model.Docente;
-import com.tgcoord.repository.DocenteRepository;
+import com.tgcoord.model.Adi;
+import com.tgcoord.repository.AdiRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -31,19 +31,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @author natal
  */
 @RestController
-@RequestMapping("/docente")
-public class DocenteRestController {
-    private static final Logger LOG = Logger.getLogger(DocenteRestController.class.getName());
-
-    private final DocenteRepository docRep;
+@RequestMapping("/adi")
+public class AdiRestController {
+    private static final Logger LOG = Logger.getLogger(AdiRestController.class.getName());
+    
+    private final AdiRepository adiRep;
 
     /**
      *
-     * @param docRep
+     * @param adiRep
      */
     @Autowired
-    public DocenteRestController(DocenteRepository docRep) {
-        this.docRep = docRep;
+    public AdiRestController(AdiRepository adiRep) {
+        this.adiRep = adiRep;
     }
     
     /**
@@ -53,21 +53,21 @@ public class DocenteRestController {
      */
     @GetMapping()
     public ResponseEntity<?> listAll(Pageable pageable) {
-        return new ResponseEntity<>(docRep.findAll(pageable), HttpStatus.OK);
+        return new ResponseEntity<>(adiRep.findAll(), HttpStatus.OK);
     }
     
     /**
      *
      * @param id
-     * @return Docente
+     * @return
      */
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(@PathVariable("id") Long id) {
-        Optional<Docente> docente = docRep.findById(id);
-        if(docente.isPresent()) {
-            return new ResponseEntity<>(docente, HttpStatus.FOUND);
+    public Object get(@PathVariable("id") Long id) {
+        Optional<Adi> adi = adiRep.findById(id);
+        if(adi.isPresent()) {
+            return new ResponseEntity<>(adi, HttpStatus.FOUND);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(adi, HttpStatus.NOT_FOUND);
         }
     }
     
@@ -78,9 +78,9 @@ public class DocenteRestController {
      */
     @GetMapping("/{nome}")
     public ResponseEntity<?> getByName(String nome) {
-        List<Docente> docentes = docRep.findByNomeIgnoreCaseContaining(nome);
-        if(!docentes.isEmpty()) {
-            return new ResponseEntity<>(docentes, HttpStatus.FOUND);
+        List<Adi> adis = adiRep.findByNomeIgnoreCaseContaining(nome);
+        if(!adis.isEmpty()) {
+            return new ResponseEntity<>(adis, HttpStatus.FOUND);
         } else {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }      
@@ -93,8 +93,8 @@ public class DocenteRestController {
      * @return
      */
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Docente input) {
-        return new ResponseEntity<>(docRep.save(input), HttpStatus.OK);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Adi input) {
+        return new ResponseEntity<>(adiRep.save(input), HttpStatus.OK);
     }
     
     /**
@@ -104,8 +104,8 @@ public class DocenteRestController {
      */
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> save(@RequestBody Docente input) {
-        return new ResponseEntity<>(docRep.save(input), HttpStatus.CREATED);
+    public ResponseEntity<?> save(@RequestBody Adi input) {
+        return new ResponseEntity<>(adiRep.save(input), HttpStatus.CREATED);
     }
     
     /**
@@ -116,13 +116,13 @@ public class DocenteRestController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        Optional<Docente> docente = docRep.findById(id);
-        if(docente.isPresent()) {
-            docRep.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.OK);
+        Optional<Adi> adi = adiRep.findById(id);
+        if(adi.isPresent()) {
+            adiRep.deleteById(id);
+            return new ResponseEntity<>(adi, HttpStatus.OK);
         } else {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
-        }       
+            return new ResponseEntity<>(adi, HttpStatus.NOT_FOUND);
+        }
     }
     
     /**

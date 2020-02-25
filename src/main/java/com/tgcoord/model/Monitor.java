@@ -35,23 +35,29 @@ public class Monitor extends Funcionario {
 	private Instituicao inst;
 
 	/**
-	 *
+	 * Construtor vazio para monitor
 	 */
 	public Monitor() {
 	}
 
+        /**
+         * Construtor para monitor passando o id de funcionário dele
+         * @param id 
+         */
 	public Monitor(final Funcionario id) {
-		this.id = id;
+            this.id = id;
 	}
 
 	/**
-	 * @return
+         * Função para retornar a quantidade de horas que o monitor precisa trabalhar em creches
+	 * @return Quantidade de horas
 	 */
 	public Duration getQtdHoras() {
 		return this.qtdHoras;
 	}
 
 	/**
+         * Função para definir ou alterar a quantidade de horas que o monitor precisa trabalhar para completar sua carga horária
 	 * @param qtdHoras
 	 */
 	public void setQtdHoras(final Duration qtdHoras) {
@@ -59,13 +65,15 @@ public class Monitor extends Funcionario {
 	}
 
 	/**
-	 * @return
+         * Função para retornar a instituição em que o monitor trabalha para completar seu horário de trabalho
+	 * @return Instituição
 	 */
 	public Instituicao getInst() {
 		return this.inst;
 	}
 
 	/**
+         * Função para definir ou alterar a instituição em que o monitor trabalha para completar seu horário de trabalho
 	 * @param inst
 	 */
 	public void setInst(final Instituicao inst) {

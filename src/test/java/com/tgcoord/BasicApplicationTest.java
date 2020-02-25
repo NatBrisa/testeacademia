@@ -5,6 +5,7 @@
  */
 package com.tgcoord;
 
+import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -15,7 +16,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class BasicApplicationTest {
     
+    private static final Logger LOG = Logger.getLogger(BasicApplicationTest.class.getName());
     @Test
-    void contextLoads() {
-    }
+            void contextLoads() {
+            }
 }

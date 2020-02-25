@@ -5,18 +5,20 @@
  */
 package com.tgcoord.repository;
 
-import com.tgcoord.model.Docente;
+import com.tgcoord.model.Curso;
 import java.util.List;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
+ *
  * @author natal
  */
-public interface DocenteRepository extends PagingAndSortingRepository<Docente, Long> {
-
+public interface CursoRepository extends PagingAndSortingRepository<Curso, Long> {
+    
     /**
+     *
      * @param nome
      * @return
      */
-    List<Docente> findByNomeIgnoreCaseContaining(String nome);
+    List<Curso> findByNomeIgnoreCaseContaining(String nome);
 }

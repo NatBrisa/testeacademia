@@ -5,32 +5,31 @@
  */
 package com.tgcoord.controllers;
 
+import java.util.logging.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.logging.Logger;
 
 /**
  * @author natal
  */
 @Controller
 public class IndexController {
-	private static final Logger LOG = Logger.getLogger(IndexController.class.getName());
+    private static final Logger LOG = Logger.getLogger(IndexController.class.getName());
 
-	/**
-	 * @return
-	 */
-	@RequestMapping("/")
-	public String index() {
-//        model.addAttribute("attribute", "value");
-		return "index";
-	}
+    /**
+     * @return
+     */
+    @RequestMapping("/")
+    public String index() {
+        //model.addAttribute("attribute", "value");
+        return "index";
+    }
 
-	/**
-	 * @return
-	 */
-	@RequestMapping(path = "/busca")
-	public String busca() {
-		return "buscageral";
-	}
+    /**
+     * @return
+     */
+    @RequestMapping(path = "/busca")
+    public String busca() {
+        return "buscageral";
+    }
 }

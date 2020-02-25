@@ -5,40 +5,28 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.Entity;
 import java.io.Serializable;
 import java.util.logging.Logger;
+import javax.persistence.Entity;
 
 /**
  * @author natal
  */
 @Entity
 public class Dependente extends Pessoa implements Serializable {
-	@SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(Dependente.class.getName());
+    @SuppressWarnings("unused")
+    private static final Logger LOG = Logger.getLogger(Dependente.class.getName());
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-//    @ManyToMany(targetEntity = Funcionario.class)
-//    private Collection<Funcionario> dependentes = new ArrayList<>();
+    public Dependente() {
+    }
 
-	public Dependente() {
-	}
+    public Dependente(final Long id) {
+        super(id);
+    }
 
-	public Dependente(final Long id) {
-		super(id);
-	}
-
-	public Dependente(final String nome) {
-		super(nome);
-	}
-
-//    public Collection<Funcionario> getDependentes() {
-//        return dependentes;
-//    }
-//
-//    public void setDependentes(Collection<Funcionario> dependentes) {
-//        this.dependentes = dependentes;
-//    }
-
+    public Dependente(final String nome) {
+        super(nome);
+    }
 }

@@ -10,40 +10,40 @@ package com.tgcoord.enums;
  */
 public enum Etapa {
 
-	/**
-	 *
-	 */
-	BI("Berçário I", "Educação Infantil"),
+    /**
+     *
+     */
+    BI("Berçário I", "Educação Infantil"),
 
-	/**
-	 *
-	 */
-	MI("Maternal I", "Educação Infantil"),
+    /**
+     *
+     */
+    MI("Maternal I", "Educação Infantil"),
 
-	/**
-	 *
-	 */
-	MII("Maternal II", "Educação Infantil");
+    /**
+     *
+     */
+    MII("Maternal II", "Educação Infantil");
 
-	private final String etapa;
-	private final String grau;
+    private final String etapa;
+    private final String grau;
 
-	Etapa(final String etapa, final String grau) {
-		this.etapa = etapa;
-		this.grau = grau;
-	}
+    Etapa(final String etapa, final String grau) {
+        this.etapa = etapa;
+        this.grau = grau;
+    }
 
-	/**
-	 * @return the etapa
-	 */
-	public String getEtapa() {
-		return this.etapa;
-	}
+    /**
+     * @return the etapa
+     */
+    public String getEtapa() {
+        return this.etapa;
+    }
 
-	/**
-	 * @return the grau
-	 */
-	public String getGrau() {
-		return this.grau;
-	}
+    /**
+     * @return the grau
+     */
+    public String getGrau() {
+        return this.grau;
+    }
 }

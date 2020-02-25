@@ -17,16 +17,16 @@ import java.util.logging.Logger;
 @Entity
 @Table(name = "adi")
 public class Adi extends Funcionario {
-	@SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(Adi.class.getName());
+    @SuppressWarnings("unused")
+    private static final Logger LOG = Logger.getLogger(Adi.class.getName());
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@OneToOne
-	private Funcionario id;
+    @Id
+    @OneToOne
+    private Funcionario id;
 
-	public Adi() {
-	}
+    public Adi() {
+    }
 
 }

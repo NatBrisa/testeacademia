@@ -17,104 +17,104 @@ import java.util.logging.Logger;
 @Table(name = "docente")
 public class Docente extends Funcionario {
 
-	@SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(Docente.class.getName());
+    @SuppressWarnings("unused")
+    private static final Logger LOG = Logger.getLogger(Docente.class.getName());
 
-	/**
-	 *
-	 */
-	private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@OneToOne
-	private Funcionario id;
+    @Id
+    @OneToOne
+    private Funcionario id;
 
-	@Column(length = 45)
-	private String cargo;
+    @Column(length = 45)
+    private String cargo;
 
-	@Column(length = 45)
-	private String categoria;
+    @Column(length = 45)
+    private String categoria;
 
-	@Column(length = 45)
-	private String jornada;
+    @Column(length = 45)
+    private String jornada;
 
-	@Column(length = 45)
-	private String disciplina;
+    @Column(length = 45)
+    private String disciplina;
 
-	@OneToMany(targetEntity = Falta.class)
-	private Collection<Falta> faltas = new ArrayList<>();
+    @OneToMany(targetEntity = Falta.class)
+    private Collection<Falta> faltas = new ArrayList<>();
 
-	/**
-	 *
-	 */
-	public Docente() {
-	}
+    /**
+     *
+     */
+    public Docente() {
+    }
 
-	public Docente(final Funcionario id) {
-		this.id = id;
-	}
+    public Docente(final Funcionario id) {
+        this.id = id;
+    }
 
-	/**
-	 * @return
-	 */
-	public String getCargo() {
-		return this.cargo;
-	}
+    /**
+     * @return
+     */
+    public String getCargo() {
+            return this.cargo;
+    }
 
-	/**
-	 * @param cargo
-	 */
-	public void setCargo(final String cargo) {
-		this.cargo = cargo;
-	}
+    /**
+     * @param cargo
+     */
+    public void setCargo(final String cargo) {
+        this.cargo = cargo;
+    }
 
-	/**
-	 * @return
-	 */
-	public String getCategoria() {
-		return this.categoria;
-	}
+    /**
+     * @return
+     */
+    public String getCategoria() {
+        return this.categoria;
+    }
 
-	/**
-	 * @param categoria
-	 */
-	public void setCategoria(final String categoria) {
-		this.categoria = categoria;
-	}
+    /**
+     * @param categoria
+     */
+    public void setCategoria(final String categoria) {
+        this.categoria = categoria;
+    }
 
-	/**
-	 * @return
-	 */
-	public String getJornada() {
-		return this.jornada;
-	}
+    /**
+     * @return
+     */
+    public String getJornada() {
+        return this.jornada;
+    }
 
-	/**
-	 * @param jornada
-	 */
-	public void setJornada(final String jornada) {
-		this.jornada = jornada;
-	}
+    /**
+     * @param jornada
+     */
+    public void setJornada(final String jornada) {
+        this.jornada = jornada;
+    }
 
-	/**
-	 * @return
-	 */
-	public String getDisciplina() {
-		return this.disciplina;
-	}
+    /**
+     * @return
+     */
+    public String getDisciplina() {
+        return this.disciplina;
+    }
 
-	/**
-	 * @param disciplina
-	 */
-	public void setDisciplina(final String disciplina) {
-		this.disciplina = disciplina;
-	}
+    /**
+     * @param disciplina
+     */
+    public void setDisciplina(final String disciplina) {
+        this.disciplina = disciplina;
+    }
 
-	public Collection<Falta> getFaltas() {
-		return this.faltas;
-	}
+    public Collection<Falta> getFaltas() {
+        return this.faltas;
+    }
 
-	public void setFaltas(final Collection<Falta> faltas) {
-		this.faltas = faltas;
-	}
+    public void setFaltas(final Collection<Falta> faltas) {
+        this.faltas = faltas;
+    }
 }
