@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author natal
  */
 @RestController
-@RequestMapping("/docente")
+@RequestMapping("/v1/docente")
 public class DocenteRestController {
     private static final Logger LOG = Logger.getLogger(DocenteRestController.class.getName());
 
@@ -102,7 +102,7 @@ public class DocenteRestController {
      * @param input
      * @return
      */
-    @PostMapping
+    @PostMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> save(@RequestBody Docente input) {
         return new ResponseEntity<>(docRep.save(input), HttpStatus.CREATED);
@@ -113,7 +113,7 @@ public class DocenteRestController {
      * @param id
      * @return
      */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<Docente> docente = docRep.findById(id);

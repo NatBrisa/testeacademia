@@ -6,6 +6,8 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Gestor;
+import java.util.List;
+import java.util.Optional;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -13,5 +15,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @author natal
  */
 public interface GestorRepository extends PagingAndSortingRepository<Gestor, Long> {
+    
+    Optional<Gestor> findByRg(String rg);
+
+    List<Gestor> findByNomeIgnoreCaseContaining(String nome);
     
 }

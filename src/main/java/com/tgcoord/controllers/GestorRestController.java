@@ -5,8 +5,8 @@
  */
 package com.tgcoord.controllers;
 
-import com.tgcoord.model.Curso;
-import com.tgcoord.repository.CursoRepository;
+import com.tgcoord.model.Gestor;
+import com.tgcoord.repository.GestorRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,26 +30,26 @@ import org.springframework.web.bind.annotation.RestController;
  * @author natal
  */
 @RestController
-@RequestMapping("/v1/curso")
-public class CursoRestController {
+@RequestMapping("/v1/gestor")
+public class GestorRestController {
     
-    private CursoRepository cursoRep;
+    private GestorRepository gestRep;
 
     @Autowired
-    public CursoRestController(CursoRepository cursoRep) {
-        this.cursoRep = cursoRep;
+    public GestorRestController(GestorRepository gestRep) {
+        this.gestRep = gestRep;
     }
     
     @GetMapping()
     public ResponseEntity<?> listAll(Pageable pageable) {
-        return new ResponseEntity<>(cursoRep.findAll(pageable), HttpStatus.OK);
+        return new ResponseEntity<>(gestRep.findAll(pageable), HttpStatus.OK);
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(@PathVariable("id") Long id) {
-        Optional<Curso> curso = cursoRep.findById(id);
-        if(curso.isPresent()) {
-            return new ResponseEntity<>(curso, HttpStatus.FOUND);
+    public ResponseEntity<?> get(@PathVariable Long id) {
+        Optional<Gestor> gestor = gestRep.findById(id);
+        if(gestor.isPresent()) {
+            return new ResponseEntity<>(gestor, HttpStatus.FOUND);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -62,40 +62,54 @@ public class CursoRestController {
      */
     @GetMapping("/{nome}")
     public ResponseEntity<?> getByName(String nome) {
-        List<Curso> cursos = cursoRep.findByNomeIgnoreCaseContaining(nome);
-        if(!cursos.isEmpty()) {
-            return new ResponseEntity<>(cursos, HttpStatus.FOUND);
+        List<Gestor> gestores = gestRep.findByNomeIgnoreCaseContaining(nome);
+        if(!gestores.isEmpty()) {
+            return new ResponseEntity<>(gestores, HttpStatus.FOUND);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }      
+    }
+    
+    /**
+     *
+     * @param rg
+     * @return
+     */
+    @GetMapping("/{rg}")
+    public ResponseEntity<?> getByRg(String rg) {
+        Optional<Gestor> gestor = gestRep.findByRg(rg);
+        if(gestor.isPresent()) {
+            return new ResponseEntity<>(gestor, HttpStatus.FOUND);
         } else {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }      
     }
     
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Curso input) {
-        return new ResponseEntity<>(cursoRep.save(input), HttpStatus.OK);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Gestor input) {
+        return new ResponseEntity<>(gestRep.save(input), HttpStatus.OK);
     }
     
     @PostMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<?> save(@RequestBody Curso input) {
-        return new ResponseEntity<>(cursoRep.save(input), HttpStatus.OK);
+    public ResponseEntity<?> save(@RequestBody Gestor input) {
+        return new ResponseEntity<>(gestRep.save(input), HttpStatus.OK);
     }
     
     @DeleteMapping("/admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        Optional<Curso> curso = cursoRep.findById(id);
-        if(curso.isPresent()) {
-            cursoRep.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.OK);
+        Optional<Gestor> gestor = gestRep.findById(id);
+        if(gestor.isPresent()) {
+            gestRep.deleteById(id);
+            return new ResponseEntity<>(gestor, HttpStatus.FOUND);
         } else {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
     
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public void handleError() {
-    }
-    
+    }   
 }

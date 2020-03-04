@@ -11,6 +11,26 @@ body {
     font-size: large;
 }
 
+form {
+    
+}
+
+table {
+    border: solid black;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th {
+    border: solid black;
+    height: 25pt;
+}
+
+td {
+    border: 1px solid black;
+    height: 15pt;
+}
+
 ul {
     list-style-type: none;
 }

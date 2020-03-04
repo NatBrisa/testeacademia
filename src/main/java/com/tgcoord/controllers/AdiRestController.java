@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author natal
  */
 @RestController
-@RequestMapping("/adi")
+@RequestMapping("/v1/adi")
 public class AdiRestController {
     private static final Logger LOG = Logger.getLogger(AdiRestController.class.getName());
     
@@ -102,7 +102,7 @@ public class AdiRestController {
      * @param input
      * @return
      */
-    @PostMapping
+    @PostMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> save(@RequestBody Adi input) {
         return new ResponseEntity<>(adiRep.save(input), HttpStatus.CREATED);
@@ -113,7 +113,7 @@ public class AdiRestController {
      * @param id
      * @return
      */
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<Adi> adi = adiRep.findById(id);

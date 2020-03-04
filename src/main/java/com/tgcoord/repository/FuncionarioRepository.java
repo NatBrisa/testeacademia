@@ -6,6 +6,7 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Funcionario;
+import java.util.List;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -14,4 +15,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Long> {
     
+    Funcionario findByRg(String rg);
+    
+    List<Funcionario> findByNomeIgnoreCaseContaining(String nome);
 }

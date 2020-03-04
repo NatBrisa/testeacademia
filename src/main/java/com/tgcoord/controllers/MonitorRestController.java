@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author natal
  */
 @RestController
-@RequestMapping("/monitor")
+@RequestMapping("/v1/monitor")
 public class MonitorRestController {
     
     private MonitorRepository monRep;
@@ -75,13 +75,13 @@ public class MonitorRestController {
         return new ResponseEntity<>(monRep.save(input), HttpStatus.OK);
     }
     
-    @PostMapping
+    @PostMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> save(@RequestBody Monitor input) {
         return new ResponseEntity<>(monRep.save(input), HttpStatus.OK);
     }
     
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         Optional<Monitor> monitor = monRep.findById(id);
