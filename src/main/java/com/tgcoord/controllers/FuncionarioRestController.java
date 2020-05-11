@@ -9,6 +9,7 @@ import com.tgcoord.model.Funcionario;
 import com.tgcoord.repository.FuncionarioRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -35,16 +36,30 @@ public class FuncionarioRestController {
     
     private FuncionarioRepository funcRep;
 
+    /**
+     *
+     * @param funcRep
+     */
     @Autowired
     public FuncionarioRestController(FuncionarioRepository funcRep) {
         this.funcRep = funcRep;
     }
     
+    /**
+     *
+     * @param pageable
+     * @return
+     */
     @GetMapping()
     public ResponseEntity<?> listAll(Pageable pageable) {
         return new ResponseEntity<>(funcRep.findAll(pageable), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable Long id) {
         Optional<Funcionario> funcionario = funcRep.findById(id);
@@ -85,17 +100,33 @@ public class FuncionarioRestController {
         }      
     }
     
+    /**
+     *
+     * @param id
+     * @param input
+     * @return
+     */
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Funcionario input) {
         return new ResponseEntity<>(funcRep.save(input), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param input
+     * @return
+     */
     @PostMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> save(@RequestBody Funcionario input) {
         return new ResponseEntity<>(funcRep.save(input), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @DeleteMapping("admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
@@ -108,8 +139,12 @@ public class FuncionarioRestController {
         }
     }
     
+    /**
+     *
+     */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public void handleError() {
     }  
+    private static final Logger LOG = Logger.getLogger(FuncionarioRestController.class.getName());
 }

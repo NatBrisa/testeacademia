@@ -5,17 +5,24 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import java.time.LocalDate;
 import java.util.logging.Logger;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 /**
  * @author natal
  */
 @Entity
+@Table(name = "func_extra", catalog = "tgcoord", schema = "", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"id"}, name = "UNIQUE_id")
+})
 public class FuncExtra extends Funcionario {
 	@SuppressWarnings("unused")
 	private static final Logger LOG = Logger.getLogger(FuncExtra.class.getName());
@@ -23,8 +30,9 @@ public class FuncExtra extends Funcionario {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@OneToOne
-	private Funcionario id;
+    @JoinColumn(name = "id" , referencedColumnName = "id", nullable = false, insertable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_func_extra_funcionario_id"))
+    @OneToOne(optional = false)
+    private Funcionario id;
 
 	@Column(length = 45)
 	private String conjuge;

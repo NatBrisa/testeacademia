@@ -9,6 +9,7 @@ import com.tgcoord.model.Curso;
 import com.tgcoord.repository.CursoRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -30,21 +31,35 @@ import org.springframework.web.bind.annotation.RestController;
  * @author natal
  */
 @RestController
-@RequestMapping("/v1/curso")
+@RequestMapping(value = "/v1/curso")
 public class CursoRestController {
     
     private CursoRepository cursoRep;
 
+    /**
+     *
+     */
     @Autowired
     public CursoRestController(CursoRepository cursoRep) {
+        super();
         this.cursoRep = cursoRep;
     }
     
+    /**
+     *
+     * @param pageable
+     * @return
+     */
     @GetMapping()
     public ResponseEntity<?> listAll(Pageable pageable) {
         return new ResponseEntity<>(cursoRep.findAll(pageable), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable("id") Long id) {
         Optional<Curso> curso = cursoRep.findById(id);
@@ -70,17 +85,33 @@ public class CursoRestController {
         }      
     }
     
+    /**
+     *
+     * @param id
+     * @param input
+     * @return
+     */
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Curso input) {
         return new ResponseEntity<>(cursoRep.save(input), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param input
+     * @return
+     */
     @PostMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> save(@RequestBody Curso input) {
         return new ResponseEntity<>(cursoRep.save(input), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @DeleteMapping("/admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
@@ -93,9 +124,13 @@ public class CursoRestController {
         }
     }
     
+    /**
+     *
+     */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public void handleError() {
     }
+    private static final Logger LOG = Logger.getLogger(CursoRestController.class.getName());
     
 }

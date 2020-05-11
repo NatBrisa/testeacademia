@@ -15,7 +15,24 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Long> {
     
+    /**
+     *
+     * @param rg
+     * @return
+     */
     Funcionario findByRg(String rg);
+
+    /**
+     *
+     * @param email
+     * @return
+     */
+    Funcionario findByEmail(String email);
     
+    /**
+     *
+     * @param nome
+     * @return
+     */
     List<Funcionario> findByNomeIgnoreCaseContaining(String nome);
 }

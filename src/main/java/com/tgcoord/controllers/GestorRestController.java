@@ -7,8 +7,8 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Gestor;
 import com.tgcoord.repository.GestorRepository;
-import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -35,16 +35,30 @@ public class GestorRestController {
     
     private GestorRepository gestRep;
 
+    /**
+     *
+     * @param gr
+     */
     @Autowired
     public GestorRestController(GestorRepository gestRep) {
         this.gestRep = gestRep;
     }
     
+    /**
+     *
+     * @param pageable
+     * @return
+     */
     @GetMapping()
     public ResponseEntity<?> listAll(Pageable pageable) {
         return new ResponseEntity<>(gestRep.findAll(pageable), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable Long id) {
         Optional<Gestor> gestor = gestRep.findById(id);
@@ -57,45 +71,31 @@ public class GestorRestController {
     
     /**
      *
-     * @param nome
+     * @param id
+     * @param input
      * @return
      */
-    @GetMapping("/{nome}")
-    public ResponseEntity<?> getByName(String nome) {
-        List<Gestor> gestores = gestRep.findByNomeIgnoreCaseContaining(nome);
-        if(!gestores.isEmpty()) {
-            return new ResponseEntity<>(gestores, HttpStatus.FOUND);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }      
-    }
-    
-    /**
-     *
-     * @param rg
-     * @return
-     */
-    @GetMapping("/{rg}")
-    public ResponseEntity<?> getByRg(String rg) {
-        Optional<Gestor> gestor = gestRep.findByRg(rg);
-        if(gestor.isPresent()) {
-            return new ResponseEntity<>(gestor, HttpStatus.FOUND);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }      
-    }
-    
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Gestor input) {
         return new ResponseEntity<>(gestRep.save(input), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param input
+     * @return
+     */
     @PostMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> save(@RequestBody Gestor input) {
         return new ResponseEntity<>(gestRep.save(input), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @DeleteMapping("/admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
@@ -108,8 +108,12 @@ public class GestorRestController {
         }
     }
     
+    /**
+     *
+     */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public void handleError() {
     }   
+    private static final Logger LOG = Logger.getLogger(GestorRestController.class.getName());
 }

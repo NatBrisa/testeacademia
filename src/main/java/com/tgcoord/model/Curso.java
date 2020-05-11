@@ -5,17 +5,19 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  * @author natal
  */
 @Entity
-@Table(name = "curso")
+@Table(name = "curso", catalog = "tgcoord", schema = "", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"id"}, name = "UNIQUE_id"),
+})
 public class Curso implements Serializable {
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Curso.class.getName());
@@ -29,7 +31,7 @@ public class Curso implements Serializable {
     private Integer id;
 
     @Basic(optional = false)
-    @Column(nullable = false, length = 45)
+    @Column(name = "nome_curso", nullable = false, length = 45)
     private String nome;
 
     @Basic(optional = false)

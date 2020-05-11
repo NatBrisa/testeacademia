@@ -5,13 +5,15 @@
  */
 package com.tgcoord;
 
+import java.util.logging.Logger;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
  * @author natal
  */
-public class PasswordEncoder {
+public class PasswordEncoder {   
+    private static final Logger LOG = Logger.getLogger(PasswordEncoder.class.getName());
 
     /**
      * @param args the command line arguments
@@ -19,6 +21,5 @@ public class PasswordEncoder {
     public static void main(String[] args) {
         BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
         System.out.println(pwEncoder.encode("TGWeb100!"));
-    }
-    
+    }   
 }

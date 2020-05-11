@@ -15,5 +15,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface MonitorRepository extends PagingAndSortingRepository<Monitor, Long> {
     
+    /**
+     *
+     * @param nome
+     * @return
+     */
     List<Monitor> findByNomeIgnoreCaseContaining(String nome);
 }

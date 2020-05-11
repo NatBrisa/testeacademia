@@ -9,6 +9,7 @@ import com.tgcoord.model.Monitor;
 import com.tgcoord.repository.MonitorRepository;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -35,16 +36,30 @@ public class MonitorRestController {
     
     private MonitorRepository monRep;
 
+    /**
+     *
+     * @param mr
+     */
     @Autowired
     public MonitorRestController(MonitorRepository monRep) {
         this.monRep = monRep;
     }
     
+    /**
+     *
+     * @param pageable
+     * @return
+     */
     @GetMapping()
     public ResponseEntity<?> listAll(Pageable pageable) {
         return new ResponseEntity<>(monRep.findAll(pageable), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> get(@PathVariable("id") Long id) {
         Optional<Monitor> monitor = monRep.findById(id);
@@ -70,17 +85,33 @@ public class MonitorRestController {
         }      
     }
     
+    /**
+     *
+     * @param id
+     * @param input
+     * @return
+     */
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Monitor input) {
         return new ResponseEntity<>(monRep.save(input), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param input
+     * @return
+     */
     @PostMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> save(@RequestBody Monitor input) {
         return new ResponseEntity<>(monRep.save(input), HttpStatus.OK);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     @DeleteMapping("/admin/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delete(@PathVariable Long id) {
@@ -93,9 +124,13 @@ public class MonitorRestController {
         }
     }
     
+    /**
+     *
+     */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public void handleError() {
     }
+    private static final Logger LOG = Logger.getLogger(MonitorRestController.class.getName());
     
 }

@@ -5,16 +5,18 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  * @author natal
  */
 @Entity
-@Table(name = "docente")
+@Table(name = "docente", catalog = "tgcoord", schema = "", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"id"}, name = "UNIQUE_id")
+})
 public class Docente extends Funcionario {
 
     @SuppressWarnings("unused")
@@ -26,7 +28,8 @@ public class Docente extends Funcionario {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @OneToOne
+    @JoinColumn(name = "id" , referencedColumnName = "id", nullable = false, insertable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_docente_funcionario_id"))
+    @OneToOne(optional = false)
     private Funcionario id;
 
     @Column(length = 45)

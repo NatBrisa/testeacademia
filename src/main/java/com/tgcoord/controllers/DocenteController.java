@@ -5,15 +5,10 @@
  */
 package com.tgcoord.controllers;
 
-import com.tgcoord.model.Docente;
-import com.tgcoord.repository.DocenteRepository;
 import java.util.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @author natal
@@ -24,8 +19,7 @@ public class DocenteController {
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(DocenteController.class.getName());
 
-    @Autowired
-    private DocenteRepository docRep;
+    
 
     /**
      * @param model
@@ -37,21 +31,5 @@ public class DocenteController {
         return "buscageral";
     }
 
-    /**
-     * @return
-     */
-    @GetMapping(path = "/caddoc")
-    public String cadastroDocente() {
-        return "cadastrar_docente";
-    }
-
-    /**
-     * @param doc
-     * @return
-     */
-    @RequestMapping(value = "/caddoc", method = RequestMethod.POST)
-    public String cadastroDocente(final Docente doc) {
-        this.docRep.save(doc);
-        return "redirect: /cadastrar_docente";
-    }
+    
 }
