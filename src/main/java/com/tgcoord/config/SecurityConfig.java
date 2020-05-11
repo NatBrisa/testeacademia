@@ -6,42 +6,52 @@
 package com.tgcoord.config;
 
 import com.tgcoord.service.CustomUserDetailService;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  *
  * @author natal
  */
+@Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    private static final Logger LOG = Logger.getLogger(SecurityConfig.class.getName());
     
     @Autowired
     private CustomUserDetailService customUserDetailService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/v1/**").hasRole("USER")
+        http.csrf().disable().authorizeRequests()
+                .antMatchers("/v1/**").hasRole("USER")
                 .antMatchers("/v1/*/admin/**").hasRole("ADMIN")
                 .and().httpBasic();
     }
     
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.inMemoryAuthentication().withUser("adm").password("Web100TG!").roles("USER","ADMIN")
-//                .and()
-//                .withUser("func").password("").roles("USER");
-//    }
-
+    /**
+     *
+     * @param auth
+     * @throws Exception
+     */
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(customUserDetailService).passwordEncoder(new BCryptPasswordEncoder());
-        auth.userDetailsService(customUserDetailService).passwordEncoder(new BCryptPasswordEncoder()).and().inMemoryAuthentication().withUser("admin").password("Web100TG!").roles("USER","ADMIN");
-    }
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("USER","ADMIN")
+                .and()
+                .withUser("func").password("").roles("USER");
+    }    
 }
+
+//      <html xmlns="http://www.w3.org/1999/xhtml"
+//      xmlns:th="http://www.thymeleaf.org">
+//<head>
+//    <title>Your Title</title>
+//    <link rel="stylesheet" th:href="@{/css/style.css}" />
+//</head>
