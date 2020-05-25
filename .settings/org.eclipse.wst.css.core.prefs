@@ -1,5 +1,5 @@
-css-profile//src/main/resources/templates/buscageral.html=org.eclipse.wst.css.core.cssprofile.css3
-css-profile//src/main/resources/templates/cadastrar_docente.html=org.eclipse.wst.css.core.cssprofile.css3
-css-profile//src/main/resources/templates/index.html=org.eclipse.wst.css.core.cssprofile.css3
+css-profile//src/main/resources/pages/buscageral.html=org.eclipse.wst.css.core.cssprofile.css3
+css-profile//src/main/resources/pages/cadastrar_docente.html=org.eclipse.wst.css.core.cssprofile.css3
+css-profile//src/main/resources/pages/firstindex.html=org.eclipse.wst.css.core.cssprofile.css3
 css-profile/<project>=org.eclipse.wst.css.core.cssprofile.css3
 eclipse.preferences.version=1

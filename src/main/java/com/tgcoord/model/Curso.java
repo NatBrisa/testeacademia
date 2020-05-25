@@ -5,11 +5,11 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.logging.Logger;
-import javax.persistence.*;
 
 /**
  * @author natal

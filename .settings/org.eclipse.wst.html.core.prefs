@@ -1,5 +1,5 @@
-document-type//src/main/resources/templates/buscageral.html=
-document-type//src/main/resources/templates/cadastrar_docente.html=
-document-type//src/main/resources/templates/index.html=
+document-type//src/main/resources/pages/buscageral.html=
+document-type//src/main/resources/pages/cadastrar_docente.html=
+document-type//src/main/resources/pages/firstindex.html=
 document-type/<project>=
 eclipse.preferences.version=1

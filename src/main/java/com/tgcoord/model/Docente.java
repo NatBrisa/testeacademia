@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Logger;
-import javax.persistence.*;
 
 /**
  * @author natal
