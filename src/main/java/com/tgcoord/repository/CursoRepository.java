@@ -6,15 +6,16 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Curso;
-import org.springframework.data.repository.PagingAndSortingRepository;
-
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author natal
  */
-public interface CursoRepository extends PagingAndSortingRepository<Curso, Long> {
+@Repository
+public interface CursoRepository extends JpaRepository<Curso, Long> {
     
     /**
      *

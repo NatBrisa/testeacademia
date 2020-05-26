@@ -7,15 +7,14 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Monitor;
 import com.tgcoord.repository.MonitorRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,12 +23,12 @@ import java.util.logging.Logger;
 @RestController
 @RequestMapping("/monitor")
 public class MonitorRestController {
+    private static final Logger LOG = Logger.getLogger(MonitorRestController.class.getName());
     
-    private MonitorRepository monRep;
+    private final MonitorRepository monRep;
 
     /**
      *
-     * @param mr
      */
     @Autowired
     public MonitorRestController(MonitorRepository monRep) {
@@ -52,7 +51,7 @@ public class MonitorRestController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(@PathVariable("id") Long id) {
+    public ResponseEntity<?> getById(@PathVariable("id") Long id) {
         Optional<Monitor> monitor = monRep.findById(id);
         if(monitor.isPresent()) {
             return new ResponseEntity<>(monitor, HttpStatus.FOUND);
@@ -69,10 +68,10 @@ public class MonitorRestController {
     @GetMapping("/{nome}")
     public ResponseEntity<?> getByName(String nome) {
         List<Monitor> monitores = monRep.findByNomeIgnoreCaseContaining(nome);
-        if(!monitores.isEmpty()) {
-            return new ResponseEntity<>(monitores, HttpStatus.FOUND);
-        } else {
+        if (monitores.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(monitores, HttpStatus.FOUND);
         }      
     }
     
@@ -120,6 +119,5 @@ public class MonitorRestController {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public void handleError() {
     }
-    private static final Logger LOG = Logger.getLogger(MonitorRestController.class.getName());
     
 }

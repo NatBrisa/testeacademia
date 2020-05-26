@@ -7,15 +7,14 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Docente;
 import com.tgcoord.repository.DocenteRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Logger;
 
 /**
  *
@@ -30,7 +29,6 @@ public class DocenteRestController {
 
     /**
      *
-     * @param dr
      * @param docRep
      */
     @Autowired
@@ -54,7 +52,7 @@ public class DocenteRestController {
      * @return Docente
      */
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(@PathVariable("id") Long id) {
+    public ResponseEntity<?> getById(@PathVariable("id") Long id) {
         Optional<Docente> docente = docRep.findById(id);
         if(docente.isPresent()) {
             return new ResponseEntity<>(docente, HttpStatus.FOUND);
@@ -71,10 +69,10 @@ public class DocenteRestController {
     @GetMapping("/{nome}")
     public ResponseEntity<?> getByName(String nome) {
         List<Docente> docentes = docRep.findByNomeIgnoreCaseContaining(nome);
-        if(!docentes.isEmpty()) {
-            return new ResponseEntity<>(docentes, HttpStatus.FOUND);
-        } else {
+        if (docentes.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(docentes, HttpStatus.FOUND);
         }      
     }
     

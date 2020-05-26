@@ -13,9 +13,6 @@ Without this configuration present, some functionality in the IDE may be limited
         </config-files>
         <config-file-groups/>
     </spring-data>
-    <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
-        <word>ADI</word>
-    </spellchecker-wordlist>
     <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1"/>
     <properties xmlns="http://www.netbeans.org/ns/maven-properties-data/1">
         <!--
@@ -31,4 +28,11 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-javascript2-json.json_2e_comments>true</org-netbeans-modules-javascript2-json.json_2e_comments>
         <org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>js/libs</org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>
     </properties>
+    <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+        <word>ADI</word>
+        <word>bebada</word>
+        <word>pq</word>
+        <word>Ta</word>
+        <word>To</word>
+    </spellchecker-wordlist>
 </project-shared-configuration>

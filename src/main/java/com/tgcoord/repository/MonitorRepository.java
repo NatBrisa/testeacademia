@@ -6,15 +6,16 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Monitor;
-import org.springframework.data.repository.PagingAndSortingRepository;
-
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author natal
  */
-public interface MonitorRepository extends PagingAndSortingRepository<Monitor, Long> {
+@Repository
+public interface MonitorRepository extends JpaRepository<Monitor, Long> {
     
     /**
      *

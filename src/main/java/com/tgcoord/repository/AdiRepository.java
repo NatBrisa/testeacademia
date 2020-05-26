@@ -6,15 +6,16 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Adi;
-import org.springframework.data.repository.PagingAndSortingRepository;
-
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author natal
  */
-public interface AdiRepository extends PagingAndSortingRepository<Adi, Long> {
+@Repository
+public interface AdiRepository extends JpaRepository<Adi, Long> {
     
     /**
      *

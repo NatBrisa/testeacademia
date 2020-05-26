@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.logging.Logger;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 /**
  * @author natal

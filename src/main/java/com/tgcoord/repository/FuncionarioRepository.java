@@ -6,15 +6,16 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Funcionario;
-import org.springframework.data.repository.PagingAndSortingRepository;
-
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author natal
  */
-public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Long> {
+@Repository
+public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
     
     /**
      *

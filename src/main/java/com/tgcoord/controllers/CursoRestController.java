@@ -25,13 +25,13 @@ import org.springframework.web.bind.annotation.*;
 public class CursoRestController {
     private static final Logger LOG = Logger.getLogger(CursoRestController.class.getName());
     
-    private CursoRepository cursoRep;
+    private final CursoRepository cursoRep;
 
     /**
      *
      */
     @Autowired
-    public CursoRestController(CursoRepository cursoRep) {
+    private CursoRestController(CursoRepository cursoRep) {
         super();
         this.cursoRep = cursoRep;
     }
@@ -52,7 +52,7 @@ public class CursoRestController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(@PathVariable("id") Long id) {
+    public ResponseEntity<?> getById(@PathVariable("id") Long id) {
         Optional<Curso> curso = cursoRep.findById(id);
         if(curso.isPresent()) {
             return new ResponseEntity<>(curso, HttpStatus.FOUND);
@@ -69,10 +69,10 @@ public class CursoRestController {
     @GetMapping("/{nome}")
     public ResponseEntity<?> getByName(String nome) {
         List<Curso> cursos = cursoRep.findByNomeIgnoreCaseContaining(nome);
-        if(!cursos.isEmpty()) {
-            return new ResponseEntity<>(cursos, HttpStatus.FOUND);
-        } else {
+        if (cursos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(cursos, HttpStatus.FOUND);
         }      
     }
     

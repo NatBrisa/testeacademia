@@ -6,12 +6,14 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Falta;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author natal
  */
-public interface FaltaRepository extends PagingAndSortingRepository<Falta, Long> {
+@Repository
+public interface FaltaRepository extends JpaRepository<Falta, Long> {
     
 }

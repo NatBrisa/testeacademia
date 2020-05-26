@@ -6,12 +6,14 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Gestor;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author natal
  */
-public interface GestorRepository extends PagingAndSortingRepository<Gestor, Long> {
+@Repository
+public interface GestorRepository extends JpaRepository<Gestor, Long> {
 
 }

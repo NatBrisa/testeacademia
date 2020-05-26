@@ -6,15 +6,16 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Dependente;
-import org.springframework.data.repository.PagingAndSortingRepository;
-
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author natal
  */
-public interface DependenteRepository extends PagingAndSortingRepository<Dependente, Long> {
+@Repository
+public interface DependenteRepository extends JpaRepository<Dependente, Long> {
     
     /**
      *

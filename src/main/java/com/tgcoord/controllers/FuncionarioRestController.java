@@ -7,15 +7,14 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Funcionario;
 import com.tgcoord.repository.FuncionarioRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,8 +23,9 @@ import java.util.logging.Logger;
 @RestController
 @RequestMapping("/funcionario")
 public class FuncionarioRestController {
+    private static final Logger LOG = Logger.getLogger(FuncionarioRestController.class.getName());
     
-    private FuncionarioRepository funcRep;
+    private final FuncionarioRepository funcRep;
 
     /**
      *
@@ -52,7 +52,7 @@ public class FuncionarioRestController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(@PathVariable Long id) {
+    public ResponseEntity<?> getById(@PathVariable Long id) {
         Optional<Funcionario> funcionario = funcRep.findById(id);
         if(funcionario.isPresent()) {
             return new ResponseEntity<>(funcionario, HttpStatus.FOUND);
@@ -69,11 +69,11 @@ public class FuncionarioRestController {
     @GetMapping("/{nome}")
     public ResponseEntity<?> getByName(String nome) {
         List<Funcionario> funcionarios = funcRep.findByNomeIgnoreCaseContaining(nome);
-        if(!funcionarios.isEmpty()) {
-            return new ResponseEntity<>(funcionarios, HttpStatus.FOUND);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }      
+	    if (funcionarios.isEmpty()) {
+		    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	    } else {
+		    return new ResponseEntity<>(funcionarios, HttpStatus.FOUND);
+	    }
     }
     
     /**
@@ -135,5 +135,4 @@ public class FuncionarioRestController {
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Error message")
     public void handleError() {
     }  
-    private static final Logger LOG = Logger.getLogger(FuncionarioRestController.class.getName());
 }

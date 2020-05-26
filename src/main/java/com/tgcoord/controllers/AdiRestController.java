@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/adi")
 public class AdiRestController {
+    
     @SuppressWarnings("unused")
 	private static final Logger LOG = Logger.getLogger(AdiRestController.class.getName());
     
@@ -33,7 +34,7 @@ public class AdiRestController {
      * @param adiRep
      */
     @Autowired
-    public AdiRestController(AdiRepository adiRep) {
+    private AdiRestController(AdiRepository adiRep) {
         this.adiRep = adiRep;
     }
     
@@ -42,7 +43,7 @@ public class AdiRestController {
      * @param pageable
      * @return
      */
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<?> listAll(Pageable pageable) {
         return new ResponseEntity<>(adiRep.findAll(), HttpStatus.OK);
     }
@@ -51,15 +52,21 @@ public class AdiRestController {
      *
      * @param id
      * @return
+     * 
+     * Ta diferente das outras funções d getById pq quero testar se dessa forma é melhor
+     * AVISO: To bebada enquanto faço isso
+     * 
      */
     @GetMapping("/{id}")
-    public Object get(@PathVariable("id") Long id) {
+    public ResponseEntity getById(@PathVariable(value="id") Long id) {
         Optional<Adi> adi = adiRep.findById(id);
-        if(adi.isPresent()) {
-            return new ResponseEntity<>(adi, HttpStatus.FOUND);
-        } else {
-            return new ResponseEntity<>(adi, HttpStatus.NOT_FOUND);
-        }
+//        if(adi.isPresent()) {
+//            return new ResponseEntity<>(adi, HttpStatus.FOUND);
+//        } else {
+//            return new ResponseEntity<>(adi, HttpStatus.NOT_FOUND);
+//        }
+        return adi.ifPresentOrElse((new ResponseEntity(adiRep.findById(id), HttpStatus.FOUND)), (new ResponseEntity<>(adi, HttpStatus.NOT_FOUND)));
+        
     }
     
     /**
@@ -70,11 +77,11 @@ public class AdiRestController {
     @GetMapping("/{nome}")
     public ResponseEntity<?> getByName(String nome) {
         List<Adi> adis = adiRep.findByNomeIgnoreCaseContaining(nome);
-        if(!adis.isEmpty()) {
-            return new ResponseEntity<>(adis, HttpStatus.FOUND);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }      
+	    if (adis.isEmpty()) {
+		    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	    } else {
+		    return new ResponseEntity<>(adis, HttpStatus.FOUND);
+	    }
     }
     
     /**

@@ -7,14 +7,13 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Gestor;
 import com.tgcoord.repository.GestorRepository;
+import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
-import java.util.logging.Logger;
 
 /**
  *
@@ -26,11 +25,10 @@ public class GestorRestController {
 	@SuppressWarnings("unused")
 	private static final Logger LOG = Logger.getLogger(GestorRestController.class.getName());
     
-    private GestorRepository gestRep;
+    private final GestorRepository gestRep;
 
     /**
      *
-     * @param gr
      */
     @Autowired
     public GestorRestController(GestorRepository gestRep) {
@@ -53,7 +51,7 @@ public class GestorRestController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(@PathVariable Long id) {
+    public ResponseEntity<?> getById(@PathVariable Long id) {
         Optional<Gestor> gestor = gestRep.findById(id);
         if(gestor.isPresent()) {
             return new ResponseEntity<>(gestor, HttpStatus.FOUND);
