@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Coordenadoria de Educação de Fartura</title>
+    <meta charset="UTF-8"/>
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <img src="../static/images/brasao.jpg" alt="" class="brasaoheader" />
+        <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
+        <h2>Login</h2></hgroup>
+        <img src="../static/images/brasao.jpg" alt=""class="brasaoheader" />
+    </header>
+
+    <nav>
+        <a href="index.html">Apresentação</a>
+        <a href="funcionarios.html">Funcionários</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="instituicoes.html">Instituições de Ensino</a>
+        <a href="busca.html">Busca</a>
+        <a href="login.html">Login</a>
+        <a href="ajuda.html">Ajuda</a>
+    </nav>
+
+    <section>
+        <h3>Login</h3>
+        <form th:object="${funcionarios}" th:action="@{/login}" method="post">
+            <p><label>RG: <input type="text" name="rg" required></label></p>
+            <p><label>Senha: <input type="password" name="senha" required></label></p>
+            <input type="submit" name="Entrar">
+            <p>Não está cadastrado? <a href="ajuda.html">Entre aqui!</a></p>
+        </form>
+    </section>
+</body>
+</html>

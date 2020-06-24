@@ -5,7 +5,7 @@
  */
 package com.tgcoord.controllers;
 
-import com.tgcoord.model.Gestor;
+import com.tgcoord.model.Gestores;
 import com.tgcoord.repository.GestorRepository;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -13,7 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
@@ -29,6 +38,7 @@ public class GestorRestController {
 
     /**
      *
+     * @param gestRep
      */
     @Autowired
     public GestorRestController(GestorRepository gestRep) {
@@ -40,9 +50,9 @@ public class GestorRestController {
      * @param pageable
      * @return
      */
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<?> listAll(Pageable pageable) {
-        return new ResponseEntity<>(gestRep.findAll(pageable), HttpStatus.OK);
+        return new ResponseEntity<>(this.gestRep.findAll(pageable), HttpStatus.OK);
     }
     
     /**
@@ -52,7 +62,7 @@ public class GestorRestController {
      */
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Long id) {
-        Optional<Gestor> gestor = gestRep.findById(id);
+        Optional<Gestores> gestor = this.gestRep.findById(id);
         if(gestor.isPresent()) {
             return new ResponseEntity<>(gestor, HttpStatus.FOUND);
         } else {
@@ -67,8 +77,8 @@ public class GestorRestController {
      * @return
      */
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Gestor input) {
-        return new ResponseEntity<>(gestRep.save(input), HttpStatus.OK);
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Gestores input) {
+        return new ResponseEntity<>(this.gestRep.save(input), HttpStatus.OK);
     }
     
     /**
@@ -77,8 +87,8 @@ public class GestorRestController {
      * @return
      */
     @PostMapping("/")
-    public ResponseEntity<?> save(@RequestBody Gestor input) {
-        return new ResponseEntity<>(gestRep.save(input), HttpStatus.OK);
+    public ResponseEntity<?> save(@RequestBody Gestores input) {
+        return new ResponseEntity<>(this.gestRep.save(input), HttpStatus.OK);
     }
     
     /**
@@ -88,9 +98,9 @@ public class GestorRestController {
      */
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
-        Optional<Gestor> gestor = gestRep.findById(id);
+        Optional<Gestores> gestor = this.gestRep.findById(id);
         if(gestor.isPresent()) {
-            gestRep.deleteById(id);
+            this.gestRep.deleteById(id);
             return new ResponseEntity<>(gestor, HttpStatus.FOUND);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

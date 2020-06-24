@@ -9,7 +9,7 @@
         <module name="WebCoord" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="14">
       <module name="WebCoord" target="13" />
     </bytecodeTargetLevel>
   </component>

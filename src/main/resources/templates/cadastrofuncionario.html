@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Coordenadoria de Educação de Fartura</title>
+    <meta charset="UTF-8"/>
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
+            <h2>Funcionários</h2></hgroup>
+    </header>
+
+    <nav>
+        <a href="index.html">Apresentação</a>
+        <a href="funcionarios.html">Funcionários</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="instituicoes.html">Instituições de Ensino</a>
+        <a href="busca.html">Busca</a>
+        <a href="login.html">Login</a>
+        <a href="ajuda.html">Ajuda</a>
+    </nav>
+
+    <section>
+        <h3>Cadastro</h3>
+        <form th:object="${funcionarios}" th:action="@{/save}" method="post">
+
+            <h4>Dados Pessoais</h4>
+            <p><label>Nome: <input type="text" name="txnome" th:field="*{nome}" autofocus="autofocus" required></label></p>
+
+            <p><label>Sobrenome: <input type="text" name="txsobrenome" th:field="*{sobrenome}" required></label></p>
+
+            <p><label>RG: <input type="text" name="txrg" th:field="*{rg}" required></label></p>
+
+            <p><label>CPF: <input type="text" name="txcpf" th:field="*{cpf}" required></label></p>
+
+            <p><label>Gênero: <input type="text" name="txnome" th:field="*{nome}" required></label></p>
+            <input type="radio" >
+
+            <p><label>Data de Nascimento: <input type="date" name="dtnasc" th:field="*{dtNasc}" required></label></p>
+
+            <h4>Dados Profissionais</h4>
+            <p><label>Classificação: <select name="fkclassificacao" th:field="*{fkClassificacao}" required>
+                <option>PEB I</option>
+                <option>PEB II</option>
+                <option>Monitor</option>
+            </select></label></p>
+
+            <p><label>Data de Admissão: <input type="date" name="admissao" th:field="*{dtAdmissaoa}"></label></p>
+
+            <p><label>PIS: <input type="text" name="pis" th:field="*{pis}"></label></p>
+
+            <h4>Informações de contato</h4>
+
+            <p><label>Estado: <select name="uf" th:field="*{uf}" required>
+                <option>SP</option>
+                <option>PR</option>
+                <option>RJ</option>
+            </select></label></p>
+
+            <p><label>Município: <input type="text" name="municipio" th:field="*{municipio}"></label></p>
+
+            <p><label>Bairro: <input type="text" name="bairro" th:field="*{bairro}"></label></p>
+
+            <p><label>Rua: <input type="text" name="rua" th:field="*{rua}"></label></p>
+
+            <p><label>Número: <input type="number" name="num" th:field="*{num}"></label></p>
+
+            <p><label>Complemento: <input type="text" name="complemento" th:field="*{complemento}"></label></p>
+
+            <p><label>Telefone: <input type="tel" name="telefone" th:field="*{fktelefone}"></label></p>
+
+            <p><label>E-mail: <input type="email" name="email" th:field="*{email}"></label></p>
+
+            <input type="submit" value="Cadastrar">
+            <input type="reset" value="Cancelar">
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Coordenadoria de Educação de Fartura</title>
+    <meta charset="UTF-8"/>
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+    <header>
+        <img src="../static/images/brasao.jpg" alt="" class="brasaoheader" />
+        <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
+            <h2>Cursos</h2></hgroup>
+        <img src="../static/images/brasao.jpg" alt=""class="brasaoheader" />
+    </header>
+
+    <nav>
+        <a href="index.html">Apresentação</a>
+        <a href="funcionarios.html">Funcionários</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="instituicoes.html">Instituições de Ensino</a>
+        <a href="busca.html">Busca</a>
+        <a href="login.html">Login</a>
+        <a href="ajuda.html">Ajuda</a>
+    </nav>
+
+    <section>
+    <h3>Cursos</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Tipo</th>
+                    <th>Carga Horária</th>
+                    <th>Instituição</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cursos : ${cursos}">
+                    <td th:text="${cursos.nome}"></td>
+                    <td th:text="${cursos.tpCurso}"></td>
+                    <td th:text="${cursos.cargaHoraria}"></td>
+                    <td th:text="${cursos.fkInstituicao}"></td>
+                    <td><a>Editar</a><a>Remover</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><button>Cadastrar novo curso</button></p>
+        <p><button>Vincular curso com funcionário</button></p>
+    </section>
+</body>
+</html>

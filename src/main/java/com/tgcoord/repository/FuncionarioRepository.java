@@ -5,7 +5,7 @@
  */
 package com.tgcoord.repository;
 
-import com.tgcoord.model.Funcionario;
+import com.tgcoord.model.Funcionarios;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,26 +15,26 @@ import org.springframework.stereotype.Repository;
  * @author natal
  */
 @Repository
-public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
+public interface FuncionarioRepository extends JpaRepository<Funcionarios, Long> {
     
     /**
      *
      * @param rg
      * @return
      */
-    Funcionario findByRg(String rg);
+    public Funcionarios findByRg(String rg);
 
     /**
      *
      * @param email
      * @return
      */
-    Funcionario findByEmail(String email);
+    public Funcionarios findByEmail(String email);
     
     /**
      *
      * @param nome
      * @return
      */
-    List<Funcionario> findByNomeIgnoreCaseContaining(String nome);
+    public List<Funcionarios> findByNomeIgnoreCaseContaining(String nome);
 }

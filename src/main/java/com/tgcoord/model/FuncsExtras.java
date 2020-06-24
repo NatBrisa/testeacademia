@@ -1,0 +1,110 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.tgcoord.model;
+
+import java.time.LocalDate;
+import java.util.logging.Logger;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+/**
+ * @author natal
+ */
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public class FuncsExtras extends Funcionarios {
+    
+    @SuppressWarnings("unused")
+    private static final Logger LOG = Logger.getLogger(FuncsExtras.class.getName());
+
+    private static final long serialVersionUID = 1L;
+
+//    @JoinColumn(name = "fkfuncionario" , referencedColumnName = "pkfuncionario", nullable = false, insertable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_func_extra_funcionario"))
+//    @OneToOne(optional = false)
+//    private Funcionarios fkFuncionario;
+
+    @Column(length = 45)
+    private String conjuge;
+
+    @Column(name = "dt_rg")
+    private LocalDate dataExpRg;
+
+    @Column(name = "orgao_rg", length = 10)
+    private String orgaoExpRg;
+
+    @Column(name = "est_civil", length = 20)
+    private String estadoCivil;
+
+    @Column(length = 20)
+    private String etnia;
+
+    @Column(name = "nm_mae")
+    private String nomeMae;
+
+    @Column(name = "nm_pai")
+    private String nomePai;
+
+    public FuncsExtras() {
+    }
+
+    public String getConjuge() {
+        return this.conjuge;
+    }
+
+    public void setConjuge(String conjuge) {
+        this.conjuge = conjuge;
+    }
+
+    public LocalDate getDataExpRg() {
+        return this.dataExpRg;
+    }
+
+    public void setDataExpRg(LocalDate dataExpRg) {
+        this.dataExpRg = dataExpRg;
+    }
+
+    public String getOrgaoExpRg() {
+        return this.orgaoExpRg;
+    }
+
+    public void setOrgaoExpRg(String orgaoExpRg) {
+        this.orgaoExpRg = orgaoExpRg;
+    }
+
+    public String getEstadoCivil() {
+        return this.estadoCivil;
+    }
+
+    public void setEstadoCivil(String estadoCivil) {
+        this.estadoCivil = estadoCivil;
+    }
+
+    public String getEtnia() {
+        return this.etnia;
+    }
+
+    public void setEtnia(String etnia) {
+        this.etnia = etnia;
+    }
+
+    public String getNomeMae() {
+        return this.nomeMae;
+    }
+
+    public void setNomeMae(String nomeMae) {
+        this.nomeMae = nomeMae;
+    }
+
+    public String getNomePai() {
+        return this.nomePai;
+    }
+
+    public void setNomePai(String nomePai) {
+        this.nomePai = nomePai;
+    }
+}

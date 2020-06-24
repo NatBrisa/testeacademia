@@ -23,7 +23,7 @@ public class BasicApplication extends SpringBootServletInitializer {
     /**
      * @param args
      */
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(BasicApplication.class, args);
     }
 }

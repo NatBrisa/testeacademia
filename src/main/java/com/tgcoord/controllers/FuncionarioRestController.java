@@ -5,16 +5,27 @@
  */
 package com.tgcoord.controllers;
 
-import com.tgcoord.model.Funcionario;
+import com.tgcoord.model.Funcionarios;
 import com.tgcoord.repository.FuncionarioRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
+
+import com.tgcoord.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
@@ -23,15 +34,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/funcionario")
 public class FuncionarioRestController {
-    private static final Logger LOG = Logger.getLogger(FuncionarioRestController.class.getName());
     
-    private final FuncionarioRepository funcRep;
+	@SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(FuncionarioRestController.class.getName());
+
+	@Autowired
+    private FuncionarioRepository funcRep;
+
+	@Autowired
+    private FuncionarioService service;
 
     /**
      *
      * @param funcRep
      */
-    @Autowired
     public FuncionarioRestController(FuncionarioRepository funcRep) {
         this.funcRep = funcRep;
     }
@@ -41,19 +57,19 @@ public class FuncionarioRestController {
      * @param pageable
      * @return
      */
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<?> listAll(Pageable pageable) {
-        return new ResponseEntity<>(funcRep.findAll(pageable), HttpStatus.OK);
+        return new ResponseEntity<>(this.funcRep.findAll(pageable), HttpStatus.OK);
     }
     
     /**
      *
-     * @param id
+     * @param pkFuncionario
      * @return
      */
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getById(@PathVariable Long id) {
-        Optional<Funcionario> funcionario = funcRep.findById(id);
+    @GetMapping("/{pkFuncionario}")
+    public ResponseEntity<?> getById(@PathVariable Long pkFuncionario) {
+        Optional<Funcionarios> funcionario = this.funcRep.findById(pkFuncionario);
         if(funcionario.isPresent()) {
             return new ResponseEntity<>(funcionario, HttpStatus.FOUND);
         } else {
@@ -68,7 +84,7 @@ public class FuncionarioRestController {
      */
     @GetMapping("/{nome}")
     public ResponseEntity<?> getByName(String nome) {
-        List<Funcionario> funcionarios = funcRep.findByNomeIgnoreCaseContaining(nome);
+        List<Funcionarios> funcionarios = this.funcRep.findByNomeIgnoreCaseContaining(nome);
 	    if (funcionarios.isEmpty()) {
 		    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	    } else {
@@ -82,24 +98,20 @@ public class FuncionarioRestController {
      * @return
      */
     @GetMapping("/{rg}")
-    public ResponseEntity<?> getByRg(String rg) {
-        Funcionario funcionario = funcRep.findByRg(rg);
-        if(funcionario == null) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(funcionario, HttpStatus.FOUND);
-        }      
+    public Funcionarios getByRg(String rg) {
+        Funcionarios funcionario = this.funcRep.findByRg(rg);
+        return funcionario;
     }
     
     /**
      *
-     * @param id
+     * @param pkFuncionario
      * @param input
      * @return
      */
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Funcionario input) {
-        return new ResponseEntity<>(funcRep.save(input), HttpStatus.OK);
+    @PutMapping("/{pkFuncionario}")
+    public ResponseEntity<?> update(@PathVariable Long pkFuncionario, @RequestBody Funcionarios input) {
+        return new ResponseEntity<>(this.funcRep.save(input), HttpStatus.OK);
     }
     
     /**
@@ -108,20 +120,20 @@ public class FuncionarioRestController {
      * @return
      */
     @PostMapping("/")
-    public ResponseEntity<?> save(@RequestBody Funcionario input) {
-        return new ResponseEntity<>(funcRep.save(input), HttpStatus.OK);
+    public ResponseEntity<?> save(@RequestBody Funcionarios input) {
+        return new ResponseEntity<>(this.funcRep.save(input), HttpStatus.OK);
     }
     
     /**
      *
-     * @param id
+     * @param pkFuncionario
      * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
-        Optional<Funcionario> funcionario = funcRep.findById(id);
+    public ResponseEntity<?> delete(@PathVariable Long pkFuncionario) {
+        Optional<Funcionarios> funcionario = this.funcRep.findById(pkFuncionario);
         if(funcionario.isPresent()) {
-            funcRep.deleteById(id);
+            this.funcRep.deleteById(pkFuncionario);
             return new ResponseEntity<>(funcionario, HttpStatus.FOUND);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -5,7 +5,7 @@
  */
 package com.tgcoord.repository;
 
-import com.tgcoord.model.Gestor;
+import com.tgcoord.model.Gestores;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author natal
  */
 @Repository
-public interface GestorRepository extends JpaRepository<Gestor, Long> {
+public interface GestorRepository extends JpaRepository<Gestores, Long> {
 
 }

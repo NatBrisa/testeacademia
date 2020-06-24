@@ -2,19 +2,34 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
+      <option name="id" value="95aa3738-930b-49ea-b415-2331878595ab" />
+      <option name="name" value="95aa3738-930b-49ea-b415-2331878595ab" />
+      <option name="url" value="https://github.com/thymeleaf/thymeleaf-docs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="89f0ae9f-a46a-46cf-bd29-278509f78672" />
+      <option name="name" value="89f0ae9f-a46a-46cf-bd29-278509f78672" />
+      <option name="url" value="https://github.com/thymeleaf/thymeleaf-spring" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="spring-milestones" />
       <option name="name" value="Spring Milestones" />
       <option name="url" value="https://repo.spring.io/milestone" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2" />
+      <option name="id" value="283bd6e0-fbaa-4170-a531-64c9f4f69218" />
+      <option name="name" value="283bd6e0-fbaa-4170-a531-64c9f4f69218" />
+      <option name="url" value="https://github.com/thymeleaf/thymeleaf" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="prime-repo" />
       <option name="name" value="PrimeFaces Maven Repository" />
       <option name="url" value="http://repository.primefaces.org" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />

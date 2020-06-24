@@ -13,6 +13,7 @@ body {
 }
 
 hgroup {
+    display: inline;
     text-align: center;
 }
 
@@ -25,7 +26,14 @@ nav a {
     text-decoration: none;
     color: black;
 }
-nav a:hover {
+
+nav a:link, a:visited {
+    color: black;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+nav a:link:hover, a:visited:hover {
     background-color: whitesmoke;
     text-decoration: none;
     color: black;
@@ -36,6 +44,24 @@ section {
     padding: 15px 50px 15px 50px;
     border: 2px black solid;
     border-radius: 10px;
+}
+
+.brasaoheaderv {
+    display: inline;
+    width: 20px;
+    height: 20px;
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
 }
 
 form {

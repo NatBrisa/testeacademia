@@ -5,7 +5,7 @@
  */
 package com.tgcoord.repository;
 
-import com.tgcoord.model.Curso;
+import com.tgcoord.model.Cursos;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,12 +15,12 @@ import org.springframework.stereotype.Repository;
  * @author natal
  */
 @Repository
-public interface CursoRepository extends JpaRepository<Curso, Long> {
+public interface CursoRepository extends JpaRepository<Cursos, Long> {
     
     /**
      *
      * @param nome
      * @return
      */
-    List<Curso> findByNomeIgnoreCaseContaining(String nome);
+    List<Cursos> findByNomeIgnoreCaseContaining(String nome);
 }
