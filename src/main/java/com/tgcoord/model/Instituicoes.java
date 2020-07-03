@@ -5,17 +5,9 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.logging.Logger;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  * @author natal
@@ -38,7 +30,6 @@ public class Instituicoes implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Basic(optional = false)
     @Column(name = "pkinstituicao")
     private Long pkInstituicao;
 

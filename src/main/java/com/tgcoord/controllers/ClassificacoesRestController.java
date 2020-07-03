@@ -6,10 +6,8 @@
 package com.tgcoord.controllers;
 
 import com.tgcoord.model.Classificacoes;
-import com.tgcoord.repository.ClassificacaoRepository;
-import com.tgcoord.service.ClassificacaoService;
-import java.util.Optional;
-import java.util.logging.Logger;
+import com.tgcoord.repository.ClassificacoesRepository;
+import com.tgcoord.service.ClassificacoesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,28 +17,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Optional;
+import java.util.logging.Logger;
+
 /**
  *
  * @author natal
  */
 @RestController
 @RequestMapping("/classificacao")
-public class ClassificacaoRestController {
+public class ClassificacoesRestController {
     
-    private static final Logger LOG = Logger.getLogger(ClassificacaoRestController.class.getName());
-    
-    @Autowired
-    private ClassificacaoRepository classRep;
+    private static final Logger LOG = Logger.getLogger(ClassificacoesRestController.class.getName());
     
     @Autowired
-    private ClassificacaoService service;
+    private ClassificacoesRepository classRep;
+    
+    @Autowired
+    private ClassificacoesService service;
 
     /**
      *
      * @param classRep
      * @param service
      */
-    public ClassificacaoRestController(ClassificacaoRepository classRep, ClassificacaoService service) {
+    public ClassificacoesRestController(ClassificacoesRepository classRep, ClassificacoesService service) {
         this.classRep=classRep;
         this.service=service;
     }

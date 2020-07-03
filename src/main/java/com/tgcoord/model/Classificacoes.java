@@ -6,13 +6,8 @@
 package com.tgcoord.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  *
@@ -21,12 +16,13 @@ import javax.persistence.Table;
 @Entity
 @Table(catalog = "tgcoord")
 public class Classificacoes implements Serializable {
+    
+    private static final Logger LOG = Logger.getLogger(Classificacoes.class.getName());
 
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Basic(optional = false)
     @Column(name = "pkclassificacao")
     private Long pkClassificacao;
     

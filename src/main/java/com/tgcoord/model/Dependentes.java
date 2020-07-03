@@ -5,18 +5,11 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.logging.Logger;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  * @author natal
@@ -45,6 +38,10 @@ public class Dependentes implements Serializable {
     private String nome;
 
     @Basic(optional = false)
+    @Column(nullable = false, length = 20)
+    private String sobrenome;
+
+    @Basic(optional = false)
     @Column(nullable = false, length = 14)
     private String rg;
 
@@ -57,7 +54,7 @@ public class Dependentes implements Serializable {
     private Character gen;
 
     @Basic(optional = false)
-    @Column(nullable = false)
+    @Column(name = "dt_nasc", nullable = false)
     private LocalDate dtNasc;
 
     public Dependentes() {

@@ -16,10 +16,10 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Enderecos implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Enderecos.class.getName());
+    
+    private static final long serialVersionUID = 1L;
 
     @Column(length = 2)
     private String uf;

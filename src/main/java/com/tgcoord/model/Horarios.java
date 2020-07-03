@@ -5,19 +5,18 @@
  */
 package com.tgcoord.model;
 
+import com.tgcoord.enums.DiaSemana;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.util.logging.Logger;
 
 /**
  *
  * @author natal
  */
 @Entity
+@Table(catalog = "tgcoord")
 public class Horarios implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,8 +29,9 @@ public class Horarios implements Serializable {
     /**
      *
      */
-//    @Enumerated(EnumType.STRING)
-//    private Enum<DayOfWeek> dia;
+    @Enumerated
+    @Column(columnDefinition = "smallint")
+    public DiaSemana dia_semana;
     
     @Column
     private LocalDate horarioInicio;
@@ -68,5 +68,6 @@ public class Horarios implements Serializable {
     public String toString() {
         return "com.tgcoord.model.Horarios[ id=" + pkHorario + " ]";
     }
+    private static final Logger LOG = Logger.getLogger(Horarios.class.getName());
     
 }

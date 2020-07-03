@@ -6,23 +6,15 @@
 package com.tgcoord.controllers;
 
 import com.tgcoord.model.Gestores;
-import com.tgcoord.repository.GestorRepository;
-import java.util.Optional;
-import java.util.logging.Logger;
+import com.tgcoord.repository.GestoresRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  *
@@ -30,18 +22,18 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/gestor")
-public class GestorRestController {
+public class GestoresRestController {
 	@SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(GestorRestController.class.getName());
+	private static final Logger LOG = Logger.getLogger(GestoresRestController.class.getName());
     
-    private final GestorRepository gestRep;
+    private final GestoresRepository gestRep;
 
     /**
      *
      * @param gestRep
      */
     @Autowired
-    public GestorRestController(GestorRepository gestRep) {
+    public GestoresRestController(GestoresRepository gestRep) {
         this.gestRep = gestRep;
     }
     

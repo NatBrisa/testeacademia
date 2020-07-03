@@ -6,20 +6,22 @@
 package com.tgcoord.service;
 
 import com.tgcoord.model.Classificacoes;
-import com.tgcoord.repository.ClassificacaoRepository;
-import java.util.List;
+import com.tgcoord.repository.ClassificacoesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
  * @author natal
  */
 @Service
-public class ClassificacaoService {
+public class ClassificacoesService {
     
     @Autowired
-    private ClassificacaoRepository repository;
+    private ClassificacoesRepository repository;
     
     public List<Classificacoes> findAll() {
         return repository.findAll();
@@ -36,4 +38,5 @@ public class ClassificacaoService {
     public void delete(Long pkClassificacao) {
         repository.deleteById(pkClassificacao);
     }  
+    private static final Logger LOG = Logger.getLogger(ClassificacoesService.class.getName());
 }

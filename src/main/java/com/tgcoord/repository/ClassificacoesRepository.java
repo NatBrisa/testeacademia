@@ -5,36 +5,23 @@
  */
 package com.tgcoord.repository;
 
-import com.tgcoord.model.Funcionarios;
-import java.util.List;
+import com.tgcoord.model.Classificacoes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  *
  * @author natal
  */
 @Repository
-public interface FuncionarioRepository extends JpaRepository<Funcionarios, Long> {
-    
-    /**
-     *
-     * @param rg
-     * @return
-     */
-    public Funcionarios findByRg(String rg);
-
-    /**
-     *
-     * @param email
-     * @return
-     */
-    public Funcionarios findByEmail(String email);
+public interface ClassificacoesRepository extends JpaRepository<Classificacoes, Long>{
     
     /**
      *
      * @param nome
      * @return
      */
-    public List<Funcionarios> findByNomeIgnoreCaseContaining(String nome);
+    List<Classificacoes> findByNomeIgnoreCaseContaining(String nome);
 }

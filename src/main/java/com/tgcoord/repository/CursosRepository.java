@@ -6,16 +6,17 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Cursos;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  *
  * @author natal
  */
 @Repository
-public interface CursoRepository extends JpaRepository<Cursos, Long> {
+public interface CursosRepository extends JpaRepository<Cursos, Long> {
     
     /**
      *

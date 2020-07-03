@@ -5,6 +5,7 @@
  */
 package com.tgcoord.model;
 
+import java.util.logging.Logger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +19,8 @@ import javax.persistence.Table;
 @Entity
 @Table(catalog = "tgcoord")
 public class TelefonesInstituicoes extends Telefones {
+    
+    private static final Logger LOG = Logger.getLogger(TelefonesInstituicoes.class.getName());
 
     private static final long serialVersionUID = 1L;
     
@@ -28,13 +31,24 @@ public class TelefonesInstituicoes extends Telefones {
     @Column(name = "nome_contato")
     private String nomeContato;
 
+    /**
+     *
+     */
     public TelefonesInstituicoes() {
     }
 
+    /**
+     *
+     * @return
+     */
     public Instituicoes getFkInstituicao() {
         return this.fkInstituicao;
     }
 
+    /**
+     *
+     * @param fkInstituicao
+     */
     public void setFkInstituicao(Instituicoes fkInstituicao) {
         this.fkInstituicao = fkInstituicao;
     }

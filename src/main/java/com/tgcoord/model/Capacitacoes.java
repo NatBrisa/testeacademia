@@ -7,6 +7,7 @@ package com.tgcoord.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.logging.Logger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,13 +20,13 @@ import javax.persistence.Table;
 /**
  *
  * Registro dos cursos concluídos pelos funcionários.
- * É o desmembramento do relacionamento N:M.
- * Tem uma PK composta.
  * @author natal
  */
 @Entity
 @Table(catalog = "tgcoord")
 public class Capacitacoes implements Serializable {
+    
+    private static final Logger LOG = Logger.getLogger(Capacitacoes.class.getName());
 
     private static final long serialVersionUID = 1L;
     

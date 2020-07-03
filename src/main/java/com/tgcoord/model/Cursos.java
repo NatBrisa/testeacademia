@@ -49,7 +49,6 @@ public class Cursos implements Serializable {
     @Column(name = "carga_horaria")
     private Duration cargaHoraria;
 
-    //@Column(name = "fkinstituicao", length = 45)
     @ManyToOne(targetEntity = Instituicoes.class)
     @JoinColumn(name = "fkinstituicao", foreignKey = @ForeignKey(name = "FK_instituicao"))
     private Instituicoes fkInstituicao;

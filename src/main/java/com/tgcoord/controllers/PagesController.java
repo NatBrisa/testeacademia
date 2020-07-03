@@ -7,13 +7,14 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Funcionarios;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,8 +23,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PagesController {
 
+    private static final Logger LOG = Logger.getLogger(PagesController.class.getName());
+
     @Autowired
-    public FuncionarioRestController funcControl;
+    public FuncionariosRestController funcControl;
     
     @GetMapping("/")
     public static String index(@RequestParam(value = "name", defaultValue = "World") String name, Model model) {
@@ -31,9 +34,24 @@ public class PagesController {
     	return "index";
     }
 
-    @GetMapping("/cadastro")
-    public static String cadastroteste() {
-        return "cadastrosteste";
+    @GetMapping("/funcionarios")
+    public static String funcionarios() {
+        return "funcionarios";
+    }
+
+    @GetMapping("/cursos")
+    public static String cursos() {
+        return "cursos";
+    }
+
+    @GetMapping("/instituicoes")
+    public static String instituicoes() {
+        return "instituicoes";
+    }
+
+    @GetMapping("/ajuda")
+    public static String ajuda() {
+        return "ajuda";
     }
 
     @PostMapping("/login")

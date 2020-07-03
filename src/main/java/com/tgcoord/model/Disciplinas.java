@@ -6,14 +6,10 @@
 package com.tgcoord.model;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  *
@@ -22,23 +18,27 @@ import javax.persistence.Table;
 @Entity
 @Table(catalog = "tgcoord")
 public class Disciplinas implements Serializable {
+    
+    private static final Logger LOG = Logger.getLogger(Disciplinas.class.getName());
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Basic(optional = false)
     @Column(name = "pkdisciplinas")
     private Long pkDisciplinas;
     
-    @Column
+    @Column(name = "nome", length = 25)
     private String nome;
-    
-    @ManyToOne
-    private Horarios horario;
+
+    @ManyToMany
+    private Collection<Horarios> horario = new ArrayList<Horarios>();
     
     @ManyToOne
     private Instituicoes instituicao;
+
+    @ManyToOne
+    private Funcionarios professor;
     
 
     public Disciplinas() {
@@ -73,5 +73,4 @@ public class Disciplinas implements Serializable {
     public String toString() {
         return "com.tgcoord.model.Disciplinas[ id=" + pkDisciplinas + " ]";
     }
-    
 }

@@ -49,61 +49,120 @@ public class FuncsExtras extends Funcionarios {
     @Column(name = "nm_pai")
     private String nomePai;
 
+    /**
+     *
+     */
     public FuncsExtras() {
     }
 
+    /**
+     *
+     * @return
+     */
     public String getConjuge() {
         return this.conjuge;
     }
 
+    /**
+     *
+     * @param conjuge
+     */
     public void setConjuge(String conjuge) {
         this.conjuge = conjuge;
     }
 
+    /**
+     *
+     * @return
+     */
     public LocalDate getDataExpRg() {
         return this.dataExpRg;
     }
 
+    /**
+     *
+     * @param dataExpRg
+     */
     public void setDataExpRg(LocalDate dataExpRg) {
         this.dataExpRg = dataExpRg;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getOrgaoExpRg() {
         return this.orgaoExpRg;
     }
 
+    /**
+     *
+     * @param orgaoExpRg
+     */
     public void setOrgaoExpRg(String orgaoExpRg) {
         this.orgaoExpRg = orgaoExpRg;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEstadoCivil() {
         return this.estadoCivil;
     }
 
+    /**
+     *
+     * @param estadoCivil
+     */
     public void setEstadoCivil(String estadoCivil) {
         this.estadoCivil = estadoCivil;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEtnia() {
         return this.etnia;
     }
 
+    /**
+     *
+     * @param etnia
+     */
     public void setEtnia(String etnia) {
         this.etnia = etnia;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNomeMae() {
         return this.nomeMae;
     }
 
+    /**
+     *
+     * @param nomeMae
+     */
     public void setNomeMae(String nomeMae) {
         this.nomeMae = nomeMae;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNomePai() {
         return this.nomePai;
     }
 
+    /**
+     *
+     * @param nomePai
+     */
     public void setNomePai(String nomePai) {
         this.nomePai = nomePai;
     }
