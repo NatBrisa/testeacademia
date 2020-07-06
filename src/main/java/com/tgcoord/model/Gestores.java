@@ -6,19 +6,9 @@
 package com.tgcoord.model;
 
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.logging.Logger;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 /**
  * @author natal
@@ -53,6 +43,22 @@ public class Gestores implements Serializable {
     private String nivelAcesso;
 
     public Gestores() {
+    }
+
+    public Long getPkGestor() {
+        return this.pkGestor;
+    }
+
+    public void setPkGestor(Long pkGestor) {
+        this.pkGestor = pkGestor;
+    }
+
+    public Funcionarios getFkFuncionario() {
+        return this.fkFuncionario;
+    }
+
+    public void setFkFuncionario(Funcionarios fkFuncionario) {
+        this.fkFuncionario = fkFuncionario;
     }
 
     public String getFuncao() {

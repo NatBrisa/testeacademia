@@ -10,7 +10,7 @@
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
-            <h2>Funcionários</h2></hgroup>
+            <h2>Cursos</h2></hgroup>
     </header>
 
     <nav>
@@ -25,33 +25,10 @@
 
     <section>
         <h3>Cadastro</h3>
-        <form th:action="@{funcionario/save}" method="post">
-
-            <h4>Dados Pessoais</h4>
-            <p><label>Nome: <input type="text" name="txnome" th:field="${funcionarios.nome}" autofocus="autofocus" required></label></p>
-
-            <p><label>Sobrenome: <input type="text" name="txsobrenome" th:field="*{funcionarios.sobrenome}" required></label></p>
-
-            <p><label>RG: <input type="text" name="txrg" th:field="*{funcionarios.rg}" required></label></p>
-
-            <p><label>CPF: <input type="text" name="txcpf" th:field="*{funcionarios.cpf}" required></label></p>
-
-            <p>Gênero:</p>
-            <p><label><input type="radio" th:field="*{funcionarios.gen}" th:value="F" /> Feminino</label></p>
-            <p><label><input type="radio" th:field="*{funcionarios.gen}" th:value="M" /> Masculino</label></p>
-
-            <p><label>Data de Nascimento: <input type="date" name="dtnasc" th:field="*{funcionarios.dtNasc}" required></label></p>
-
-            <h4>Dados Profissionais</h4>
-            <p><label>Classificação: <select name="classificacao" th:field="*{classificacoes.pkClassificacao}" required>
-                <option th:each="classificacoes : ${lista}" th:value="${classificacoes.pkClassificacao}" th:text="${classificacoes.nome}"></option>
-            </select></label></p>
-
-            <p><label>Data de Admissão: <input type="date" name="admissao" th:field="*{funcionarios.dtAdmissao}"></label></p>
-
-            <p><label>PIS: <input type="text" name="pis" th:field="*{funcionarios.pis}"></label></p>
-
-            <h4>Informações de contato</h4>
+        <form th:action="@{/instituicoes/save}" method="post">
+            <p><label>Nome: <input type="text" name="txnome" th:field="*{instituicoes.nomeCompleto}" autofocus="autofocus" required></label></p>
+            
+            <p><label>Nome simplificado: <input type="text" name="txnome" th:field="*{instituicoes.nomeSimples}"></label></p>
 
             <p><label>Estado: <select name="uf" th:field="*{enderecos.uf}" required>
                 <option th:value="SP">SP</option>
@@ -69,9 +46,15 @@
 
             <p><label>Complemento: <input type="text" name="complemento" th:field="*{enderecos.complemento}"></label></p>
 
-            <p><label>Telefone: <input type="tel" name="telefone" th:field="*{funcionarios.fktelefone}"></label></p>
+            <p><label>Telefone: <input type="tel" name="telefone" th:field="*{instituicoes.tel}"></label></p>
 
-            <p><label>E-mail: <input type="email" name="email" th:field="*{funcionarios.email}"></label></p>
+            <p><label>E-mail: <input type="email" name="email" th:field="*{instituicoes.email}"></label></p>
+            
+            <p><label>Tipo da instituição: <select name="tp_curso" th:field="*{instituicoes.tpInst}" required>
+                <option value="Municipal">Municipal</option>
+                <option value="Estadual">Estadual</option>
+                <option value="Particular">Particular</option>
+            </select></label></p>
 
             <input type="submit" value="Cadastrar">
             <input type="reset" value="Cancelar">

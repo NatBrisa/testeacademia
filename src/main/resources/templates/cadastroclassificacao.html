@@ -10,7 +10,7 @@
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
-        <h2>Classificações</h2></hgroup>
+            <h2>Classificações</h2></hgroup>
     </header>
 
     <nav>
@@ -18,28 +18,20 @@
         <a th:href="@{/funcionarios}">Funcionários</a>
         <a th:href="@{/cursos}">Cursos</a>
         <a th:href="@{/instituicoes}">Instituições de Ensino</a>
+        <a th:href="@{/classificacoes}">Classificações</a>
         <a th:href="@{/login}">Login</a>
         <a th:href="@{/ajuda}">Ajuda</a>
     </nav>
 
     <section>
         <h3>Cadastro</h3>
-        <form>
-            <label>Nome da Classificação: <input type="text" name="txnome"></label>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="classificacoes : ${classificacoes}">
-                        <td th:text="${classificacoes.pkClassificacao}"></td>
-                        <td th:text="${classificacoes.nome}"></td>
-                    </tr>
-                </tbody>
-            </table>
+        <form th:action="@{classificacao/save}" method="post">
+
+            <h4>Dados Pessoais</h4>
+            <p><label>Nome: <input type="text" name="txnome" th:field="${classificacoes.nome}" autofocus="autofocus" required></label></p>
+
+            <input type="submit" value="Cadastrar">
+            <input type="reset" value="Cancelar">
         </form>
     </section>
 </body>

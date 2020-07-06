@@ -5,7 +5,9 @@
  */
 package com.tgcoord.controllers;
 
+import com.tgcoord.model.Classificacoes;
 import com.tgcoord.model.Cursos;
+import com.tgcoord.model.Enderecos;
 import com.tgcoord.model.Funcionarios;
 import java.util.List;
 import java.util.logging.Logger;
@@ -33,10 +35,18 @@ public class PagesController {
     @Autowired
     public FuncionariosRestController funcControl;
 
+    @Autowired
+    public ClassificacoesRestController classControl;
+
     /**
      *
      */
     public PagesController() {
+    }
+
+    public PagesController(FuncionariosRestController funcControl, ClassificacoesRestController classControl) {
+        this.funcControl = funcControl;
+        this.classControl = classControl;
     }
 
     /**
@@ -55,39 +65,12 @@ public class PagesController {
      *
      * @return
      */
-    @GetMapping("/cadastrofuncionario")
-    public static String cadastro() {
-        return "cadastrofuncionario";
-    }
-
-    /**
-     *
-     * @return
-     */
-    @GetMapping("/cursos")
-    public static String cursos() {
-        return "cursos";
-    }
-
-    /**
-     *
-     * @param curso
-     * @return
-     */
-    @GetMapping("/editarcurso")
-    public static ModelAndView editarcurso(@RequestParam Cursos curso) {
-        ModelAndView mv = new ModelAndView("/editarcurso.html");
-        mv.addObject(curso);
+    @GetMapping(value = "/funcionarios")
+    public ModelAndView funcionarios() {
+        ModelAndView mv = new ModelAndView("/funcionarios.html");
+        List<Funcionarios> lista = funcControl.listAll();
+        mv.addObject(lista);
         return mv;
-    }
-
-    /**
-     *
-     * @return
-     */
-    @GetMapping("/instituicoes")
-    public static String instituicoes() {
-        return "instituicoes";
     }
 
     /**
@@ -99,17 +82,7 @@ public class PagesController {
         return "ajuda";
     }
 
-    /**
-     *
-     * @return
-     */
-    @GetMapping(value = "/funcionarios")
-    public ModelAndView funcionarios() {
-        ModelAndView mv = new ModelAndView("/funcionarios.html");
-        List<Funcionarios> lista = funcControl.listAll();
-        mv.addObject(lista);
-        return mv;
-    }
+
 
     /**
      *
@@ -127,6 +100,43 @@ public class PagesController {
         } else {
             mv = new ModelAndView("/ajuda.html");
         }
+        return mv;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @GetMapping("/cadastrofuncionario")
+    public ModelAndView cadastrofuncionario() {
+        ModelAndView mv = new ModelAndView("/cadastrofuncionario.html");
+        mv.addObject("funcionarios", new Funcionarios());
+        mv.addObject("enderecos", new Enderecos());
+        mv.addObject("classificacoes", new Classificacoes());
+        //mv.addObject("lista", classControl.listAll());
+        return mv;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @GetMapping("/cadastroclassificacao")
+    public ModelAndView cadastroclassificacao() {
+        ModelAndView mv = new ModelAndView("/cadastroclassificacao.html");
+        mv.addObject("classificacoes", new Classificacoes());
+        return mv;
+    }
+
+    /**
+     *
+     * @param curso
+     * @return
+     */
+    @GetMapping("/editarcurso")
+    public static ModelAndView editarcurso(@RequestParam Cursos curso) {
+        ModelAndView mv = new ModelAndView("/editarcurso.html");
+        mv.addObject(curso);
         return mv;
     }
 }

@@ -5,11 +5,11 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Logger;
-import javax.persistence.*;
 
 /**
  *
@@ -51,6 +51,38 @@ public class Disciplinas implements Serializable {
 
     public void setPkDisciplinas(Long pkDisciplinas) {
         this.pkDisciplinas = pkDisciplinas;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Collection<Horarios> getHorario() {
+        return this.horario;
+    }
+
+    public void setHorario(Collection<Horarios> horario) {
+        this.horario = horario;
+    }
+
+    public Instituicoes getInstituicao() {
+        return this.instituicao;
+    }
+
+    public void setInstituicao(Instituicoes instituicao) {
+        this.instituicao = instituicao;
+    }
+
+    public Funcionarios getProfessor() {
+        return this.professor;
+    }
+
+    public void setProfessor(Funcionarios professor) {
+        this.professor = professor;
     }
 
     @Override

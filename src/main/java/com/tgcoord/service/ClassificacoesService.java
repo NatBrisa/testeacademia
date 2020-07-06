@@ -7,10 +7,11 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.repository.ClassificacoesRepository;
-import java.util.List;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,6 +42,10 @@ public class ClassificacoesService {
     public Classificacoes findOne(Long pkClassificacao) {
         return repository.getOne(pkClassificacao);
     }
+
+    public List<Classificacoes> findByPkClassificacao(Long pkClassificacao) {
+        return repository.findByPkClassificacao(pkClassificacao);
+    }
 	
     /**
      *
@@ -57,5 +62,6 @@ public class ClassificacoesService {
      */
     public void delete(Long pkClassificacao) {
         repository.deleteById(pkClassificacao);
-    }  
+    }
+
 }

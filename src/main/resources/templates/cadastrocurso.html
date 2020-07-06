@@ -18,30 +18,29 @@
         <a th:href="@{/funcionarios}">Funcionários</a>
         <a th:href="@{/cursos}">Cursos</a>
         <a th:href="@{/instituicoes}">Instituições de Ensino</a>
+        <a th:href="@{/classificacoes}">Classificações</a>
         <a th:href="@{/login}">Login</a>
         <a th:href="@{/ajuda}">Ajuda</a>
     </nav>
 
     <section>
         <h3>Cadastro</h3>
-        <form th:object="${Cursos}" th:action="@{/save}" method="post">
-            <p><label>Nome do curso: <input type="text" name="txnome" th:field="*{nome}" autofocus="autofocus" required></label></p>
+        <form th:action="@{cursos/save}" method="post">
+            <p><label>Nome do curso: <input type="text" name="txnome" th:field="*{cursos.nome}" autofocus="autofocus" required></label></p>
 
-            <p><label>Tipo do curso: <select name="tp_curso" th:field="*{tpCurso}" required>
-                <option>Graduação</option>
-                <option>Pós-Graduação</option>
-                <option>Genéricos</option>
+            <p><label>Tipo do curso: <select name="tp_curso" th:field="*{cursos.tpCurso}" required>
+                <option value="Graduação">Graduação</option>
+                <option value="Pós-Graduação">Pós-Graduação</option>
+                <option value="">Genéricos</option>
             </select></label></p>
 
-            <p><label>Carga horária: <input type="number" name="cargahoraria" th:field="*{cargaHoraria}"></label></p>
+            <p><label>Carga horária: <input type="number" name="cargahoraria" th:field="*{cursos.cargaHoraria}"></label></p>
 
-            <p><label>Instituição em que o curso foi realizado: <select name="instituicao" th:field="*{fkInstituicao}">
-                <option></option>
-                <option></option>
-                <option></option>
-            </select></label></p><a style="color: #045491;">Cadastrar nova instituição</a>
+            <p><label>Instituição em que o curso foi realizado: <select name="instituicao" th:field="*{cursos.fkInstituicao}">
+                <option th:each="instituicoes : ${instList}" th:value="${instituicoes.pkInstituicao}" th:text="${instituicoes.nomeCompleto}"></option>
+            </select></label><br><a class="button">Cadastrar nova instituição</a></p>
 
-            <p><label>Cidade em que o curso foi realizado: <input type="text" name="cidade" th:field="*{cidade}"></label></p>
+            <p><label>Cidade em que o curso foi realizado: <input type="text" name="cidade" th:field="*{cursos.cidade}"></label></p>
 
             <input type="submit" value="Cadastrar">
             <input type="reset" value="Cancelar">

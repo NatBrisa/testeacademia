@@ -18,6 +18,7 @@
         <a th:href="@{/funcionarios}">Funcionários</a>
         <a th:href="@{/cursos}">Cursos</a>
         <a th:href="@{/instituicoes}">Instituições de Ensino</a>
+        <a th:href="@{/classificacoes}">Classificações</a>
         <a th:href="@{/login}">Login</a>
         <a th:href="@{/ajuda}">Ajuda</a>
     </nav>
@@ -35,12 +36,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="instituicoes : ${instituicoes}">
+                <tr th:each="instituicoes : ${listaInstituicoes}">
                     <td th:text="${instituicoes.nomeSimples}"></td>
                     <td th:text="${instituicoes.tpInst}"></td>
                     <td th:text="${instituicoes.tel}"></td>
                     <td th:text="${instituicoes.email}"></td>
-                    <td><a>Editar</a><a>Remover</a></td>
+                    <td><a>Editar</a><a th:href="@{/instituicoes/delete}">Remover</a></td>
                 </tr>
             </tbody>
         </table>

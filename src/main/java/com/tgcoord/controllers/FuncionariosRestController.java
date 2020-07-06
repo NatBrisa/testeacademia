@@ -6,13 +6,15 @@
 package com.tgcoord.controllers;
 
 import com.tgcoord.model.Funcionarios;
+import com.tgcoord.service.ClassificacoesService;
 import com.tgcoord.service.FuncionariosService;
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,6 +29,9 @@ public class FuncionariosRestController {
 
     @Autowired
     private FuncionariosService service;
+
+    @Autowired
+    private ClassificacoesService classService;
 
     /**
      *
@@ -110,6 +115,18 @@ public class FuncionariosRestController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long pkFuncionario) {
         service.delete(pkFuncionario);
+    }
+
+    @GetMapping("/{fkClassificacao}")
+    public int quantiaClassificacao(Long fkClassificacao) {
+        List<Funcionarios> funcTotal = service.findAll();
+        int result = 0;
+        for(int i=0;i<=funcTotal.size();i++) {
+            if(funcTotal.get(i).getFkClassificacao().equals(fkClassificacao)) {
+                result += 1;
+            }
+        }
+        return result;
     }
     
     /**

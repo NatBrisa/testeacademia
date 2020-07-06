@@ -5,17 +5,10 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Logger;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  *
@@ -75,7 +68,23 @@ public class Capacitacoes implements Serializable {
     public void setPkCapacitacao(Long pkCapacitacao) {
         this.pkCapacitacao = pkCapacitacao;
     }
-    
+
+    public Funcionarios getFuncionario() {
+        return this.funcionario;
+    }
+
+    public void setFuncionario(Funcionarios funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public Cursos getCurso() {
+        return this.curso;
+    }
+
+    public void setCurso(Cursos curso) {
+        this.curso = curso;
+    }
+
     public int getNumCertificado() {
         return numCertificado;
     }

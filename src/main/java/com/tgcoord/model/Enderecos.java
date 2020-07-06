@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.io.Serializable;
+import java.util.logging.Logger;
 
 /**
  * @author natal
@@ -113,5 +113,13 @@ public class Enderecos implements Serializable {
      */
     public void setNum(int num) {
         this.num = num;
+    }
+
+    public String getComplemento() {
+        return this.complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 }

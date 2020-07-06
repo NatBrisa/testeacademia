@@ -52,7 +52,9 @@ section {
     height: 20px;
 }
 
-
+input.select {
+    width: 250px;
+}
 
 .button {
   font: bold 11px Arial;

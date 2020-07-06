@@ -93,6 +93,14 @@ public class Dependentes implements Serializable {
         this.nome = nome;
     }
 
+    public String getSobrenome() {
+        return this.sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
     public String getRg() {
         return this.rg;
     }

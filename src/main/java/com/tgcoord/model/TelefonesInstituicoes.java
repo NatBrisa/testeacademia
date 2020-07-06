@@ -5,12 +5,8 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.util.logging.Logger;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  *
@@ -52,5 +48,13 @@ public class TelefonesInstituicoes extends Telefones {
      */
     public void setFkInstituicao(Instituicoes fkInstituicao) {
         this.fkInstituicao = fkInstituicao;
+    }
+
+    public String getNomeContato() {
+        return this.nomeContato;
+    }
+
+    public void setNomeContato(String nomeContato) {
+        this.nomeContato = nomeContato;
     }
 }

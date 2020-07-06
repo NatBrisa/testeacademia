@@ -8,12 +8,10 @@ package com.tgcoord.controllers;
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.service.ClassificacoesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -21,7 +19,7 @@ import java.util.logging.Logger;
  * @author natal
  */
 @RestController
-@RequestMapping("/classificacao")
+@RequestMapping("/classificacoes")
 public class ClassificacoesRestController {
     
     @SuppressWarnings("unused")
@@ -48,9 +46,10 @@ public class ClassificacoesRestController {
      * @return
      */
     @GetMapping
-    public ModelAndView findAll() {
-        ModelAndView mv = new ModelAndView("/classificacao");
-        mv.addObject("classificacoes", service.findAll());
+    public ModelAndView classificacoes() {
+        ModelAndView mv = new ModelAndView("/classificacoes.html");
+        List<Classificacoes> listaC = service.findAll();
+        mv.addObject("classificacoeslista", listaC);
         return mv;
     }
     
@@ -63,6 +62,17 @@ public class ClassificacoesRestController {
     public Classificacoes getById(@PathVariable("id") Long id) {
         Classificacoes classificacao = this.service.findOne(id);
         return classificacao;
+    }
+
+    /**
+     *
+     * @param input
+     * @return
+     */
+    @PostMapping("/{input}")
+    public void save(Classificacoes input) {
+        this.service.save(input);
+        classificacoes();
     }
     
     /**

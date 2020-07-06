@@ -77,17 +77,7 @@ public class Funcionarios implements Serializable {
 
     @Column(length = 45)
     private String pis;
-    
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "funcionario")
-//    private Adi adi;
-//    
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "funcionario")
-//    private Gestor gest;
-//    
-//    @OneToOne(cascade = CascadeType.ALL, mappedBy = "funcionario")
-//    private Monitor monitor;
 
-//
 //    @ManyToMany(targetEntity = Dependente.class)
 //    private Collection<Dependente> dependentes = new ArrayList<>();
     

@@ -7,18 +7,21 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Cursos;
 import com.tgcoord.service.CursosService;
-import java.util.List;
-import java.util.logging.Logger;
+import com.tgcoord.service.InstituicoesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
  * @author natal
  */
 @RestController
-@RequestMapping("/curso")
+@RequestMapping("/cursos")
 public class CursosRestController {
     
     @SuppressWarnings("unused")
@@ -26,6 +29,9 @@ public class CursosRestController {
 
     @Autowired
     private CursosService service;
+
+    @Autowired
+    private InstituicoesService instituicaoService;
 
     /**
      *
@@ -38,8 +44,11 @@ public class CursosRestController {
      * @return
      */
     @GetMapping
-    public List<Cursos> listAll() {
-        return service.findAll();
+    public ModelAndView cursos() {
+        ModelAndView mv = new ModelAndView("/cursos.html");
+        List<Cursos> lista = service.findAll();
+        mv.addObject("listacursos", lista);
+        return mv;
     }
     
     /**
@@ -90,6 +99,14 @@ public class CursosRestController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         service.delete(id);
+    }
+
+    @GetMapping("/cadastro")
+    public ModelAndView cadastro() {
+        ModelAndView mv = new ModelAndView("/cadastrocurso.html");
+        mv.addObject("cursos", new Cursos());
+        mv.addObject("instList", instituicaoService.findAll());
+        return mv;
     }
     
     /**

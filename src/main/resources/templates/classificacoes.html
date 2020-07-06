@@ -10,7 +10,7 @@
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
-        <h2>Login</h2></hgroup>
+            <h2>Cursos</h2></hgroup>
     </header>
 
     <nav>
@@ -23,13 +23,24 @@
         <a th:href="@{/ajuda}">Ajuda</a>
     </nav>
 
-    <section class="login">
-        <form th:object="${funcionarios}" th:action="@{/login}" method="post">
-            <h3>Login</h3>
-            <p><label>RG: <input type="text" name="rg" required></label></p>
-            <p><label>Senha: <input type="password" name="senha" required></label></p>
-            <input type="submit" name="Entrar">
-            <p>Não está cadastrado? <a href="ajuda.html">Entre aqui!</a></p>
+    <section>
+        <h3>Cadastro</h3>
+        <form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="classificacoes : ${classificacoeslista}">
+                        <td th:text="${classificacoes.pkClassificacao}"></td>
+                        <td th:text="${classificacoes.nome}"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/cadastroclassificacao}">Adicionar</a>
         </form>
     </section>
 </body>

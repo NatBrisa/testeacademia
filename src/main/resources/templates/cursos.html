@@ -18,6 +18,7 @@
         <a th:href="@{/funcionarios}">Funcionários</a>
         <a th:href="@{/cursos}">Cursos</a>
         <a th:href="@{/instituicoes}">Instituições de Ensino</a>
+        <a th:href="@{/classificacoes}">Classificações</a>
         <a th:href="@{/login}">Login</a>
         <a th:href="@{/ajuda}">Ajuda</a>
     </nav>
@@ -44,7 +45,7 @@
                 </tr>
             </tbody>
         </table>
-        <p><button>Cadastrar novo curso</button></p>
+        <p><a class="button"  th:href="@{/cursos/cadastro}">Cadastrar novo curso</a></p>
         <p><button>Vincular curso com funcionário</button></p>
     </section>
 </body>

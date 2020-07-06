@@ -42,12 +42,39 @@ public class Horarios implements Serializable {
     @Column
     private LocalDate horarioFim;
 
+    public Horarios() {
+    }
+
     public Long getPkHorario() {
-        return pkHorario;
+        return this.pkHorario;
     }
 
     public void setPkHorario(Long pkHorario) {
         this.pkHorario = pkHorario;
+    }
+
+    public DiaSemana getDia_semana() {
+        return this.dia_semana;
+    }
+
+    public void setDia_semana(DiaSemana dia_semana) {
+        this.dia_semana = dia_semana;
+    }
+
+    public LocalDate getHorarioInicio() {
+        return this.horarioInicio;
+    }
+
+    public void setHorarioInicio(LocalDate horarioInicio) {
+        this.horarioInicio = horarioInicio;
+    }
+
+    public LocalDate getHorarioFim() {
+        return this.horarioFim;
+    }
+
+    public void setHorarioFim(LocalDate horarioFim) {
+        this.horarioFim = horarioFim;
     }
 
     @Override

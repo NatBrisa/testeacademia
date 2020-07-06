@@ -6,16 +6,19 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Classificacoes;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  *
  * @author natal
  */
 @Repository
-public interface ClassificacoesRepository extends JpaRepository<Classificacoes, Long>{
+public interface ClassificacoesRepository extends JpaRepository<Classificacoes, Long> {
+
+    List<Classificacoes> findByPkClassificacao(Long pkClassificacao);
     
     /**
      *

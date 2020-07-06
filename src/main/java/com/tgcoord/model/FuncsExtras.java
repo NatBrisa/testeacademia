@@ -52,6 +52,14 @@ public class FuncsExtras extends Funcionarios {
     public FuncsExtras() {
     }
 
+    public Funcionarios getFkFuncionario() {
+        return this.fkFuncionario;
+    }
+
+    public void setFkFuncionario(Funcionarios fkFuncionario) {
+        this.fkFuncionario = fkFuncionario;
+    }
+
     /**
      *
      * @return
