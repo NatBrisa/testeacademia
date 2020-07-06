@@ -7,11 +7,10 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.repository.ClassificacoesRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
@@ -20,23 +19,43 @@ import java.util.logging.Logger;
 @Service
 public class ClassificacoesService {
     
+    @SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(ClassificacoesService.class.getName());
+    
     @Autowired
     private ClassificacoesRepository repository;
     
+    /**
+     *
+     * @return
+     */
     public List<Classificacoes> findAll() {
         return repository.findAll();
     }
 	
+    /**
+     *
+     * @param pkClassificacao
+     * @return
+     */
     public Classificacoes findOne(Long pkClassificacao) {
         return repository.getOne(pkClassificacao);
     }
 	
+    /**
+     *
+     * @param classificacao
+     * @return
+     */
     public Classificacoes save(Classificacoes classificacao) {
         return repository.saveAndFlush(classificacao);
     }
 	
+    /**
+     *
+     * @param pkClassificacao
+     */
     public void delete(Long pkClassificacao) {
         repository.deleteById(pkClassificacao);
     }  
-    private static final Logger LOG = Logger.getLogger(ClassificacoesService.class.getName());
 }

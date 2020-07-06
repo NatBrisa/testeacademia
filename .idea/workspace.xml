@@ -20,60 +20,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3758f9ec-41f5-436c-8c9a-7136e9b45016" name="Default Changelist" comment="Criação de várias telas e várias mudanças nos models">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UseCase.asta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/enums/DiaSemana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CapacitacoesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FaltasRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncsExtrasRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/HorariosRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/InstituicoesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesFuncionariosRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesInstituicoesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CapacitacoesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CursosService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_1_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_0_M1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.jst.jsp.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/DependentesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FaltasService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncsExtrasService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/GestoresService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/HorariosService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebCoord.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WebCoord.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/ClassificacaoRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/ClassificacoesRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CursoRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CursosRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/FuncionarioRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/FuncionariosRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/GestorRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/GestoresRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/ClassificacoesRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/ClassificacoesRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CursosRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CursosRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/FuncionariosRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/FuncionariosRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/GestoresRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/GestoresRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/PagesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/enums/DiaSemana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/enums/DiaSemana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/exception/ResouceNotFoundException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Capacitacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Capacitacoes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Classificacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Classificacoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Cursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Cursos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Dependentes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Dependentes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Disciplinas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Disciplinas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Enderecos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Enderecos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Funcionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Funcionarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/FuncsExtras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/FuncsExtras.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Horarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Horarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Instituicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Instituicoes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesInstituicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesInstituicoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/ClassificacaoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/ClassificacoesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CursoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CursosRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/DependenteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/DependentesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FaltaRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncionarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncionariosRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/GestorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/GestoresRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/ClassificacaoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/ClassificacoesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncionarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncionariosService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ajuda.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ajuda.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/busca.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/busca.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastrocurso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastrocurso.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastrofuncionario.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastrofuncionario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastrosteste.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastrosteste.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/ClassificacoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/ClassificacoesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CursosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CursosRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/DependentesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/DependentesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncionariosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncionariosRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncsExtrasRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncsExtrasRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/GestoresRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/GestoresRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CapacitacoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CapacitacoesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/ClassificacoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/ClassificacoesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CursosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CursosService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncionariosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncionariosService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/classificacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/classificacao.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cursos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cursos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editarcurso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editarcurso.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/funcionarios.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/funcionarios.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/instituicoes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/instituicoes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,12 +112,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+    <property name="jdk.selected.JAVA_MODULE" value="14" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -235,6 +215,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="286" y="0" key="#All_in_WebCoord_(1)/0.0.1366.728@0.0.1366.728" timestamp="1591262555829" />
+    <state x="591" y="254" key="#Custom_Plugin_Repositories" timestamp="1593986964186">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="591" y="254" key="#Custom_Plugin_Repositories/0.0.1366.728@0.0.1366.728" timestamp="1593986964186" />
     <state x="495" y="112" key="#Dependency_Validation" timestamp="1591262686332">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -251,6 +235,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1592388989844" />
+    <state x="582" y="229" width="493" height="269" key="#Vim_Emulation" timestamp="1593988160634">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="582" y="229" width="493" height="269" key="#Vim_Emulation/0.0.1366.728@0.0.1366.728" timestamp="1593988160634" />
     <state x="309" y="27" key="#com.intellij.codeInsight.i18n.I18nizeQuickFixDialog" timestamp="1590998611480">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -259,14 +247,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1592389260969" />
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1592476942698">
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser" timestamp="1593990721895">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1592476942698" />
-    <state x="416" y="53" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1593716194195">
+    <state x="488" y="80" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1593990721895" />
+    <state x="416" y="53" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1593987648467">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="416" y="53" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.728@0.0.1366.728" timestamp="1593716194195" />
+    <state x="416" y="53" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/0.0.1366.728@0.0.1366.728" timestamp="1593987648467" />
     <state x="363" y="100" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1593124858173">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -283,38 +271,50 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="430" y="208" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1592487785376" />
-    <state width="1323" height="202" key="GridCell.Tab.0.bottom" timestamp="1593736162193">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1593987839035">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593736162193" />
-    <state width="1323" height="202" key="GridCell.Tab.0.center" timestamp="1593736162193">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593987839035" />
+    <state width="1323" height="202" key="GridCell.Tab.0.bottom" timestamp="1593992804621">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593736162193" />
-    <state width="1323" height="202" key="GridCell.Tab.0.left" timestamp="1593736162192">
+    <state width="1323" height="202" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593992804621" />
+    <state width="1323" height="202" key="GridCell.Tab.0.center" timestamp="1593992804621">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593736162192" />
-    <state width="1323" height="202" key="GridCell.Tab.0.right" timestamp="1593736162193">
+    <state width="1323" height="202" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593992804621" />
+    <state width="1323" height="202" key="GridCell.Tab.0.left" timestamp="1593992804621">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="202" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593736162193" />
+    <state width="1323" height="202" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593992804621" />
+    <state width="1323" height="202" key="GridCell.Tab.0.right" timestamp="1593992804621">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="202" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593992804621" />
     <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1593716363055">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1593716363055" />
-    <state x="213" y="0" key="SettingsEditor" timestamp="1593716565770">
+    <state x="348" y="68" key="NewModule_or_Project.wizard" timestamp="1593987250653">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="213" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593716565770" />
-    <state x="151" y="47" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1592518037251">
+    <state x="348" y="68" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1593987250653" />
+    <state x="213" y="0" key="SettingsEditor" timestamp="1593988121151">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="151" y="47" key="com.intellij.javaee.MapExternalResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1592518037251" />
+    <state x="213" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593988121151" />
+    <state x="151" y="47" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1593987555653">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="151" y="47" key="com.intellij.javaee.MapExternalResourceDialog/0.0.1366.728@0.0.1366.728" timestamp="1593987555653" />
     <state x="454" y="174" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590998335742">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="454" y="174" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1590998335742" />
+    <state x="65" y="0" key="new project wizard" timestamp="1593987674303">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1593987674303" />
     <state x="339" y="162" key="run.anything.popup" timestamp="1591260694249">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

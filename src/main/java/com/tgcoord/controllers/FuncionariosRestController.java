@@ -7,15 +7,12 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Funcionarios;
 import com.tgcoord.service.FuncionariosService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *
@@ -31,12 +28,15 @@ public class FuncionariosRestController {
     @Autowired
     private FuncionariosService service;
 
+    /**
+     *
+     */
     public FuncionariosRestController() {
     }
 
     /**
      *
-     * @param service
+     * @param fs
      */
     public FuncionariosRestController(FuncionariosService service) {
         this.service = service;
@@ -44,12 +44,11 @@ public class FuncionariosRestController {
     
     /**
      *
-     * @param pageable
      * @return
      */
     @GetMapping
-    public ResponseEntity<?> listAll(Pageable pageable) {
-        return new ResponseEntity<>(this.service.findAll(), HttpStatus.OK);
+    public List<Funcionarios> listAll() {
+        return this.service.findAll();
     }
     
     /**
@@ -58,15 +57,9 @@ public class FuncionariosRestController {
      * @return
      */
     @GetMapping("/{pkFuncionario}")
-    public ResponseEntity<?> getById(@PathVariable Long pkFuncionario) {
+    public Optional<Funcionarios> getById(@PathVariable Long pkFuncionario) {
         Optional<Funcionarios> funcionario = this.service.findById(pkFuncionario);
-        ResponseEntity<Optional<Funcionarios>> resp;
-        if(funcionario.isPresent()) {
-            resp = new ResponseEntity<>(funcionario, HttpStatus.FOUND);
-        } else {
-            resp = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return resp;
+        return funcionario;
     }
     
     /**
@@ -75,15 +68,9 @@ public class FuncionariosRestController {
      * @return
      */
     @GetMapping("/{nome}")
-    public ResponseEntity<?> getByName(String nome) {
+    public List<Funcionarios> getByName(String nome) {
         List<Funcionarios> funcionarios = this.service.findByNomeIgnoreCaseContaining(nome);
-        ResponseEntity<Optional<Funcionarios>> resp;
-	    if (funcionarios.isEmpty()) {
-	        resp = new ResponseEntity<>(HttpStatus.NO_CONTENT);
-	    } else {
-		    resp = new ResponseEntity(funcionarios, HttpStatus.FOUND);
-	    }
-	    return resp;
+	    return funcionarios;
     }
     
     /**
@@ -101,44 +88,28 @@ public class FuncionariosRestController {
      *
      * @param pkFuncionario
      * @param input
-     * @return
      */
     @PutMapping("/{pkFuncionario}")
-    public ResponseEntity<?> update(@PathVariable Long pkFuncionario, @RequestBody Funcionarios input) {
-        return new ResponseEntity<>(this.service.save(input), HttpStatus.OK);
+    public void update(@PathVariable Long pkFuncionario, @RequestBody Funcionarios input) {
+        service.save(input);
     }
     
     /**
      *
      * @param input
-     * @return
      */
     @PostMapping("/{input}")
-    public ResponseEntity<?> save(@RequestBody Funcionarios input) {
-        return new ResponseEntity<>(this.service.save(input), HttpStatus.OK);
+    public void save(@RequestBody Funcionarios input) {
+        service.save(input);
     }
     
     /**
      *
      * @param pkFuncionario
-     * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long pkFuncionario) {
-        Optional<Funcionarios> funcionario = this.service.findById(pkFuncionario);
-        ResponseEntity<Optional<Funcionarios>> resp;
-        if(funcionario.isPresent()) {
-            this.service.delete(pkFuncionario);
-            resp = new ResponseEntity<>(funcionario, HttpStatus.FOUND);
-        } else {
-            resp = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return resp;
-    }
-
-    @GetMapping("/cadastro")
-    public static String cadastro() {
-        return "cadastrofuncionario";
+    public void delete(@PathVariable Long pkFuncionario) {
+        service.delete(pkFuncionario);
     }
     
     /**

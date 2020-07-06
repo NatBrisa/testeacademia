@@ -26,7 +26,8 @@ import javax.persistence.Table;
 @Table(catalog = "tgcoord")
 public class Capacitacoes implements Serializable {
     
-    private static final Logger LOG = Logger.getLogger(Capacitacoes.class.getName());
+    @SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(Capacitacoes.class.getName());
 
     private static final long serialVersionUID = 1L;
     

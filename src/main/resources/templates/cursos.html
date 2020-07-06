@@ -40,7 +40,7 @@
                     <td th:text="${cursos.tpCurso}"></td>
                     <td th:text="${cursos.cargaHoraria}"></td>
                     <td th:text="${cursos.fkInstituicao}"></td>
-                    <td><a>Editar</a><a>Remover</a></td>
+                    <td><p><a th:href="@{/editarcurso}">Editar</a></p><p><a th:href="${CursosRestController.delete(cursos.pkCurso)}">Remover</a></p></td>
                 </tr>
             </tbody>
         </table>

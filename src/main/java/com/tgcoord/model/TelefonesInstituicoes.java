@@ -20,7 +20,8 @@ import javax.persistence.Table;
 @Table(catalog = "tgcoord")
 public class TelefonesInstituicoes extends Telefones {
     
-    private static final Logger LOG = Logger.getLogger(TelefonesInstituicoes.class.getName());
+    @SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(TelefonesInstituicoes.class.getName());
 
     private static final long serialVersionUID = 1L;
     

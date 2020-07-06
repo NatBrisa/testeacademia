@@ -18,6 +18,9 @@ import java.util.logging.Logger;
 @Entity
 @Table(catalog = "tgcoord")
 public class Horarios implements Serializable {
+	
+	@SuppressWarnings("unused")
+	private static final Logger LOG = Logger.getLogger(Horarios.class.getName());
 
     private static final long serialVersionUID = 1L;
     
@@ -68,6 +71,4 @@ public class Horarios implements Serializable {
     public String toString() {
         return "com.tgcoord.model.Horarios[ id=" + pkHorario + " ]";
     }
-    private static final Logger LOG = Logger.getLogger(Horarios.class.getName());
-    
 }

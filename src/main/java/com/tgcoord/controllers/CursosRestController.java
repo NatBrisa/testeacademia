@@ -6,16 +6,12 @@
 package com.tgcoord.controllers;
 
 import com.tgcoord.model.Cursos;
-import com.tgcoord.repository.CursosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
+import com.tgcoord.service.CursosService;
 import java.util.List;
-import java.util.Optional;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 /**
  *
@@ -27,26 +23,23 @@ public class CursosRestController {
     
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(CursosRestController.class.getName());
-    
-    private CursosRepository cursoRep;
+
+    @Autowired
+    private CursosService service;
 
     /**
      *
      */
-    @Autowired
-    private CursosRestController(CursosRepository cursoRep) {
-        super();
-        this.cursoRep = cursoRep;
+    private CursosRestController() {
     }
     
     /**
      *
-     * @param pageable
      * @return
      */
     @GetMapping
-    public ResponseEntity<?> listAll(Pageable pageable) {
-        return new ResponseEntity<>(this.cursoRep.findAll(pageable), HttpStatus.OK);
+    public List<Cursos> listAll() {
+        return service.findAll();
     }
     
     /**
@@ -55,13 +48,9 @@ public class CursosRestController {
      * @return
      */
     @GetMapping("/{id}")
-    public ResponseEntity<?> getById(@PathVariable("id") Long id) {
-        Optional<Cursos> curso = this.cursoRep.findById(id);
-        if(curso.isPresent()) {
-            return new ResponseEntity<>(curso, HttpStatus.FOUND);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public Cursos getById(@PathVariable("id") Long id) {
+        Cursos curso = this.service.findOne(id);
+        return curso;
     }
     
     /**
@@ -70,50 +59,37 @@ public class CursosRestController {
      * @return
      */
     @GetMapping("/{nome}")
-    public ResponseEntity<?> getByName(String nome) {
-        List<Cursos> cursos = this.cursoRep.findByNomeIgnoreCaseContaining(nome);
-        if (cursos.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(cursos, HttpStatus.FOUND);
-        }      
+    public List<Cursos> getByName(String nome) {
+        List<Cursos> cursos = this.service.findByNomeIgnoreCaseContaining(nome);
+        return cursos;
     }
     
     /**
      *
      * @param id
      * @param input
-     * @return
      */
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Cursos input) {
-        return new ResponseEntity<>(this.cursoRep.save(input), HttpStatus.OK);
+    public void update(@PathVariable Long id, @RequestBody Cursos input) {
+        service.save(input);
     }
     
     /**
      *
      * @param input
-     * @return
      */
     @PostMapping("/")
-    public ResponseEntity<?> save(@RequestBody Cursos input) {
-        return new ResponseEntity<>(this.cursoRep.save(input), HttpStatus.OK);
+    public void save(@RequestBody Cursos input) {
+        service.save(input);
     }
     
     /**
      *
      * @param id
-     * @return
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id) {
-        Optional<Cursos> curso = this.cursoRep.findById(id);
-        if(curso.isPresent()) {
-            this.cursoRep.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
     }
     
     /**

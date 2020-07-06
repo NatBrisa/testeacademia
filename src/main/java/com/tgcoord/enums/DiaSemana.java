@@ -11,12 +11,39 @@ package com.tgcoord.enums;
  */
 public enum DiaSemana {
     
+    /**
+     *
+     */
     DOM("Domingo", 1),
+
+    /**
+     *
+     */
     SEG("Segunda-Feira", 2),
+
+    /**
+     *
+     */
     TER("Terça-Feira", 3),
+
+    /**
+     *
+     */
     QUA("Quarta-Feira", 4),
+
+    /**
+     *
+     */
     QUI("Quinta-Feira", 5),
+
+    /**
+     *
+     */
     SEX("Sexta-Feira", 6),
+
+    /**
+     *
+     */
     SAB("Sábado", 7);
     
     private final String nomedia;
@@ -27,10 +54,18 @@ public enum DiaSemana {
         this.numdia = numdia;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNomedia() {
         return nomedia;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNumdia() {
         return numdia;
     }
