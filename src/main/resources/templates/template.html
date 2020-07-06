@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
+<head th:fragment="head_default">
+    <title>Coordenadoria de Educação de Fartura</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<header th:fragment="header_default">
+    <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
+        <h2>Ajuda</h2></hgroup>
+</header>
+
+<nav th:fragment="nav_default">
+    <a th:href="@{/}">Apresentação</a>
+    <a th:href="@{/funcionarios}">Funcionários</a>
+    <a th:href="@{/cursos}">Cursos</a>
+    <a th:href="@{/instituicoes}">Instituições de Ensino</a>
+    <a th:href="@{/classificacoes}">Classificações</a>
+    <a th:href="@{/login}">Login</a>
+    <a th:href="@{/ajuda}">Ajuda</a>
+</nav>
+
+<section>
+
+</section>
+</body>
+</html>

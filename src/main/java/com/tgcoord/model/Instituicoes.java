@@ -52,15 +52,6 @@ public class Instituicoes implements Serializable {
     @Basic(optional = false)
     @Column(name = "tp_inst", length = 10)
     private String tpInst;
-
-    //private String grau;
-    /*
-    @OneToMany
-    private Collection<Sala> salas = new ArrayList<>();
-
-    @OneToMany
-    private Collection<Monitor> monitores = new ArrayList<>();
-    */
     
     /**
      *

@@ -2,26 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head>
-    <title>Coordenadoria de Educação de Fartura</title>
-    <meta charset="UTF-8"/>
-    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
-</head>
+<head th:insert="~{template :: head_default}"></head>
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
         <h2>Apresentação</h2></hgroup>
     </header>
 
-    <nav>
-        <a th:href="@{/}">Apresentação</a>
-        <a th:href="@{/funcionarios}">Funcionários</a>
-        <a th:href="@{/cursos}">Cursos</a>
-        <a th:href="@{/instituicoes}">Instituições de Ensino</a>
-        <a th:href="@{/classificacoes}">Classificações</a>
-        <a th:href="@{/login}">Login</a>
-        <a th:href="@{/ajuda}">Ajuda</a>
-    </nav>
+    <nav th:insert="~{template :: nav_default}"></nav>
 
     <section>
         <h3>Apresentação</h3>

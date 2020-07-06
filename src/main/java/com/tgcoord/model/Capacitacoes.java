@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  *
@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class Capacitacoes implements Serializable {
     
     @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(Capacitacoes.class.getName());
+    private static final Logger LOG = Logger.getLogger(Capacitacoes.class.getName());
 
     private static final long serialVersionUID = 1L;
     
@@ -33,14 +33,14 @@ public class Capacitacoes implements Serializable {
     /*
     FK funcionario
     */
-    @ManyToOne
-    private Funcionarios funcionario;
+    @ManyToOne(optional = false)
+    private Funcionarios fkFuncionario;
     
     /*
     FK Curso
     */
-    @ManyToOne
-    private Cursos curso;
+    @ManyToOne(optional = false)
+    private Cursos fkCurso;
     
     @Basic(optional = false)
     @Column(name = "num_certificado", nullable = false)
@@ -69,20 +69,20 @@ public class Capacitacoes implements Serializable {
         this.pkCapacitacao = pkCapacitacao;
     }
 
-    public Funcionarios getFuncionario() {
-        return this.funcionario;
+    public Funcionarios getFkFuncionario() {
+        return fkFuncionario;
     }
 
-    public void setFuncionario(Funcionarios funcionario) {
-        this.funcionario = funcionario;
+    public void setFkFuncionario(Funcionarios fkFuncionario) {
+        this.fkFuncionario = fkFuncionario;
     }
 
-    public Cursos getCurso() {
-        return this.curso;
+    public Cursos getFkCurso() {
+        return fkCurso;
     }
 
-    public void setCurso(Cursos curso) {
-        this.curso = curso;
+    public void setFkCurso(Cursos fkCurso) {
+        this.fkCurso = fkCurso;
     }
 
     public int getNumCertificado() {

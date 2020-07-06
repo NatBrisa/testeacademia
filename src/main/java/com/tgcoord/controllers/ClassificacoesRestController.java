@@ -7,12 +7,11 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.service.ClassificacoesService;
+import java.util.List;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
-import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +22,7 @@ import java.util.logging.Logger;
 public class ClassificacoesRestController {
     
     @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(ClassificacoesRestController.class.getName());
+    private static final Logger LOG = Logger.getLogger(ClassificacoesRestController.class.getName());
     
     @Autowired
     private ClassificacoesService service;

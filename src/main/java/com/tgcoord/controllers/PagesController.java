@@ -7,9 +7,6 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.model.Cursos;
-import com.tgcoord.model.Enderecos;
-import com.tgcoord.model.Funcionarios;
-import java.util.List;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -65,18 +62,6 @@ public class PagesController {
      *
      * @return
      */
-    @GetMapping(value = "/funcionarios")
-    public ModelAndView funcionarios() {
-        ModelAndView mv = new ModelAndView("/funcionarios.html");
-        List<Funcionarios> lista = funcControl.listAll();
-        mv.addObject(lista);
-        return mv;
-    }
-
-    /**
-     *
-     * @return
-     */
     @GetMapping("/ajuda")
     public static String ajuda() {
         return "ajuda";
@@ -93,27 +78,8 @@ public class PagesController {
      */
     @PostMapping("/login")
     public ModelAndView login(@RequestParam String rg, String password, Model model) {
-        Funcionarios func = funcControl.getByRg(rg);
-        ModelAndView mv;
-        if(password.equals(func.getCpf())) {
-            mv = new ModelAndView("/index.html");
-        } else {
-            mv = new ModelAndView("/ajuda.html");
-        }
-        return mv;
-    }
-
-    /**
-     *
-     * @return
-     */
-    @GetMapping("/cadastrofuncionario")
-    public ModelAndView cadastrofuncionario() {
-        ModelAndView mv = new ModelAndView("/cadastrofuncionario.html");
-        mv.addObject("funcionarios", new Funcionarios());
-        mv.addObject("enderecos", new Enderecos());
-        mv.addObject("classificacoes", new Classificacoes());
-        //mv.addObject("lista", classControl.listAll());
+        //TODO
+        ModelAndView mv = new ModelAndView("/index.html");
         return mv;
     }
 

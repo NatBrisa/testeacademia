@@ -2,10 +2,11 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Cursos;
 import com.tgcoord.repository.CursosRepository;
-import java.util.List;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
@@ -49,7 +50,7 @@ public class CursosService {
      * @return
      */
     public Cursos save(Cursos curso) {
-        return repository.saveAndFlush(curso);
+        return this.repository.saveAndFlush(curso);
     }
 
     /**
@@ -57,7 +58,7 @@ public class CursosService {
      * @param pkCurso
      */
     public void delete(Long pkCurso) {
-        repository.deleteById(pkCurso);
+        this.repository.deleteById(pkCurso);
     }
 
     /**
@@ -66,6 +67,6 @@ public class CursosService {
      * @return
      */
     public List<Cursos> findByNomeIgnoreCaseContaining(String nome) {
-        return repository.findByNomeIgnoreCaseContaining(nome);
+        return this.repository.findByNomeIgnoreCaseContaining(nome);
     }
 }

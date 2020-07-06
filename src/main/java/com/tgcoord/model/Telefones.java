@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  *
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class Telefones implements Serializable {
     
     @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(Telefones.class.getName());
+    private static final Logger LOG = Logger.getLogger(Telefones.class.getName());
 
     private static final long serialVersionUID = 1L;
     
@@ -41,9 +41,9 @@ public class Telefones implements Serializable {
     
     /**
      *
-     * @param l
-     * @param string
-     * @param string1
+     * @param pkTelefone
+     * @param ddd
+     * @param numTel
      */
     public Telefones(Long pkTelefone, String ddd, String numTel) {
         this.pkTelefone = pkTelefone;
@@ -53,8 +53,8 @@ public class Telefones implements Serializable {
 
     /**
      *
-     * @param string
-     * @param string1
+     * @param ddd
+     * @param numTel
      */
     public Telefones(String ddd, String numTel) {
         this.ddd = ddd;

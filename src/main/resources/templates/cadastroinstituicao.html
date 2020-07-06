@@ -2,30 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head>
-    <title>Coordenadoria de Educação de Fartura</title>
-    <meta charset="UTF-8"/>
-    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
-</head>
+<head th:insert="~{template :: head_default}"></head>
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
-            <h2>Cursos</h2></hgroup>
+            <h2>Instituições</h2></hgroup>
     </header>
 
-    <nav>
-        <a th:href="@{/}">Apresentação</a>
-        <a th:href="@{/funcionarios}">Funcionários</a>
-        <a th:href="@{/cursos}">Cursos</a>
-        <a th:href="@{/instituicoes}">Instituições de Ensino</a>
-        <a th:href="@{/classificacoes}">Classificações</a>
-        <a th:href="@{/login}">Login</a>
-        <a th:href="@{/ajuda}">Ajuda</a>
-    </nav>
+    <nav th:insert="~{template :: nav_default}"></nav>
 
     <section>
         <h3>Cadastro</h3>
-        <form th:action="@{/instituicoes/save}" method="post">
+        <form th:object="${instituicoes}" th:action="@{/instituicoes/save}" method="post">
             <p><label>Nome: <input type="text" name="txnome" th:field="*{instituicoes.nomeCompleto}" autofocus="autofocus" required></label></p>
             
             <p><label>Nome simplificado: <input type="text" name="txnome" th:field="*{instituicoes.nomeSimples}"></label></p>

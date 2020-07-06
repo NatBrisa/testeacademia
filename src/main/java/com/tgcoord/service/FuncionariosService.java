@@ -1,12 +1,16 @@
 package com.tgcoord.service;
 
+import com.tgcoord.model.Capacitacoes;
+import com.tgcoord.model.Cursos;
 import com.tgcoord.model.Funcionarios;
+import com.tgcoord.repository.CapacitacoesRepository;
 import com.tgcoord.repository.FuncionariosRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  *
@@ -16,10 +20,13 @@ import org.springframework.stereotype.Service;
 public class FuncionariosService {
 
     @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(FuncionariosService.class.getName());
+    private static final Logger LOG = Logger.getLogger(FuncionariosService.class.getName());
 
     @Autowired
     private FuncionariosRepository repository;
+    
+    @Autowired
+    private CapacitacoesRepository capacitacoesRepository;
 
     /**
      *
@@ -71,7 +78,7 @@ public class FuncionariosService {
      * @return
      */
     public Funcionarios save(Funcionarios funcionario) {
-        return repository.saveAndFlush(funcionario);
+        return this.repository.saveAndFlush(funcionario);
     }
 
     /**
@@ -80,5 +87,14 @@ public class FuncionariosService {
      */
     public void delete(Long pkFuncionario) {
         repository.deleteById(pkFuncionario);
+    }
+    
+    public List<Cursos> findAllCursos(Funcionarios funcionario) {
+        List<Capacitacoes> allCapacitacoes = this.capacitacoesRepository.findAllByFkFuncionario(funcionario);
+        List<Cursos> listaCursos = null;
+        for(int i=0;i>allCapacitacoes.size();i++){
+            listaCursos.add(allCapacitacoes.get(i).getFkCurso());
+        }
+        return listaCursos;
     }
 }

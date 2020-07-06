@@ -2,78 +2,69 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head>
-    <title>Coordenadoria de Educação de Fartura</title>
-    <meta charset="UTF-8"/>
-    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
-</head>
+<head th:insert="~{template :: head_default}"></head>
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
             <h2>Funcionários</h2></hgroup>
     </header>
 
-    <nav>
-        <a th:href="@{/}">Apresentação</a>
-        <a th:href="@{/funcionarios}">Funcionários</a>
-        <a th:href="@{/cursos}">Cursos</a>
-        <a th:href="@{/instituicoes}">Instituições de Ensino</a>
-        <a th:href="@{/classificacoes}">Classificações</a>
-        <a th:href="@{/login}">Login</a>
-        <a th:href="@{/ajuda}">Ajuda</a>
-    </nav>
+    <nav th:insert="~{template :: nav_default}"></nav>
 
     <section>
         <h3>Cadastro</h3>
-        <form th:action="@{funcionario/save}" method="post">
+        <form action="#" th:action="@{funcionario/save}" th:object="${funcionarios}" method="post">
+            <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input is incorrect</li>
+            </ul>
 
             <h4>Dados Pessoais</h4>
-            <p><label>Nome: <input type="text" name="txnome" th:field="${funcionarios.nome}" autofocus="autofocus" required></label></p>
+            <p><label>Nome: <input type="text" name="txnome" th:field="*{nome}" autofocus="autofocus" required></label></p>
 
-            <p><label>Sobrenome: <input type="text" name="txsobrenome" th:field="*{funcionarios.sobrenome}" required></label></p>
+            <p><label>Sobrenome: <input type="text" name="txsobrenome" th:field="*{sobrenome}" required></label></p>
 
-            <p><label>RG: <input type="text" name="txrg" th:field="*{funcionarios.rg}" required></label></p>
+            <p><label>RG: <input type="text" name="txrg" th:field="*{rg}" required></label></p>
 
-            <p><label>CPF: <input type="text" name="txcpf" th:field="*{funcionarios.cpf}" required></label></p>
+            <p><label>CPF: <input type="text" name="txcpf" th:field="*{cpf}" required></label></p>
 
             <p>Gênero:</p>
-            <p><label><input type="radio" th:field="*{funcionarios.gen}" th:value="F" /> Feminino</label></p>
-            <p><label><input type="radio" th:field="*{funcionarios.gen}" th:value="M" /> Masculino</label></p>
+            <p><label><input type="radio" th:field="*{gen}" th:value="F" /> Feminino</label></p>
+            <p><label><input type="radio" th:field="*{gen}" th:value="M" /> Masculino</label></p>
 
-            <p><label>Data de Nascimento: <input type="date" name="dtnasc" th:field="*{funcionarios.dtNasc}" required></label></p>
+            <p><label>Data de Nascimento: <input type="date" name="dtnasc" th:field="*{dtNasc}" required></label></p>
 
             <h4>Dados Profissionais</h4>
-            <p><label>Classificação: <select name="classificacao" th:field="*{classificacoes.pkClassificacao}" required>
-                <option th:each="classificacoes : ${lista}" th:value="${classificacoes.pkClassificacao}" th:text="${classificacoes.nome}"></option>
+            <p><label>Classificação: <select name="classificacao" th:field="*{fkClassificacao}" required>
+                <option th:each="classificacoes : ${listaClassificacoes}" th:value="${classificacoes.pkClassificacao}" th:text="${classificacoes.nome}"></option>
             </select></label></p>
 
-            <p><label>Data de Admissão: <input type="date" name="admissao" th:field="*{funcionarios.dtAdmissao}"></label></p>
+            <p><label>Data de Admissão: <input type="date" name="admissao" th:field="*{dtAdmissao}"></label></p>
 
-            <p><label>PIS: <input type="text" name="pis" th:field="*{funcionarios.pis}"></label></p>
+            <p><label>PIS: <input type="text" name="pis" th:field="*{pis}"></label></p>
 
             <h4>Informações de contato</h4>
 
-            <p><label>Estado: <select name="uf" th:field="*{enderecos.uf}" required>
+            <p><label>Estado: <select name="uf" th:field="*{uf}" required>
                 <option th:value="SP">SP</option>
                 <option th:value="PR">PR</option>
                 <option th:value="RJ">RJ</option>
             </select></label></p>
 
-            <p><label>Município: <input type="text" name="municipio" th:field="*{enderecos.municipio}"></label></p>
+            <p><label>Município: <input type="text" name="municipio" th:field="*{municipio}"></label></p>
 
-            <p><label>Bairro: <input type="text" name="bairro" th:field="*{enderecos.bairro}"></label></p>
+            <p><label>Bairro: <input type="text" name="bairro" th:field="*{bairro}"></label></p>
 
-            <p><label>Rua: <input type="text" name="rua" th:field="*{enderecos.rua}"></label></p>
+            <p><label>Rua: <input type="text" name="rua" th:field="*{rua}"></label></p>
 
-            <p><label>Número: <input type="number" name="num" th:field="*{enderecos.num}"></label></p>
+            <p><label>Número: <input type="number" name="num" th:field="*{num}"></label></p>
 
-            <p><label>Complemento: <input type="text" name="complemento" th:field="*{enderecos.complemento}"></label></p>
+            <p><label>Complemento: <input type="text" name="complemento" th:field="*{complemento}"></label></p>
 
-            <p><label>Telefone: <input type="tel" name="telefone" th:field="*{funcionarios.fktelefone}"></label></p>
+            <!-- <p><label>Telefone: <input type="tel" name="telefone" th:field="*{fktelefone}"></label></p> -->
 
-            <p><label>E-mail: <input type="email" name="email" th:field="*{funcionarios.email}"></label></p>
+            <p><label>E-mail: <input type="email" name="email" th:field="*{email}"></label></p>
 
-            <input type="submit" value="Cadastrar">
+            <input type="submit" name="save" th:text="#{funcionarios.save}" value="Cadastrar">
             <input type="reset" value="Cancelar">
         </form>
     </section>

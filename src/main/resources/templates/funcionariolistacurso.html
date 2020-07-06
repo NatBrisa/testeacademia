@@ -8,32 +8,30 @@
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
             <h2>Funcionários</h2></hgroup>
     </header>
-
     <nav th:insert="~{template :: nav_default}"></nav>
 
     <section>
-    <h3>Funcionários</h3>
+    <h3 th:text="Lista de cursos do funcionário *{funcionarios.nome}"></h3>
         <table>
             <thead>
                 <tr>
                     <th>Nome</th>
-                    <th>RG</th>
-                    <th>CPF</th>
-                    <th>Classificação</th>
+                    <th>Tipo</th>
+                    <th>Carga Horária</th>
+                    <th>Instituição</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="funcionarios : ${funcionarios}">
-                    <td th:text="${funcionarios.nome}"></td>
-                    <td th:text="${funcionarios.rg}"></td>
-                    <td th:text="${funcionarios.cpf}"></td>
-                    <td th:text="${funcionarios.fkclassificacao}"></td>
-                    <td><a th:href="@{/${funcionarios.pkfuncionario}/listacurso}">Mais Informações</a><a>Editar</a><a>Remover</a></td>
+                <tr th:each="cursos : ${listacursos}">
+                    <td th:text="${cursos.nome}"></td>
+                    <td th:text="${cursos.tpCurso}"></td>
+                    <td th:text="${cursos.cargaHoraria}"></td>
+                    <td th:text="${cursos.fkInstituicao}"></td>
+                    <td><p><a th:href="@{/editarcurso}">Editar</a></p><p><a th:href="${CursosRestController.delete(cursos.pkCurso)}">Remover</a></p></td>
                 </tr>
             </tbody>
         </table>
-        <p><a class="button" th:href="@{/funcionarios/cadastro}">Cadastrar novo funcionário</a></p>
         <p><a class="button">Vincular curso com funcionário</a></p>
     </section>
 </body>

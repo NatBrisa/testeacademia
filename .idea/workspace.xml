@@ -19,37 +19,40 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3758f9ec-41f5-436c-8c9a-7136e9b45016" name="Default Changelist" comment="Atualizaçao dos controllers">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Telefones.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesFuncionarios.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/InstituicoesService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastroclassificacao.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastroinstituicao.html" afterDir="false" />
+    <list default="true" id="3758f9ec-41f5-436c-8c9a-7136e9b45016" name="Default Changelist" comment="Atualizaçao dos controllers e criação de mais telas">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CapacitacoesRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/TelefonesFuncionariosService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/TelefonesInstituicoesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/funcionariolistacurso.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebCoord.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WebCoord.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/ClassificacoesRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/ClassificacoesRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CursosRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CursosRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/FuncionariosRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/FuncionariosRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/GestoresRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/GestoresRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/PagesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Capacitacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Capacitacoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Dependentes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Dependentes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Disciplinas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Disciplinas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Enderecos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Enderecos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Funcionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Funcionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/FuncsExtras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/FuncsExtras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Gestores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Gestores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Horarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Horarios.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Instituicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Instituicoes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Telefones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Telefones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesFuncionarios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesInstituicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesInstituicoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/ClassificacoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/ClassificacoesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/InstituicoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/InstituicoesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/ClassificacoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/ClassificacoesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CapacitacoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CapacitacoesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncionariosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncionariosRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesFuncionariosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesFuncionariosRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesInstituicoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesInstituicoesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CursosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CursosService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncionariosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncionariosService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ajuda.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ajuda.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/busca.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/busca.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastroclassificacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastroclassificacao.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastrocurso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastrocurso.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastrofuncionario.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastrofuncionario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastrosteste.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastrosteste.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/classificacao.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/classificacoes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastroinstituicao.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cadastroinstituicao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cadastrosteste.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/classificacoes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/classificacoes.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/cursos.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/cursos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/editarcurso.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/editarcurso.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/funcionarios.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/funcionarios.html" afterDir="false" />
@@ -57,7 +60,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/instituicoes.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/instituicoes.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
     </list>
-    <option name="SHOW_DIALOG" value="false" />
+    <option name="SHOW_DIALOG" value="true" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
@@ -71,9 +74,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -101,6 +104,7 @@
   <component name="ProjectId" id="1chvROyd9RoSO9ZtznALh3D8QuS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="2" id="Remove" />
   </component>
   <component name="ProjectViewState">
     <option name="compactDirectories" value="true" />
@@ -121,7 +125,7 @@
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -200,8 +204,18 @@
       <option name="project" value="LOCAL" />
       <updated>1593996120950</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Atualizaçao dos controllers e criação de mais telas">
+      <created>1594019140618</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1594019140618</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -215,11 +229,18 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myShow1" value="true" />
+    <option name="myLimit" value="864000000" />
+  </component>
   <component name="VcsManagerConfiguration">
+    <confirmMoveToFailedCommit value="0" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Criação de várias telas e várias mudanças nos models" />
     <MESSAGE value="Atualizaçao dos controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualizaçao dos controllers" />
+    <MESSAGE value="Atualizaçao dos controllers e criação de mais telas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualizaçao dos controllers e criação de mais telas" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="286" y="0" key="#All_in_WebCoord_(1)" timestamp="1591262555829">
@@ -242,6 +263,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="0" width="816" height="728" key="#Intentions/0.0.1366.728@0.0.1366.728" timestamp="1590998722215" />
+    <state x="568" y="227" key="#Notifications" timestamp="1594050585572">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="568" y="227" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1594050585572" />
     <state x="163" y="0" key="#Project_Structure" timestamp="1592388989844">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -286,34 +311,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593997462118" />
-    <state width="1323" height="72" key="GridCell.Tab.0.bottom" timestamp="1594017901927">
+    <state width="1323" height="117" key="GridCell.Tab.0.bottom" timestamp="1594072164393">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="72" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594017901927" />
-    <state width="1323" height="72" key="GridCell.Tab.0.center" timestamp="1594017901927">
+    <state width="1323" height="117" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594072164393" />
+    <state width="1323" height="117" key="GridCell.Tab.0.center" timestamp="1594072164392">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="72" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594017901927" />
-    <state width="1323" height="72" key="GridCell.Tab.0.left" timestamp="1594017901927">
+    <state width="1323" height="117" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594072164392" />
+    <state width="1323" height="117" key="GridCell.Tab.0.left" timestamp="1594072164392">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="72" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594017901927" />
-    <state width="1323" height="72" key="GridCell.Tab.0.right" timestamp="1594017901927">
+    <state width="1323" height="117" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594072164392" />
+    <state width="1323" height="117" key="GridCell.Tab.0.right" timestamp="1594072164392">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="72" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594017901927" />
-    <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1593716363055">
+    <state width="1323" height="117" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594072164392" />
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog" timestamp="1594068196184">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1593716363055" />
+    <state x="213" y="19" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1594068196184" />
     <state x="348" y="68" key="NewModule_or_Project.wizard" timestamp="1593987250653">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="348" y="68" key="NewModule_or_Project.wizard/0.0.1366.728@0.0.1366.728" timestamp="1593987250653" />
-    <state x="213" y="0" key="SettingsEditor" timestamp="1593988121151">
+    <state x="213" y="0" key="SettingsEditor" timestamp="1594051544566">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="213" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1593988121151" />
+    <state x="213" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594051544566" />
     <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1593999484145">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

@@ -1,5 +1,6 @@
 package com.tgcoord.repository;
 
+import com.tgcoord.model.Funcionarios;
 import com.tgcoord.model.TelefonesFuncionarios;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -10,4 +11,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TelefonesFuncionariosRepository extends JpaRepository<TelefonesFuncionarios, Long> {
+    
+    TelefonesFuncionarios findByFkFuncionario(Funcionarios fkFuncionario);
 }

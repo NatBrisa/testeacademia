@@ -5,13 +5,18 @@
  */
 package com.tgcoord.controllers;
 
+import com.tgcoord.model.Cursos;
+import com.tgcoord.model.Enderecos;
 import com.tgcoord.model.Funcionarios;
 import com.tgcoord.service.ClassificacoesService;
 import com.tgcoord.service.FuncionariosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -21,7 +26,7 @@ import java.util.logging.Logger;
  * @author natalia
  */
 @RestController
-@RequestMapping("/funcionario")
+@RequestMapping("/funcionarios")
 public class FuncionariosRestController {
     
     @SuppressWarnings("unused")
@@ -31,7 +36,7 @@ public class FuncionariosRestController {
     private FuncionariosService service;
 
     @Autowired
-    private ClassificacoesService classService;
+    private ClassificacoesService classificacoesService;
 
     /**
      *
@@ -41,7 +46,6 @@ public class FuncionariosRestController {
 
     /**
      *
-     * @param fs
      */
     public FuncionariosRestController(FuncionariosService service) {
         this.service = service;
@@ -52,8 +56,11 @@ public class FuncionariosRestController {
      * @return
      */
     @GetMapping
-    public List<Funcionarios> listAll() {
-        return this.service.findAll();
+    public ModelAndView listAll() {
+        ModelAndView mv = new ModelAndView("/funcionarios.html");
+        List<Funcionarios> lista = service.findAll();
+        mv.addObject(lista);
+        return mv;
     }
     
     /**
@@ -69,28 +76,6 @@ public class FuncionariosRestController {
     
     /**
      *
-     * @param nome
-     * @return
-     */
-    @GetMapping("/{nome}")
-    public List<Funcionarios> getByName(String nome) {
-        List<Funcionarios> funcionarios = this.service.findByNomeIgnoreCaseContaining(nome);
-	    return funcionarios;
-    }
-    
-    /**
-     *
-     * @param rg
-     * @return
-     */
-    @GetMapping("/{rg}")
-    public Funcionarios getByRg(String rg) {
-        Funcionarios funcionario = this.service.findByRg(rg);
-        return funcionario;
-    }
-    
-    /**
-     *
      * @param pkFuncionario
      * @param input
      */
@@ -101,11 +86,17 @@ public class FuncionariosRestController {
     
     /**
      *
-     * @param input
+     * @param funcionarios
+     * @return
      */
-    @PostMapping("/{input}")
-    public void save(@RequestBody Funcionarios input) {
-        service.save(input);
+    @PostMapping(value="/save", params={"save"})
+    public ModelAndView save(@ModelAttribute("funcionarios") @Valid Funcionarios funcionarios,
+                             BindingResult result) {
+        if(result.hasErrors()) {
+            return cadastro();
+        }
+        service.save(funcionarios);
+        return listAll();
     }
     
     /**
@@ -116,8 +107,22 @@ public class FuncionariosRestController {
     public void delete(@PathVariable Long pkFuncionario) {
         service.delete(pkFuncionario);
     }
+    
+    /**
+     *
+     * @return
+     */
+    @GetMapping("/cadastro")
+    public ModelAndView cadastro() {
+        ModelAndView mv = new ModelAndView("/cadastrofuncionario.html");
+        mv.addObject("funcionarios", new Funcionarios());
+        mv.addObject("enderecos", new Enderecos());
+        mv.addObject("listaClassificacoes", classificacoesService.findAll());
+        //mv.addObject("lista", classControl.listAll());
+        return mv;
+    }
 
-    @GetMapping("/{fkClassificacao}")
+    @GetMapping("/class/{fkClassificacao}")
     public int quantiaClassificacao(Long fkClassificacao) {
         List<Funcionarios> funcTotal = service.findAll();
         int result = 0;
@@ -127,6 +132,15 @@ public class FuncionariosRestController {
             }
         }
         return result;
+    }
+    
+    @GetMapping("/{id}/listacurso")
+    public ModelAndView listCursos(@RequestBody Funcionarios input) {
+        ModelAndView mv = new ModelAndView("/.html");
+        List<Cursos> listacursos = service.findAllCursos(input);
+        mv.addObject("funcionarios", input);
+        mv.addObject("listacursos", listacursos);
+        return mv;
     }
     
     /**
