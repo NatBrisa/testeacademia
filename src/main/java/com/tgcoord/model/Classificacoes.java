@@ -5,9 +5,10 @@
  */
 package com.tgcoord.model;
 
-import java.io.Serializable;
-import java.util.logging.Logger;
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Objects;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,9 +19,7 @@ import javax.persistence.*;
 public class Classificacoes implements Serializable {
     
     @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(Classificacoes.class.getName());
-
-    private static final long serialVersionUID = 1L;
+    private static final Logger LOG = Logger.getLogger(Classificacoes.class.getName());
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,24 +55,32 @@ public class Classificacoes implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return this.nome;
+    }
+
+    @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (null != this.pkClassificacao ? this.pkClassificacao.hashCode() : 0);
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.pkClassificacao);
         return hash;
     }
 
     @Override
     public boolean equals(Object obj) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(obj instanceof Classificacoes)) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-        Classificacoes other = (Classificacoes) obj;
-        return !(null == this.pkClassificacao ? null != other.pkClassificacao : !this.pkClassificacao.equals(other.pkClassificacao));
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Classificacoes other = (Classificacoes) obj;
+        if (!Objects.equals(this.pkClassificacao, other.pkClassificacao)) {
+            return false;
+        }
+        return true;
     }
-
-    @Override
-    public String toString() {
-        return "com.tgcoord.model.Classificacao[ id=" + this.pkClassificacao + " ]";
-    } 
 }

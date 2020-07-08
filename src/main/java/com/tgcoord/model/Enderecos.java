@@ -18,8 +18,6 @@ public class Enderecos implements Serializable {
 
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Enderecos.class.getName());
-    
-    private static final long serialVersionUID = 1L;
 
     @Column(length = 2)
     private String uf;
@@ -43,6 +41,15 @@ public class Enderecos implements Serializable {
      *
      */
     public Enderecos() {
+    }
+    
+    public Enderecos(String uf, String municipio, String bairro, String rua, int num, String complemento) {
+        this.uf = uf;
+        this.municipio = municipio;
+        this.bairro = bairro;
+        this.rua = rua;
+        this.num = num;
+        this.complemento = complemento;
     }
 
     /**

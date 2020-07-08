@@ -6,14 +6,17 @@
 package com.tgcoord.controllers;
 
 import com.tgcoord.model.Cursos;
+import com.tgcoord.model.Instituicoes;
 import com.tgcoord.service.CursosService;
 import com.tgcoord.service.InstituicoesService;
-import java.util.List;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
 
 /**
  *
@@ -43,7 +46,7 @@ public class CursosRestController {
      * @return
      */
     @GetMapping
-    public ModelAndView cursos() {
+    public ModelAndView listAll() {
         ModelAndView mv = new ModelAndView("/cursos.html");
         List<Cursos> lista = service.findAll();
         mv.addObject("listacursos", lista);
@@ -84,11 +87,13 @@ public class CursosRestController {
     
     /**
      *
-     * @param input
      */
-    @PostMapping("/")
-    public void save(@RequestBody Cursos input) {
-        service.save(input);
+    @PostMapping("/cadastro")
+    public ModelAndView cadastro(@ModelAttribute Cursos cursos, @RequestParam(value="instituicao") String instituicao) {
+        Long pkinstituicao = Long.parseLong(instituicao);
+        Optional<Instituicoes> instituicaoOb = instituicaoService.findById(pkinstituicao);
+        service.save(cursos);
+        return listAll();
     }
     
     /**

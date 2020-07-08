@@ -29,11 +29,15 @@
                     <td th:text="${instituicoes.tpInst}"></td>
                     <td th:text="${instituicoes.tel}"></td>
                     <td th:text="${instituicoes.email}"></td>
-                    <td><a>Editar</a><a th:href="@{/instituicoes/delete}">Remover</a></td>
+                    <td style="text-align: center">
+                        <a>Mais Informações</a>
+                        <br><button name="editar" th:value="${instituicoes.pkInstituicao}">Editar</button>
+                        <br><button name="remover" th:value="${instituicoes.pkInstituicao}">Remover</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <p><button>Cadastrar nova instituição</button></p>
+        <p><a class="button" method="get" th:href="@{/instituicoes/cadastro}">Cadastrar nova instituição</a></p>
     </section>
 </body>
 </html>

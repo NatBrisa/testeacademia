@@ -13,6 +13,7 @@
 
     <section>
     <h3>Cursos</h3>
+    <form action="#" th:action="@{/cursos}" th:object="${cursos}" method="post">
         <table>
             <thead>
                 <tr>
@@ -24,15 +25,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="cursos : ${cursos}">
+                <tr th:each="cursos : ${listacursos}">
                     <td th:text="${cursos.nome}"></td>
                     <td th:text="${cursos.tpCurso}"></td>
                     <td th:text="${cursos.cargaHoraria}"></td>
                     <td th:text="${cursos.fkInstituicao}"></td>
-                    <td><p><a th:href="@{/editarcurso}">Editar</a></p><p><a th:href="${CursosRestController.delete(cursos.pkCurso)}">Remover</a></p></td>
+                    <td>
+                        <a>Mais Informações</a>
+                        <br><button name="editar" th:value="${cursos.pkCurso}">Editar</button>
+                        <br><button name="remover" th:value="${cursos.pkCurso}">Remover</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
+    </form>
         <p><a class="button"  th:href="@{/cursos/cadastro}">Cadastrar novo curso</a></p>
         <p><button>Vincular curso com funcionário</button></p>
     </section>

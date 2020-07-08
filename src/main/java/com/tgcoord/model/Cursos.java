@@ -5,19 +5,9 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.time.Duration;
 import java.util.logging.Logger;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  * @author natal
@@ -47,7 +37,7 @@ public class Cursos implements Serializable {
 
     @Basic
     @Column(name = "carga_horaria")
-    private Duration cargaHoraria;
+    private float cargaHoraria;
 
     @ManyToOne(targetEntity = Instituicoes.class)
     @JoinColumn(name = "fkinstituicao", foreignKey = @ForeignKey(name = "FK_instituicao"))
@@ -108,14 +98,14 @@ public class Cursos implements Serializable {
     /**
      * @return
      */
-    public Duration getCargaHoraria() {
+    public float getCargaHoraria() {
         return this.cargaHoraria;
     }
 
     /**
      * @param cargaHoraria
      */
-    public void setCargaHoraria(Duration cargaHoraria) {
+    public void setCargaHoraria(float cargaHoraria) {
         this.cargaHoraria = cargaHoraria;
     }
     

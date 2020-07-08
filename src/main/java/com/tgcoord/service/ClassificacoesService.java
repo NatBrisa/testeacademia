@@ -33,18 +33,27 @@ public class ClassificacoesService {
     public List<Classificacoes> findAll() {
         return repository.findAll();
     }
+    
+    public List<Classificacoes> listAllOrderByNome() {
+        return repository.findAllByOrderByNomeAsc();
+    }
 	
     /**
      *
      * @param pkClassificacao
      * @return
      */
-    public Classificacoes findOne(Long pkClassificacao) {
+    public Classificacoes getByPkClassificacao(Long pkClassificacao) {
         return repository.getOne(pkClassificacao);
     }
-
-    public List<Classificacoes> findByPkClassificacao(Long pkClassificacao) {
-        return repository.findByPkClassificacao(pkClassificacao);
+    
+    /**
+     *
+     * @param pkClassificacao
+     * @return
+     */
+    public List<Classificacoes> findByName(String nome) {
+        return repository.findByNomeIgnoreCaseContaining(nome);
     }
 	
     /**

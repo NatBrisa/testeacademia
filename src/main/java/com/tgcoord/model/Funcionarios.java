@@ -5,11 +5,14 @@
  */
 package com.tgcoord.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 /**
@@ -17,6 +20,7 @@ import java.util.logging.Logger;
  */
 @Entity
 @Table(catalog = "tgcoord", uniqueConstraints = {
+    @UniqueConstraint(columnNames = "pkfuncionario", name = "UK_pkfuncionario"),
     @UniqueConstraint(columnNames = {"nome", "sobrenome"}, name = "UK_nome"),
     @UniqueConstraint(columnNames = "rg", name = "UK_rg"),
     @UniqueConstraint(columnNames = "cpf", name = "UK_cpf")
@@ -25,11 +29,9 @@ public class Funcionarios implements Serializable {
 
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Funcionarios.class.getName());
-
-    private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pkfuncionario")
     private Long pkFuncionario;
 
@@ -55,6 +57,7 @@ public class Funcionarios implements Serializable {
 
     @Basic(optional = false)
     @Column(name = "dt_nasc", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate dtNasc;
     
     @ManyToOne
@@ -82,6 +85,43 @@ public class Funcionarios implements Serializable {
 //    private Collection<Dependente> dependentes = new ArrayList<>();
     
     public Funcionarios() {
+    }
+    
+    public Funcionarios(Long pkFuncionario, String nome, String sobrenome, String rg, String cpf, Character gen, LocalDate dtNasc, Classificacoes fkClassificacao, LocalDate dtAdmissao, LocalDate dtTermino, Enderecos endereco, String email, String pis) {
+        this.pkFuncionario = pkFuncionario;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.gen = gen;
+        this.dtNasc = dtNasc;
+        this.fkClassificacao = fkClassificacao;
+        this.dtAdmissao = dtAdmissao;
+        this.dtTermino = dtTermino;
+        this.endereco = endereco;
+        this.email = email;
+        this.pis = pis;
+    }
+    
+    public Funcionarios(Long pkFuncionario, String nome, String sobrenome, String rg, String cpf, Character gen, LocalDate dtNasc, Classificacoes fkClassificacao, LocalDate dtAdmissao, LocalDate dtTermino, String uf, String municipio, String bairro, String rua, int num, String complemento, String email, String pis) {
+        this.pkFuncionario = pkFuncionario;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.gen = gen;
+        this.dtNasc = dtNasc;
+        this.fkClassificacao = fkClassificacao;
+        this.dtAdmissao = dtAdmissao;
+        this.dtTermino = dtTermino;
+        this.endereco.setUf(uf);
+        this.endereco.setMunicipio(municipio);
+        this.endereco.setBairro(bairro);
+        this.endereco.setRua(rua);
+        this.endereco.setNum(num);
+        this.endereco.setComplemento(complemento);
+        this.email = email;
+        this.pis = pis;
     }
 
     public Funcionarios(Long pkFuncionario, String nome, String sobrenome, String rg, String cpf, Character gen, LocalDate dtNasc, LocalDate dtAdmissao, LocalDate dtTermino, Enderecos endereco, String email, String pis) {
@@ -241,21 +281,35 @@ public class Funcionarios implements Serializable {
      */
     public void setPis(String pis) {
         this.pis = pis;
+    } 
+
+    @Override
+    public String toString() {
+        return "Funcionarios{" + "nome=" + nome + ", sobrenome=" + sobrenome + '}';
     }
 
-//    public Collection<Curso> getCursos() {
-//        return this.cursos;
-//    }
-//
-//    public void setCursos(Collection<Curso> cursos) {
-//        this.cursos = cursos;
-//    }
-//    
-//    public Collection<Dependente> getDependentes() {
-//        return this.dependentes;
-//    }
-//
-//    public void setDependentes(Collection<Dependente> dependentes) {
-//        this.dependentes = dependentes;
-//    }
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 71 * hash + Objects.hashCode(this.pkFuncionario);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Funcionarios other = (Funcionarios) obj;
+        if (!Objects.equals(this.pkFuncionario, other.pkFuncionario)) {
+            return false;
+        }
+        return true;
+    }
 }

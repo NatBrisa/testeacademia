@@ -5,6 +5,7 @@
  */
 package com.tgcoord.controllers;
 
+import com.tgcoord.model.Classificacoes;
 import com.tgcoord.model.Cursos;
 import com.tgcoord.model.Enderecos;
 import com.tgcoord.model.Funcionarios;
@@ -12,11 +13,9 @@ import com.tgcoord.service.ClassificacoesService;
 import com.tgcoord.service.FuncionariosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -59,7 +58,7 @@ public class FuncionariosRestController {
     public ModelAndView listAll() {
         ModelAndView mv = new ModelAndView("/funcionarios.html");
         List<Funcionarios> lista = service.findAll();
-        mv.addObject(lista);
+        mv.addObject("funcionariolista", lista);
         return mv;
     }
     
@@ -86,28 +85,17 @@ public class FuncionariosRestController {
     
     /**
      *
+     * @param classificacao
      * @param funcionarios
-     * @return
      */
-    @PostMapping(value="/save", params={"save"})
-    public ModelAndView save(@ModelAttribute("funcionarios") @Valid Funcionarios funcionarios,
-                             BindingResult result) {
-        if(result.hasErrors()) {
-            return cadastro();
-        }
+    @PostMapping(value="/cadastro")
+    public ModelAndView cadastro(@ModelAttribute Funcionarios funcionarios, @RequestParam(value="classificacao") String classificacao) {
+        Long pkclassificacao = Long.parseLong(classificacao);
+        Classificacoes classificacaoOb = classificacoesService.getByPkClassificacao(pkclassificacao);
         service.save(funcionarios);
         return listAll();
     }
-    
-    /**
-     *
-     * @param pkFuncionario
-     */
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long pkFuncionario) {
-        service.delete(pkFuncionario);
-    }
-    
+
     /**
      *
      * @return
@@ -117,9 +105,20 @@ public class FuncionariosRestController {
         ModelAndView mv = new ModelAndView("/cadastrofuncionario.html");
         mv.addObject("funcionarios", new Funcionarios());
         mv.addObject("enderecos", new Enderecos());
-        mv.addObject("listaClassificacoes", classificacoesService.findAll());
-        //mv.addObject("lista", classControl.listAll());
+        mv.addObject("listaClassificacoes", classificacoesService.listAllOrderByNome());
         return mv;
+    }
+    
+    /**
+     *
+     * @param id
+     * @return 
+     */
+    @RequestMapping(params = {"remover"}, method = RequestMethod.POST)
+    public ModelAndView delete(@RequestParam("remover") String id) {
+        Long pkfuncionario = Long.parseLong(id);
+        service.delete(pkfuncionario);
+        return listAll();
     }
 
     @GetMapping("/class/{fkClassificacao}")

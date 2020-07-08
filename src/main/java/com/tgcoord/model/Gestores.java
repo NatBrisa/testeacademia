@@ -31,7 +31,7 @@ public class Gestores implements Serializable {
     @Column(name = "pkgestor")
     private Long pkGestor;
     
-    @JoinColumn(name = "fkfuncionario" , referencedColumnName = "pkfuncionario", nullable = false, insertable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_gestor_funcionario"))
+    @JoinColumn(name = "fkfuncionario" , referencedColumnName = "pkfuncionario", foreignKey = @ForeignKey(name = "fk_gestor_funcionario"))
     @OneToOne(optional = false)
     private Funcionarios fkFuncionario;
     

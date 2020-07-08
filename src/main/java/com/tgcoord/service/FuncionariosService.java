@@ -2,6 +2,7 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Capacitacoes;
 import com.tgcoord.model.Cursos;
+import com.tgcoord.model.Enderecos;
 import com.tgcoord.model.Funcionarios;
 import com.tgcoord.repository.CapacitacoesRepository;
 import com.tgcoord.repository.FuncionariosRepository;
@@ -71,13 +72,24 @@ public class FuncionariosService {
     public Funcionarios findByEmail(String email) {
         return this.repository.findByEmail(email);
     }
-
+    
     /**
      *
      * @param funcionario
      * @return
      */
     public Funcionarios save(Funcionarios funcionario) {
+        return this.repository.saveAndFlush(funcionario);
+    }
+
+    /**
+     *
+     * @param funcionario
+     * @param endereco
+     * @return
+     */
+    public Funcionarios save(Funcionarios funcionario, Enderecos endereco) {
+        funcionario.setEndereco(endereco);
         return this.repository.saveAndFlush(funcionario);
     }
 

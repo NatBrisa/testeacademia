@@ -87,8 +87,13 @@ th {
 td {
     border: 1px solid black;
     height: 15pt;
+    text-align: center;
 }
 
 ul {
     list-style-type: none;
+}
+
+.error {
+    border: solid red;
 }

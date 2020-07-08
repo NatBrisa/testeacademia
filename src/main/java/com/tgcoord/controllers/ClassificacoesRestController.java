@@ -7,11 +7,13 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.service.ClassificacoesService;
-import java.util.List;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,6 +37,7 @@ public class ClassificacoesRestController {
 
     /**
      *
+     * @param service
      */
     public ClassificacoesRestController(ClassificacoesService service) {
         this.service=service;
@@ -45,9 +48,10 @@ public class ClassificacoesRestController {
      * @return
      */
     @GetMapping
-    public ModelAndView classificacoes() {
+    public ModelAndView listAll() {
         ModelAndView mv = new ModelAndView("/classificacoes.html");
-        List<Classificacoes> listaC = service.findAll();
+        mv.addObject("classificacoes", new Classificacoes());
+        List<Classificacoes> listaC = service.listAllOrderByNome();
         mv.addObject("classificacoeslista", listaC);
         return mv;
     }
@@ -59,19 +63,29 @@ public class ClassificacoesRestController {
      */
     @GetMapping("/{id}")
     public Classificacoes getById(@PathVariable("id") Long id) {
-        Classificacoes classificacao = this.service.findOne(id);
+        Classificacoes classificacao = this.service.getByPkClassificacao(id);
         return classificacao;
     }
 
     /**
      *
-     * @param input
-     * @return
+     * @param classificacoes
+     * @param result
+     * @return 
      */
-    @PostMapping("/{input}")
-    public void save(Classificacoes input) {
-        this.service.save(input);
-        classificacoes();
+    @PostMapping(params = {"salvar"})
+    public ModelAndView save(@ModelAttribute Classificacoes classificacoes, BindingResult result) {
+        System.out.println("BindingResult: " + result);
+        System.out.println("Classificacao: " + classificacoes);
+        this.service.save(classificacoes);
+        return listAll();
+    }
+
+    @RequestMapping(params = {"remover"}, method = RequestMethod.POST)
+    public ModelAndView delete(@RequestParam("remover") String id) {
+        Long pkclassificacao = Long.parseLong(id);
+        service.delete(pkclassificacao);
+        return listAll();
     }
     
     /**

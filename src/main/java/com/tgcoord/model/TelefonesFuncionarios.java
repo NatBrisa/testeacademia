@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
-import java.util.logging.Logger;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,11 +20,6 @@ public class TelefonesFuncionarios extends Telefones {
     
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(TelefonesFuncionarios.class.getName());
-    
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 1L;
     
     @ManyToOne
     private Funcionarios fkFuncionario;

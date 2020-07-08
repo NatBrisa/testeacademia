@@ -18,7 +18,7 @@ import java.util.List;
 @Repository
 public interface ClassificacoesRepository extends JpaRepository<Classificacoes, Long> {
 
-    List<Classificacoes> findByPkClassificacao(Long pkClassificacao);
+    Classificacoes getByPkClassificacao(Long pkClassificacao);
     
     /**
      *
@@ -26,4 +26,6 @@ public interface ClassificacoesRepository extends JpaRepository<Classificacoes, 
      * @return
      */
     List<Classificacoes> findByNomeIgnoreCaseContaining(String nome);
+    
+    List<Classificacoes> findAllByOrderByNomeAsc();
 }

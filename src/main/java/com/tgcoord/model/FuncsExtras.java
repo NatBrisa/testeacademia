@@ -5,7 +5,10 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import java.time.LocalDate;
 import java.util.logging.Logger;
 
@@ -19,11 +22,9 @@ public class FuncsExtras extends Funcionarios {
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(FuncsExtras.class.getName());
 
-    private static final long serialVersionUID = 1L;
-
-    @JoinColumn(name = "fkfuncionario" , referencedColumnName = "pkfuncionario", nullable = false, insertable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_func_extra_funcionario"))
-    @OneToOne(optional = false)
-    private Funcionarios fkFuncionario;
+    //@JoinColumn(name = "fkfuncionario" , referencedColumnName = "pkfuncionario", nullable = false, insertable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_func_extra_funcionario"))
+    //@OneToOne(optional = false)
+    //private Funcionarios fkFuncionario;
 
     @Column(length = 45)
     private String conjuge;
@@ -52,13 +53,13 @@ public class FuncsExtras extends Funcionarios {
     public FuncsExtras() {
     }
 
-    public Funcionarios getFkFuncionario() {
-        return this.fkFuncionario;
-    }
+    //public Funcionarios getFkFuncionario() {
+    //    return this.fkFuncionario;
+    //}
 
-    public void setFkFuncionario(Funcionarios fkFuncionario) {
-        this.fkFuncionario = fkFuncionario;
-    }
+    //public void setFkFuncionario(Funcionarios fkFuncionario) {
+    //    this.fkFuncionario = fkFuncionario;
+    //}
 
     /**
      *

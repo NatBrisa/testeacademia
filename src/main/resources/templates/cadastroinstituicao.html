@@ -13,38 +13,24 @@
 
     <section>
         <h3>Cadastro</h3>
-        <form th:object="${instituicoes}" th:action="@{/instituicoes/save}" method="post">
-            <p><label>Nome: <input type="text" name="txnome" th:field="*{instituicoes.nomeCompleto}" autofocus="autofocus" required></label></p>
+        <form action="#" th:action="@{/instituicoes/cadastro}" th:object="${instituicoes}" method="post">
+            <p><label>Nome: <input type="text" name="txnomecompleto" th:field="*{nomeCompleto}" autofocus="autofocus" required></label></p>
             
-            <p><label>Nome simplificado: <input type="text" name="txnome" th:field="*{instituicoes.nomeSimples}"></label></p>
+            <p><label>Nome simplificado: <input type="text" name="txnomesimples" th:field="*{nomeSimples}"></label></p>
 
-            <p><label>Estado: <select name="uf" th:field="*{enderecos.uf}" required>
-                <option th:value="SP">SP</option>
-                <option th:value="PR">PR</option>
-                <option th:value="RJ">RJ</option>
-            </select></label></p>
+            <div th:replace="~{template :: form_endereco}"></div>
 
-            <p><label>Município: <input type="text" name="municipio" th:field="*{enderecos.municipio}"></label></p>
+            <p><label>Telefone: <input type="tel" name="telefone" th:field="*{tel}"></label></p>
 
-            <p><label>Bairro: <input type="text" name="bairro" th:field="*{enderecos.bairro}"></label></p>
-
-            <p><label>Rua: <input type="text" name="rua" th:field="*{enderecos.rua}"></label></p>
-
-            <p><label>Número: <input type="number" name="num" th:field="*{enderecos.num}"></label></p>
-
-            <p><label>Complemento: <input type="text" name="complemento" th:field="*{enderecos.complemento}"></label></p>
-
-            <p><label>Telefone: <input type="tel" name="telefone" th:field="*{instituicoes.tel}"></label></p>
-
-            <p><label>E-mail: <input type="email" name="email" th:field="*{instituicoes.email}"></label></p>
+            <p><label>E-mail: <input type="email" name="email" th:field="*{email}"></label></p>
             
-            <p><label>Tipo da instituição: <select name="tp_curso" th:field="*{instituicoes.tpInst}" required>
+            <p><label>Tipo da instituição: <select name="tp_instituicao" th:field="*{tpInst}" required>
                 <option value="Municipal">Municipal</option>
                 <option value="Estadual">Estadual</option>
                 <option value="Particular">Particular</option>
             </select></label></p>
 
-            <input type="submit" value="Cadastrar">
+            <input type="submit" name="save" value="Cadastrar">
             <input type="reset" value="Cancelar">
         </form>
     </section>

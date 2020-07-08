@@ -6,29 +6,33 @@
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
-            <h2>Cursos</h2></hgroup>
+            <h2>Classificacoes</h2></hgroup>
     </header>
 
     <nav th:insert="~{template :: nav_default}"></nav>
 
     <section>
-        <h3>Cadastro</h3>
-        <form>
+        <h3>Classificacoes</h3>
+        <form action="#" th:action="@{/classificacoes}" th:object="${classificacoes}" method="post">
+            <p><label>Nome: <input type="text" name="txnome" th:field="*{nome}" th:errorclass="error" autofocus="autofocus" /></label></p>
+            <button type="submit" name="salvar">Adicionar</button>
+            <p></p>
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="classificacoes : ${classificacoeslista}">
                         <td th:text="${classificacoes.pkClassificacao}"></td>
                         <td th:text="${classificacoes.nome}"></td>
+                        <td><button name="remover" th:value="${classificacoes.pkClassificacao}">Remover</button></td>
                     </tr>
                 </tbody>
             </table>
-            <a th:href="@{/cadastroclassificacao}">Adicionar</a>
         </form>
     </section>
 </body>
