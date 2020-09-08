@@ -52,17 +52,17 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jBcancelar" min="-2" pref="143" max="-2" attributes="0"/>
+                          <Component id="jBcancelar" min="-2" pref="150" max="-2" attributes="0"/>
                           <Component id="jFTFaltura" min="-2" pref="72" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+              <EmptySpace pref="86" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
-                  <Component id="jBsalvar" pref="143" max="32767" attributes="0"/>
+                  <Component id="jBsalvar" pref="150" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="368" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -71,7 +71,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <EmptySpace pref="73" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelNome" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTFnome" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -94,13 +94,13 @@
                   <Component id="jFTFtelefone" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-              <Component id="jBcancelar" min="-2" pref="51" max="-2" attributes="0"/>
+              <Component id="jBcancelar" min="-2" pref="50" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="339" max="32767" attributes="0"/>
-                  <Component id="jBsalvar" min="-2" pref="51" max="-2" attributes="0"/>
+                  <EmptySpace pref="340" max="32767" attributes="0"/>
+                  <Component id="jBsalvar" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               </Group>
           </Group>
