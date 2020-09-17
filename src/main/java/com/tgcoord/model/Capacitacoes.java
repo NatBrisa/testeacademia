@@ -5,10 +5,10 @@
  */
 package com.tgcoord.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Logger;
-import javax.persistence.*;
 
 /**
  *
@@ -70,7 +70,7 @@ public class Capacitacoes implements Serializable {
     }
 
     public Funcionarios getFkFuncionario() {
-        return fkFuncionario;
+        return this.fkFuncionario;
     }
 
     public void setFkFuncionario(Funcionarios fkFuncionario) {
@@ -78,7 +78,7 @@ public class Capacitacoes implements Serializable {
     }
 
     public Cursos getFkCurso() {
-        return fkCurso;
+        return this.fkCurso;
     }
 
     public void setFkCurso(Cursos fkCurso) {
@@ -86,7 +86,7 @@ public class Capacitacoes implements Serializable {
     }
 
     public int getNumCertificado() {
-        return numCertificado;
+        return this.numCertificado;
     }
 
     public void setNumCertificado(int numCertificado) {
@@ -94,7 +94,7 @@ public class Capacitacoes implements Serializable {
     }
 
     public LocalDate getDtInicio() {
-        return dtInicio;
+        return this.dtInicio;
     }
 
     public void setDtInicio(LocalDate dtInicio) {
@@ -102,7 +102,7 @@ public class Capacitacoes implements Serializable {
     }
 
     public LocalDate getDtFinal() {
-        return dtFinal;
+        return this.dtFinal;
     }
 
     public void setDtFinal(LocalDate dtFinal) {
@@ -110,7 +110,7 @@ public class Capacitacoes implements Serializable {
     }
 
     public String getSituacao() {
-        return situacao;
+        return this.situacao;
     }
 
     public void setSituacao(String situacao) {

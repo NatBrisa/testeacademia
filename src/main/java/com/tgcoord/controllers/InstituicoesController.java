@@ -11,6 +11,7 @@ import com.tgcoord.service.InstituicoesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,11 +19,11 @@ import java.util.List;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
-@RestController
+@Controller
 @RequestMapping("/instituicoes")
-public class InstituicoesRestController {
+public class InstituicoesController {
     
     @Autowired
     private InstituicoesService service;
@@ -48,7 +49,7 @@ public class InstituicoesRestController {
     @PostMapping(value="/cadastro")
     public ModelAndView post(@ModelAttribute Instituicoes instituicoes) {
         service.save(instituicoes);
-        return listAll();
+        return this.listAll();
     }
 
     @GetMapping("/cadastro")

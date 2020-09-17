@@ -1,7 +1,8 @@
 package com.tgcoord.service;
 
-import java.util.logging.Logger;
 import org.springframework.stereotype.Service;
+
+import java.util.logging.Logger;
 
 /**
  *

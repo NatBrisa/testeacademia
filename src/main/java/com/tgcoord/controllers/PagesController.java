@@ -7,7 +7,6 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.model.Cursos;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.logging.Logger;
 
 /**
  *
@@ -30,10 +31,10 @@ public class PagesController {
      *
      */
     @Autowired
-    public FuncionariosRestController funcControl;
+    public FuncionariosController funcControl;
 
     @Autowired
-    public ClassificacoesRestController classControl;
+    public ClassificacoesController classControl;
 
     /**
      *
@@ -41,7 +42,7 @@ public class PagesController {
     public PagesController() {
     }
 
-    public PagesController(FuncionariosRestController funcControl, ClassificacoesRestController classControl) {
+    public PagesController(FuncionariosController funcControl, ClassificacoesController classControl) {
         this.funcControl = funcControl;
         this.classControl = classControl;
     }

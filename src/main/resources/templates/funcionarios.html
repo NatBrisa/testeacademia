@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head th:insert="~{template :: head_default}"></head>
+      lang="pt">
+    <head th:insert="~{template :: head_default}">
+        <link href="../static/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
+        <link href="../static/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+    </head>
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
@@ -13,36 +16,34 @@
 
     <section>
     <h3>Funcionários</h3>
-    <form action="#" th:action="@{/funcionarios}" th:object="${funcionarios}"  method="post">
-        <table style="width:100%">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>RG</th>
-                    <th>CPF</th>
-                    <th>Classificação</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="funcionarios : ${funcionariolista}">
-                    <td th:text="${funcionarios.nome}"></td>
-                    <td th:text="${funcionarios.sobrenome}"></td>
-                    <td style="text-align: center" th:text="${funcionarios.rg}"></td>
-                    <td style="text-align: center" th:text="${funcionarios.cpf}"></td>
-                    <td th:text="${funcionarios.fkClassificacao}"></td>
-                    <td>
-                        <a th:href="@{/${funcionarios.pkFuncionario}/listacurso}">Mais Informações</a>
-                        <br><button name="editar" th:value="${funcionarios.pkFuncionario}">Editar</button>
-                        <br><button name="remover" th:value="${funcionarios.pkFuncionario}">Remover</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        </form>
-        <p><a class="button" method="get" th:href="@{/funcionarios/cadastro}">Cadastrar novo funcionário</a></p>
-        <p><a class="button">Vincular curso com funcionário</a></p>
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>RG</th>
+                <th>CPF</th>
+                <th>Classificação</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="funcionarios : ${funcionariolista}">
+                <td th:text="${funcionarios.nome}"></td>
+                <td th:text="${funcionarios.sobrenome}"></td>
+                <td style="text-align: center" th:text="${funcionarios.rg}"></td>
+                <td style="text-align: center" th:text="${funcionarios.cpf}"></td>
+                <td th:text="${funcionarios.fkClassificacao}"></td>
+                <td>
+                    <a th:href="@{/${funcionarios.pkFuncionario}/listacurso}">Mais Informações</a>
+                    <br /><button name="editar" th:value="${funcionarios.pkFuncionario}">Editar</button>
+                    <br /><button name="remover" th:value="${funcionarios.pkFuncionario}">Remover</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        <p><a class="waves-effect waves-light btn" th:href="@{/funcionarios/cadastro}">Cadastrar novo funcionário</a></p>
+        <p><a class="waves-effect waves-light btn">Vincular curso com funcionário</a></p>
     </section>
 </body>
 </html>

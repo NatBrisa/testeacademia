@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head th:insert="~{template :: head_default}"></head>
-<body>
-    <header>
-        <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
-            <h2>Classificacoes</h2></hgroup>
-    </header>
+      lang="pt">
+    <head th:insert="~{template :: head_default}">
+        <link href="../static/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
+        <link href="../static/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
+                <h2>Classificacoes</h2></hgroup>
+        </header>
 
-    <nav th:insert="~{template :: nav_default}"></nav>
+        <nav th:insert="~{template :: nav_default}"></nav>
 
-    <section>
-        <h3>Classificacoes</h3>
-        <form action="#" th:action="@{/classificacoes}" th:object="${classificacoes}" method="post">
-            <p><label>Nome: <input type="text" name="txnome" th:field="*{nome}" th:errorclass="error" autofocus="autofocus" /></label></p>
-            <button type="submit" name="salvar">Adicionar</button>
-            <p></p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="classificacoes : ${classificacoeslista}">
-                        <td th:text="${classificacoes.pkClassificacao}"></td>
-                        <td th:text="${classificacoes.nome}"></td>
-                        <td><button name="remover" th:value="${classificacoes.pkClassificacao}">Remover</button></td>
-                    </tr>
-                </tbody>
-            </table>
-        </form>
-    </section>
-</body>
+        <section>
+            <h3>Classificacoes</h3>
+            <form action="classificacoes/save" method="post">
+                <p><label>Nome: <input type="text" name="nome" autofocus="autofocus" /></label>
+                <button type="submit" class="btn waves-effect waves-light">Adicionar</button></p>
+            </form>
+            <form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="classificacoes : ${classificacoeslista}">
+                            <td th:text="${classificacoes.pkClassificacao}"></td>
+                            <td th:text="${classificacoes.nome}"></td>
+                            <td><button><a class="buttonLink" th:href="@{/classificacoes/editar/{pkClassificacao}(pkClassificacao=${classificacoes.pkClassificacao})}">Editar</a></button><button name="remover" th:value="${classificacoes.pkClassificacao}">Remover</button><button name="alterar" th:value="${classificacoes.pkClassificacao}">Alterar</button></td>
+                        </tr>
+                    </tbody>
+                </table>  
+            </form>
+        </section>
+        <script src="../static/js/materialize.js" type="text/javascript"></script>
+    </body>
 </html>

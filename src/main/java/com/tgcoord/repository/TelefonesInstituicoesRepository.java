@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TelefonesInstituicoesRepository extends JpaRepository<TelefonesInstituicoes, Long> {
 
-    public TelefonesInstituicoes findByFkInstituicao(Instituicoes fkInstituicao);
+    TelefonesInstituicoes findByFkInstituicao(Instituicoes fkInstituicao);
 }

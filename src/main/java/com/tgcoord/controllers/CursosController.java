@@ -11,6 +11,7 @@ import com.tgcoord.service.CursosService;
 import com.tgcoord.service.InstituicoesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,14 +21,14 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
-@RestController
+@Controller
 @RequestMapping("/cursos")
-public class CursosRestController {
+public class CursosController {
     
     @SuppressWarnings("unused")
-    private static final Logger LOG = Logger.getLogger(CursosRestController.class.getName());
+    private static final Logger LOG = Logger.getLogger(CursosController.class.getName());
 
     @Autowired
     private CursosService service;
@@ -38,7 +39,7 @@ public class CursosRestController {
     /**
      *
      */
-    private CursosRestController() {
+    private CursosController() {
     }
     
     /**
@@ -93,7 +94,7 @@ public class CursosRestController {
         Long pkinstituicao = Long.parseLong(instituicao);
         Optional<Instituicoes> instituicaoOb = instituicaoService.findById(pkinstituicao);
         service.save(cursos);
-        return listAll();
+        return this.listAll();
     }
     
     /**

@@ -9,10 +9,11 @@ import com.tgcoord.model.Funcionarios;
 import com.tgcoord.model.TelefonesFuncionarios;
 import com.tgcoord.repository.FuncionariosRepository;
 import com.tgcoord.repository.TelefonesFuncionariosRepository;
-import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  *

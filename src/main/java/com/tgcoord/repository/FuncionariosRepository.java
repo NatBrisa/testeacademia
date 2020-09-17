@@ -23,19 +23,19 @@ public interface FuncionariosRepository extends JpaRepository<Funcionarios, Long
      * @param rg
      * @return
      */
-    public Funcionarios findByRg(String rg);
+    Funcionarios findByRg(String rg);
 
     /**
      *
      * @param email
      * @return
      */
-    public Funcionarios findByEmail(String email);
+    Funcionarios findByEmail(String email);
     
     /**
      *
      * @param nome
      * @return
      */
-    public List<Funcionarios> findByNomeIgnoreCaseContaining(String nome);
+    List<Funcionarios> findByNomeIgnoreCaseContaining(String nome);
 }

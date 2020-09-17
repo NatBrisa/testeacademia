@@ -9,10 +9,11 @@ import com.tgcoord.model.Instituicoes;
 import com.tgcoord.model.TelefonesInstituicoes;
 import com.tgcoord.repository.InstituicoesRepository;
 import com.tgcoord.repository.TelefonesInstituicoesRepository;
-import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
  *
@@ -46,7 +47,6 @@ public class TelefonesInstituicoesService {
     
     /**
      *
-     * @param pkInstituicoes
      * @return
      */
     public TelefonesInstituicoes findByFuncionario(Instituicoes pkInstituicao) {

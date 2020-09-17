@@ -46,7 +46,7 @@ public class Disciplinas implements Serializable {
     }
 
     public Long getPkDisciplinas() {
-        return pkDisciplinas;
+        return this.pkDisciplinas;
     }
 
     public void setPkDisciplinas(Long pkDisciplinas) {
@@ -88,22 +88,22 @@ public class Disciplinas implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (pkDisciplinas != null ? pkDisciplinas.hashCode() : 0);
+        hash += (null != pkDisciplinas ? this.pkDisciplinas.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object obj) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Disciplinas)) {
+        if (!(obj instanceof Disciplinas)) {
             return false;
         }
-        Disciplinas other = (Disciplinas) object;
-        return !((this.pkDisciplinas == null && other.pkDisciplinas != null) || (this.pkDisciplinas != null && !this.pkDisciplinas.equals(other.pkDisciplinas)));
+        Disciplinas other = (Disciplinas) obj;
+        return !(null == this.pkDisciplinas ? null != other.pkDisciplinas : !this.pkDisciplinas.equals(other.pkDisciplinas));
     }
 
     @Override
     public String toString() {
-        return "com.tgcoord.model.Disciplinas[ id=" + pkDisciplinas + " ]";
+        return "com.tgcoord.model.Disciplinas[ id=" + this.pkDisciplinas + " ]";
     }
 }

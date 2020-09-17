@@ -29,7 +29,8 @@ public class Funcionarios implements Serializable {
 
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Funcionarios.class.getName());
-    
+    private static final long serialVersionUID = -6105047452320515121L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pkfuncionario")
@@ -204,7 +205,7 @@ public class Funcionarios implements Serializable {
     }
     
     public Classificacoes getFkClassificacao() {
-        return fkClassificacao;
+        return this.fkClassificacao;
     }
 
     public void setFkClassificacao(Classificacoes fkClassificacao) {
@@ -248,7 +249,7 @@ public class Funcionarios implements Serializable {
     }
     
     public Collection<TelefonesFuncionarios> getFktelefone() {
-        return fktelefone;
+        return this.fktelefone;
     }
 
     public void setFktelefone(Collection<TelefonesFuncionarios> fktelefone) {
@@ -285,9 +286,13 @@ public class Funcionarios implements Serializable {
 
     @Override
     public String toString() {
-        return "Funcionarios{" + "nome=" + nome + ", sobrenome=" + sobrenome + '}';
+        return "Funcionarios{" + "nome=" + this.nome + ", sobrenome=" + this.sobrenome + '}';
     }
 
+    public String getNomeCompleto() {
+        return this.nome + " " + this.sobrenome;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -300,16 +305,13 @@ public class Funcionarios implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (null == obj) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
-        final Funcionarios other = (Funcionarios) obj;
-        if (!Objects.equals(this.pkFuncionario, other.pkFuncionario)) {
-            return false;
-        }
-        return true;
+        Funcionarios other = (Funcionarios) obj;
+        return Objects.equals(this.pkFuncionario, other.pkFuncionario);
     }
 }

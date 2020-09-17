@@ -6,6 +6,7 @@
 package com.tgcoord.model;
 
 import com.tgcoord.enums.DiaSemana;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -80,22 +81,22 @@ public class Horarios implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (pkHorario != null ? pkHorario.hashCode() : 0);
+        hash += (null != pkHorario ? this.pkHorario.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object obj) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Horarios)) {
+        if (!(obj instanceof Horarios)) {
             return false;
         }
-        Horarios other = (Horarios) object;
-        return !((this.pkHorario == null && other.pkHorario != null) || (this.pkHorario != null && !this.pkHorario.equals(other.pkHorario)));
+        Horarios other = (Horarios) obj;
+        return !((null == this.pkHorario && null != other.pkHorario) || (null != this.pkHorario && !this.pkHorario.equals(other.pkHorario)));
     }
 
     @Override
     public String toString() {
-        return "com.tgcoord.model.Horarios[ id=" + pkHorario + " ]";
+        return "com.tgcoord.model.Horarios[ id=" + this.pkHorario + " ]";
     }
 }

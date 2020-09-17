@@ -20,7 +20,8 @@ public class TelefonesFuncionarios extends Telefones {
     
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(TelefonesFuncionarios.class.getName());
-    
+    private static final long serialVersionUID = 2777482652902149546L;
+
     @ManyToOne
     private Funcionarios fkFuncionario;
 

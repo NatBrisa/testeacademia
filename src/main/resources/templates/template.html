@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head th:fragment="head_default">
-    <title>Coordenadoria de Educação de Fartura</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
-</head>
-<body>
-<header th:fragment="header_default">
-    <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
-        <h2>Ajuda</h2></hgroup>
-</header>
+      lang="pt">
+    <head th:fragment="head_default">
+        <title>Coordenadoria de Educação de Fartura</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="../static/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
+        <link href="../static/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:fragment="header_default">
+            <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
+                <h2>Ajuda</h2></hgroup>
+        </header>
 
-<nav th:fragment="nav_default">
-    <a th:href="@{/}">Apresentação</a>
-    <a th:href="@{/funcionarios}">Funcionários</a>
-    <a th:href="@{/cursos}">Cursos</a>
-    <a th:href="@{/instituicoes}">Instituições de Ensino</a>
-    <a th:href="@{/classificacoes}">Classificações</a>
-    <a th:href="@{/login}">Login</a>
-    <a th:href="@{/ajuda}">Ajuda</a>
-</nav>
+        <nav th:fragment="nav_default">
+            <div class="nav-wrapper">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a th:href="@{/}">Apresentação</a></li>
+                    <li><a th:href="@{/funcionarios}">Funcionários</a></li>
+                    <li><a th:href="@{/cursos}">Cursos</a></li>
+                    <li><a th:href="@{/instituicoes}">Instituições de Ensino</a></li>
+                    <li><a th:href="@{/classificacoes}">Classificações</a></li>
+                    <li><a th:href="@{/login}">Login</a></li>
+                    <li><a th:href="@{/ajuda}">Ajuda</a></li>
+                </ul>
+            </div>
+        </nav>
 
-<section>
-    <div th:fragment="form_endereco">
-        <p><label>Estado: <select name="uf" th:field="*{endereco.uf}" th:errorclass="error" required>
-                <option th:value="SP">SP</option>
-                <option th:value="PR">PR</option>
-                <option th:value="RJ">RJ</option>
-            </select></label></p>
+        <section>
+            <div th:fragment="form_endereco">
+                <p><label>Estado: <select name="uf" th:field="*{endereco.uf}" th:errorclass="error" required="required">
+                        <option th:value="SP">SP</option>
+                        <option th:value="PR">PR</option>
+                        <option th:value="RJ">RJ</option>
+                    </select></label></p>
 
-            <p><label>Município: <input type="text" name="endereco.municipio" th:field="*{endereco.municipio}" th:errorclass="error" /></label></p>
+                    <p><label>Município: <input type="text" name="endereco.municipio" th:field="*{endereco.municipio}" th:errorclass="error" /></label></p>
 
-            <p><label>Bairro: <input type="text" name="bairro" th:field="*{endereco.bairro}" th:errorclass="error" /></label></p>
+                    <p><label>Bairro: <input type="text" name="bairro" th:field="*{endereco.bairro}" th:errorclass="error" /></label></p>
 
-            <p><label>Rua: <input type="text" name="rua" th:field="*{endereco.rua}" th:errorclass="error" /></label></p>
+                    <p><label>Rua: <input type="text" name="rua" th:field="*{endereco.rua}" th:errorclass="error" /></label></p>
 
-            <p><label>Número: <input type="number" name="num" th:field="*{endereco.num}" th:errorclass="error" /></label></p>
+                    <p><label>Número: <input type="number" name="num" th:field="*{endereco.num}" th:errorclass="error" /></label></p>
 
-            <p><label>Complemento: <input type="text" name="complemento" th:field="*{endereco.complemento}" /></label></p>
-    </div>
-</section>
-</body>
+                    <p><label>Complemento: <input type="text" name="complemento" th:field="*{endereco.complemento}" /></label></p>
+            </div>
+
+            <div th:fragment="delete_confirmation" id="Confirmacao" role="dialog">
+                <p>Tem certeza que deseja excluir</p>
+                <p><input type="text" readonly></p>
+                <p><input class="button" type="submit" value="Sim"><input class="button" type="submit" value="Não"></p>
+
+            </div>
+        </section>
+    </body>
 </html>

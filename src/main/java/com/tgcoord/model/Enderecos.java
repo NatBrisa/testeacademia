@@ -18,6 +18,7 @@ public class Enderecos implements Serializable {
 
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Enderecos.class.getName());
+    private static final long serialVersionUID = 2620665185542456937L;
 
     @Column(length = 2)
     private String uf;

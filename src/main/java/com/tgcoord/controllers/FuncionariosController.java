@@ -13,6 +13,7 @@ import com.tgcoord.service.ClassificacoesService;
 import com.tgcoord.service.FuncionariosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,12 +25,12 @@ import java.util.logging.Logger;
  *
  * @author natalia
  */
-@RestController
+@Controller
 @RequestMapping("/funcionarios")
-public class FuncionariosRestController {
+public class FuncionariosController {
     
     @SuppressWarnings("unused")
-    private static final Logger LOG = Logger.getLogger(FuncionariosRestController.class.getName());
+    private static final Logger LOG = Logger.getLogger(FuncionariosController.class.getName());
 
     @Autowired
     private FuncionariosService service;
@@ -40,13 +41,13 @@ public class FuncionariosRestController {
     /**
      *
      */
-    public FuncionariosRestController() {
+    public FuncionariosController() {
     }
 
     /**
      *
      */
-    public FuncionariosRestController(FuncionariosService service) {
+    public FuncionariosController(FuncionariosService service) {
         this.service = service;
     }
     
@@ -88,19 +89,19 @@ public class FuncionariosRestController {
      * @param classificacao
      * @param funcionarios
      */
-    @PostMapping(value="/cadastro")
+    @RequestMapping(method = RequestMethod.POST,value = "/cadastro")
     public ModelAndView cadastro(@ModelAttribute Funcionarios funcionarios, @RequestParam(value="classificacao") String classificacao) {
         Long pkclassificacao = Long.parseLong(classificacao);
         Classificacoes classificacaoOb = classificacoesService.getByPkClassificacao(pkclassificacao);
         service.save(funcionarios);
-        return listAll();
+        return this.listAll();
     }
 
     /**
      *
      * @return
      */
-    @GetMapping("/cadastro")
+    @RequestMapping(method = RequestMethod.GET,value = "/cadastro")
     public ModelAndView cadastro() {
         ModelAndView mv = new ModelAndView("/cadastrofuncionario.html");
         mv.addObject("funcionarios", new Funcionarios());
@@ -118,7 +119,7 @@ public class FuncionariosRestController {
     public ModelAndView delete(@RequestParam("remover") String id) {
         Long pkfuncionario = Long.parseLong(id);
         service.delete(pkfuncionario);
-        return listAll();
+        return this.listAll();
     }
 
     @GetMapping("/class/{fkClassificacao}")

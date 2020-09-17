@@ -49,9 +49,9 @@ public enum DiaSemana {
     private final String nomedia;
     private final int numdia;
 
-    private DiaSemana(String nomedia, int numdia) {
-        this.nomedia = nomedia;
-        this.numdia = numdia;
+    private DiaSemana(String name, int ordinal) {
+        this.nomedia = name;
+        this.numdia = ordinal;
     }
 
     /**
@@ -59,7 +59,7 @@ public enum DiaSemana {
      * @return
      */
     public String getNomedia() {
-        return nomedia;
+        return this.nomedia;
     }
 
     /**
@@ -67,6 +67,6 @@ public enum DiaSemana {
      * @return
      */
     public int getNumdia() {
-        return numdia;
+        return this.numdia;
     }
 }

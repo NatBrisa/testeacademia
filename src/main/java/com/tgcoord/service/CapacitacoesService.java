@@ -2,10 +2,11 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Capacitacoes;
 import com.tgcoord.repository.CapacitacoesRepository;
-import java.util.List;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *

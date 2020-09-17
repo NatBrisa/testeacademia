@@ -7,24 +7,23 @@ package com.tgcoord.controllers;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.service.ClassificacoesService;
+import java.util.List;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.logging.Logger;
-
 /**
  *
- * @author natal
+ * @author natalia
  */
-@RestController
+@Controller
 @RequestMapping("/classificacoes")
-public class ClassificacoesRestController {
+public class ClassificacoesController {
     
     @SuppressWarnings("unused")
-    private static final Logger LOG = Logger.getLogger(ClassificacoesRestController.class.getName());
+    private static final Logger LOG = Logger.getLogger(ClassificacoesController.class.getName());
     
     @Autowired
     private ClassificacoesService service;
@@ -32,14 +31,14 @@ public class ClassificacoesRestController {
     /**
      *
      */
-    public ClassificacoesRestController() {
+    public ClassificacoesController() {
     }
 
     /**
      *
      * @param service
      */
-    public ClassificacoesRestController(ClassificacoesService service) {
+    public ClassificacoesController(ClassificacoesService service) {
         this.service=service;
     }
 
@@ -47,9 +46,9 @@ public class ClassificacoesRestController {
      *
      * @return
      */
-    @GetMapping
-    public ModelAndView listAll() {
-        ModelAndView mv = new ModelAndView("/classificacoes.html");
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView index() {
+        ModelAndView mv = new ModelAndView("classificacoes.html");
         mv.addObject("classificacoes", new Classificacoes());
         List<Classificacoes> listaC = service.listAllOrderByNome();
         mv.addObject("classificacoeslista", listaC);
@@ -70,22 +69,32 @@ public class ClassificacoesRestController {
     /**
      *
      * @param classificacoes
-     * @param result
-     * @return 
+     * @return
      */
-    @PostMapping(params = {"salvar"})
-    public ModelAndView save(@ModelAttribute Classificacoes classificacoes, BindingResult result) {
-        System.out.println("BindingResult: " + result);
+    @RequestMapping(method = RequestMethod.POST, value = "/save")
+    public ModelAndView save(Classificacoes classificacoes) {
         System.out.println("Classificacao: " + classificacoes);
         this.service.save(classificacoes);
-        return listAll();
+        return this.index();
+    }
+    
+    /**
+     *
+     * @param classificacoes
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.PUT, value = "/editar/{pkClassificacao}")
+    public ModelAndView edit(Classificacoes classificacoes) {
+        System.out.println("Classificacao: " + classificacoes);
+        this.service.save(classificacoes);
+        return this.index();
     }
 
-    @RequestMapping(params = {"remover"}, method = RequestMethod.POST)
+    @PostMapping(value = "/delete")
     public ModelAndView delete(@RequestParam("remover") String id) {
         Long pkclassificacao = Long.parseLong(id);
         service.delete(pkclassificacao);
-        return listAll();
+        return this.index();
     }
     
     /**

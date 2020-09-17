@@ -342,7 +342,7 @@
     </inspection_tool>
     <inspection_tool class="InstanceVariableUninitializedUse" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignorePrimitives" value="false" />
-      <option name="annotationNamesString" value="" />
+      <option name="annotationNamesString" value="javax.persistence.Embedded" />
     </inspection_tool>
     <inspection_tool class="InstanceofCatchParameter" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="InstanceofChain" enabled="true" level="WARNING" enabled_by_default="true">
@@ -617,7 +617,6 @@
     <inspection_tool class="OverriddenMethodCallDuringObjectConstruction" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PackageDotHtmlMayBePackageInfo" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PackageInMultipleModules" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="PackageInfoWithoutPackage" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PackageNamingConvention" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_regex" value="[a-z]*" />
       <option name="m_minLength" value="3" />
@@ -760,6 +759,7 @@
       <option name="allowedClasses">
         <set>
           <option value="javax.persistence.InheritanceType" />
+          <option value="org.junit.Assert" />
         </set>
       </option>
     </inspection_tool>
@@ -846,7 +846,6 @@
     <inspection_tool class="ThreadPriority" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreadStartInConstruction" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreadStopSuspendResume" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="ThreadWithDefaultRunMethod" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreadYield" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ThreeNegationsPerMethod" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="m_ignoreInEquals" value="true" />

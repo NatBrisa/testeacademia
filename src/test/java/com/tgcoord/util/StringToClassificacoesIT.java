@@ -7,7 +7,6 @@ package com.tgcoord.util;
 
 import com.tgcoord.model.Classificacoes;
 import org.junit.*;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -18,22 +17,6 @@ import static org.junit.Assert.fail;
 public class StringToClassificacoesIT {
     
     public StringToClassificacoesIT() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
     }
 
     /**

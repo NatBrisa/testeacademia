@@ -20,7 +20,8 @@ public class Classificacoes implements Serializable {
     
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Classificacoes.class.getName());
-    
+    private static final long serialVersionUID = -2824971306687887981L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "pkclassificacao")
@@ -71,16 +72,13 @@ public class Classificacoes implements Serializable {
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (null == obj) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (this.getClass() != obj.getClass()) {
             return false;
         }
-        final Classificacoes other = (Classificacoes) obj;
-        if (!Objects.equals(this.pkClassificacao, other.pkClassificacao)) {
-            return false;
-        }
-        return true;
+        Classificacoes other = (Classificacoes) obj;
+        return Objects.equals(this.pkClassificacao, other.pkClassificacao);
     }
 }

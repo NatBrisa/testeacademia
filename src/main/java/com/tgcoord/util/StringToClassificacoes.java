@@ -23,9 +23,9 @@ public class StringToClassificacoes implements Converter<String, Classificacoes>
     
     
     @Override
-    public Classificacoes convert(String pkClassificacao) {
+    public Classificacoes convert(String source) {
         try {
-            Long pk = Long.parseLong(pkClassificacao);
+            Long pk = Long.parseLong(source);
             return classificacoesService.getByPkClassificacao(pk);
         } catch (NumberFormatException e) {
             return null;

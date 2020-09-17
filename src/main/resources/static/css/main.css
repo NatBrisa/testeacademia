@@ -17,28 +17,6 @@ hgroup {
     text-align: center;
 }
 
-nav a {
-    margin-left: -2.5px;
-    margin-right: -2.5px;
-    background-color: darkcyan;
-    padding: 5px;
-    border: 1px black solid;
-    text-decoration: none;
-    color: black;
-}
-
-nav a:link, a:visited {
-    color: black;
-    font-weight : bold;
-    text-decoration: none;
-}
-
-nav a:link:hover, a:visited:hover {
-    background-color: whitesmoke;
-    text-decoration: none;
-    color: black;
-}
-
 section {
     margin: 15px 50px 15px 50px;
     padding: 15px 50px 15px 50px;
@@ -54,18 +32,6 @@ section {
 
 input.select {
     width: 250px;
-}
-
-.button {
-  font: bold 11px Arial;
-  text-decoration: none;
-  background-color: #EEEEEE;
-  color: #333333;
-  padding: 2px 6px 2px 6px;
-  border-top: 1px solid #CCCCCC;
-  border-right: 1px solid #333333;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #CCCCCC;
 }
 
 .login {
@@ -88,10 +54,6 @@ td {
     border: 1px solid black;
     height: 15pt;
     text-align: center;
-}
-
-ul {
-    list-style-type: none;
 }
 
 .error {

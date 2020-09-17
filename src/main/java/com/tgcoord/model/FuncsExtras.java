@@ -21,6 +21,7 @@ public class FuncsExtras extends Funcionarios {
     
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(FuncsExtras.class.getName());
+    private static final long serialVersionUID = -6329338578192664258L;
 
     //@JoinColumn(name = "fkfuncionario" , referencedColumnName = "pkfuncionario", nullable = false, insertable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_func_extra_funcionario"))
     //@OneToOne(optional = false)

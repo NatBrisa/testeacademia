@@ -49,7 +49,6 @@ public class ClassificacoesService {
     
     /**
      *
-     * @param pkClassificacao
      * @return
      */
     public List<Classificacoes> findByName(String nome) {

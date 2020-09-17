@@ -5,8 +5,8 @@
  */
 package com.tgcoord.model;
 
-import java.util.logging.Logger;
 import javax.persistence.*;
+import java.util.logging.Logger;
 
 /**
  *

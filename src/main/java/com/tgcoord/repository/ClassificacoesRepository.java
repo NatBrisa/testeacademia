@@ -8,14 +8,16 @@ package com.tgcoord.repository;
 import com.tgcoord.model.Classificacoes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Repository
+@Transactional
 public interface ClassificacoesRepository extends JpaRepository<Classificacoes, Long> {
 
     Classificacoes getByPkClassificacao(Long pkClassificacao);

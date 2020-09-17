@@ -9,11 +9,12 @@ import com.tgcoord.model.Funcionarios;
 import com.tgcoord.model.Gestores;
 import com.tgcoord.service.FuncionariosService;
 import com.tgcoord.service.GestoresService;
-import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
 
 
 /**
