@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @SpringBootTest
 public class BasicApplicationTest {

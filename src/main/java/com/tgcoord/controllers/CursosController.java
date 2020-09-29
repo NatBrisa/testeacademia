@@ -6,7 +6,6 @@
 package com.tgcoord.controllers;
 
 import com.tgcoord.model.Cursos;
-import com.tgcoord.model.Instituicoes;
 import com.tgcoord.service.CursosService;
 import com.tgcoord.service.InstituicoesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.logging.Logger;
 
 /**
@@ -26,8 +24,7 @@ import java.util.logging.Logger;
 @Controller
 @RequestMapping("/cursos")
 public class CursosController {
-    
-    @SuppressWarnings("unused")
+
     private static final Logger LOG = Logger.getLogger(CursosController.class.getName());
 
     @Autowired
@@ -46,11 +43,10 @@ public class CursosController {
      *
      * @return
      */
-    @GetMapping
-    public ModelAndView listAll() {
-        ModelAndView mv = new ModelAndView("/cursos.html");
-        List<Cursos> lista = service.findAll();
-        mv.addObject("listacursos", lista);
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView index() {
+        ModelAndView mv = new ModelAndView("cursos.html");
+        load(mv, new Cursos());
         return mv;
     }
     
@@ -75,43 +71,53 @@ public class CursosController {
         List<Cursos> cursos = this.service.findByNomeIgnoreCaseContaining(nome);
         return cursos;
     }
-    
-    /**
-     *
-     * @param id
-     * @param input
-     */
-    @PutMapping("/{id}")
-    public void update(@PathVariable Long id, @RequestBody Cursos input) {
-        service.save(input);
-    }
-    
-    /**
-     *
-     */
-    @PostMapping("/cadastro")
-    public ModelAndView cadastro(@ModelAttribute Cursos cursos, @RequestParam(value="instituicao") String instituicao) {
-        Long pkinstituicao = Long.parseLong(instituicao);
-        Optional<Instituicoes> instituicaoOb = instituicaoService.findById(pkinstituicao);
-        service.save(cursos);
-        return this.listAll();
-    }
-    
-    /**
-     *
-     * @param id
-     */
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
-        service.delete(id);
-    }
 
-    @GetMapping("/cadastro")
+    @RequestMapping(method = RequestMethod.GET, value = "/cadastrocurso")
     public ModelAndView cadastro() {
-        ModelAndView mv = new ModelAndView("/cadastrocurso.html");
-        mv.addObject("cursos", new Cursos());
+        ModelAndView mv = new ModelAndView("cursos/cadastro.html");
+        load(mv, new Cursos());
         mv.addObject("instList", instituicaoService.findAll());
         return mv;
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "**/scurso")
+    public ModelAndView save(Cursos curso) {
+        ModelAndView mv = new ModelAndView("cursos.html");
+        this.service.save(curso);
+        load(mv, new Cursos());
+        return mv;
+    }
+    
+    /**
+     *
+     * @param id
+     * @return 
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/edcurso/{pkCurso}")
+    public ModelAndView edit(@PathVariable("pkCurso") Long id) {
+        ModelAndView mv = new ModelAndView("cursos/cadastro.html");
+        Cursos curso = service.findOne(id);
+        load(mv, curso);
+        return mv;
+    }
+
+    /**
+     *
+     * @param id
+     * @return 
+     */
+    @RequestMapping(method = RequestMethod.GET, value = "/remcurso/{pkCurso}")
+    public ModelAndView delete(@PathVariable("pkCurso") Long id) {
+        ModelAndView mv = new ModelAndView("cursos.html");
+        service.delete(id);
+        load(mv, new Cursos());
+        return mv;
+    }
+
+    public void load(ModelAndView mv, Cursos curso) {
+        List<Cursos> lista = service.findAll();
+        mv.addObject("listacursos", lista);
+        mv.addObject("curso", curso);
     }
     
     /**

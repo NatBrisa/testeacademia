@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Repository
 public interface HorariosRepository extends JpaRepository<Horarios, Long> {

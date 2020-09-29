@@ -5,23 +5,21 @@
  */
 package com.tgcoord.model;
 
+import java.time.LocalDate;
+import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import java.time.LocalDate;
-import java.util.logging.Logger;
 
 /**
- * @author natal
+ * @author natalia
  */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class FuncsExtras extends Funcionarios {
-    
-    @SuppressWarnings("unused")
+
     private static final Logger LOG = Logger.getLogger(FuncsExtras.class.getName());
-    private static final long serialVersionUID = -6329338578192664258L;
 
     //@JoinColumn(name = "fkfuncionario" , referencedColumnName = "pkfuncionario", nullable = false, insertable = false, updatable = false, foreignKey = @ForeignKey(name = "fk_func_extra_funcionario"))
     //@OneToOne(optional = false)

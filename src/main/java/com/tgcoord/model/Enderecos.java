@@ -5,20 +5,18 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.logging.Logger;
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 /**
- * @author natal
+ * @author natalia
  */
 @Embeddable
 public class Enderecos implements Serializable {
 
-    @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Enderecos.class.getName());
-    private static final long serialVersionUID = 2620665185542456937L;
 
     @Column(length = 2)
     private String uf;
@@ -44,6 +42,15 @@ public class Enderecos implements Serializable {
     public Enderecos() {
     }
     
+    /**
+     *
+     * @param uf
+     * @param municipio
+     * @param bairro
+     * @param rua
+     * @param num
+     * @param complemento
+     */
     public Enderecos(String uf, String municipio, String bairro, String rua, int num, String complemento) {
         this.uf = uf;
         this.municipio = municipio;
@@ -123,10 +130,18 @@ public class Enderecos implements Serializable {
         this.num = num;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getComplemento() {
         return this.complemento;
     }
 
+    /**
+     *
+     * @param complemento
+     */
     public void setComplemento(String complemento) {
         this.complemento = complemento;
     }

@@ -7,21 +7,19 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.repository.ClassificacoesRepository;
+import java.util.List;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.logging.Logger;
-
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Service
 public class ClassificacoesService {
-    
-    @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(ClassificacoesService.class.getName());
+
+    private static final Logger LOG = Logger.getLogger(ClassificacoesService.class.getName());
     
     @Autowired
     private ClassificacoesRepository repository;
@@ -49,6 +47,7 @@ public class ClassificacoesService {
     
     /**
      *
+     * @param nome
      * @return
      */
     public List<Classificacoes> findByName(String nome) {

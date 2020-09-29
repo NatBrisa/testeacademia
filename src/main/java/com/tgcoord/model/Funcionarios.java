@@ -5,18 +5,17 @@
  */
 package com.tgcoord.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
- * @author natal
+ * @author natalia
  */
 @Entity
 @Table(catalog = "tgcoord", uniqueConstraints = {
@@ -27,9 +26,7 @@ import java.util.logging.Logger;
 })
 public class Funcionarios implements Serializable {
 
-    @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Funcionarios.class.getName());
-    private static final long serialVersionUID = -6105047452320515121L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

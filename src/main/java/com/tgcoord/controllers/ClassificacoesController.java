@@ -11,7 +11,10 @@ import java.util.List;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -21,8 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/classificacoes")
 public class ClassificacoesController {
-    
-    @SuppressWarnings("unused")
+
     private static final Logger LOG = Logger.getLogger(ClassificacoesController.class.getName());
     
     @Autowired
@@ -49,9 +51,7 @@ public class ClassificacoesController {
     @RequestMapping(method = RequestMethod.GET)
     public ModelAndView index() {
         ModelAndView mv = new ModelAndView("classificacoes.html");
-        mv.addObject("classificacoes", new Classificacoes());
-        List<Classificacoes> listaC = service.listAllOrderByNome();
-        mv.addObject("classificacoeslista", listaC);
+        load(mv, new Classificacoes());
         return mv;
     }
     
@@ -71,30 +71,45 @@ public class ClassificacoesController {
      * @param classificacoes
      * @return
      */
-    @RequestMapping(method = RequestMethod.POST, value = "/save")
+    @RequestMapping(method = RequestMethod.POST, value = "**/sclass")
     public ModelAndView save(Classificacoes classificacoes) {
-        System.out.println("Classificacao: " + classificacoes);
+        ModelAndView mv = new ModelAndView("classificacoes.html");
         this.service.save(classificacoes);
-        return this.index();
+        load(mv, new Classificacoes());
+        return mv;
     }
     
     /**
      *
-     * @param classificacoes
+     * @param id
      * @return
      */
-    @RequestMapping(method = RequestMethod.PUT, value = "/editar/{pkClassificacao}")
-    public ModelAndView edit(Classificacoes classificacoes) {
-        System.out.println("Classificacao: " + classificacoes);
-        this.service.save(classificacoes);
-        return this.index();
+    @RequestMapping(method = RequestMethod.GET, value = "/edclass/{pkClassificacao}")
+    public ModelAndView edit(@PathVariable("pkClassificacao") Long id) {
+        ModelAndView mv = new ModelAndView("classificacoes.html");
+        Classificacoes classificacao = service.getByPkClassificacao(id);
+        load(mv, classificacao);
+        return mv;
     }
 
-    @PostMapping(value = "/delete")
-    public ModelAndView delete(@RequestParam("remover") String id) {
-        Long pkclassificacao = Long.parseLong(id);
-        service.delete(pkclassificacao);
-        return this.index();
+    @RequestMapping(method = RequestMethod.GET, value = "/remclass/{pkClassificacao}")
+    public ModelAndView delete(@PathVariable("pkClassificacao") Long id) {
+        ModelAndView mv = new ModelAndView("classificacoes.html");
+        service.delete(id);
+        load(mv, new Classificacoes());
+        return mv;
+    }
+    
+    /**
+     *
+     * @param mv
+     * @param classificacao
+     * Carrega os dados do banco e adiciona no ModelAndView
+     */
+    public void load(ModelAndView mv, Classificacoes classificacao) {
+        List<Classificacoes> listaC = service.listAllOrderByNome();
+        mv.addObject("classificacoeslista", listaC);
+        mv.addObject("classificacoes", classificacao);
     }
     
     /**

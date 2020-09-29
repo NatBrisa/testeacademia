@@ -5,14 +5,14 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
- * @author natal
+ * @author natalia
  */
 @Entity
 @Table(catalog = "tgcoord", uniqueConstraints = {
@@ -21,8 +21,7 @@ import java.util.logging.Logger;
     @UniqueConstraint(columnNames = "cpf", name = "UK_cpf")
 })
 public class Dependentes implements Serializable {
-    
-    @SuppressWarnings("unused")
+
     private static final Logger LOG = Logger.getLogger(Dependentes.class.getName());
 
     private static final long serialVersionUID = 1L;

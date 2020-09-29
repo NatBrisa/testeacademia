@@ -6,18 +6,17 @@
 package com.tgcoord.model;
 
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
- * @author natal
+ * @author natalia
  */
 @Entity
 @Table(catalog = "tgcoord", uniqueConstraints = @UniqueConstraint(columnNames = "fkfuncionario", name = "UK_fkfuncionario"))
 public class Gestores implements Serializable {
 
-    @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Gestores.class.getName());
 
     /**

@@ -7,10 +7,15 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Repository
 public interface TelefonesFuncionariosRepository extends JpaRepository<TelefonesFuncionarios, Long> {
     
+    /**
+     *
+     * @param fkFuncionario
+     * @return
+     */
     TelefonesFuncionarios findByFkFuncionario(Funcionarios fkFuncionario);
 }

@@ -5,18 +5,17 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Entity
 @Table(catalog = "tgcoord")
 public class TelefonesInstituicoes extends Telefones {
-    
-    @SuppressWarnings("unused")
+
     private static final Logger LOG = Logger.getLogger(TelefonesInstituicoes.class.getName());
 
     private static final long serialVersionUID = 1L;

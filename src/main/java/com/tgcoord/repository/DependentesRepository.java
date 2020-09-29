@@ -6,14 +6,13 @@
 package com.tgcoord.repository;
 
 import com.tgcoord.model.Dependentes;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Repository
 public interface DependentesRepository extends JpaRepository<Dependentes, Long> {

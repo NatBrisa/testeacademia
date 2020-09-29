@@ -5,21 +5,19 @@
  */
 package com.tgcoord.controllers;
 
-import com.tgcoord.model.Classificacoes;
 import com.tgcoord.model.Cursos;
 import com.tgcoord.model.Enderecos;
 import com.tgcoord.model.Funcionarios;
 import com.tgcoord.service.ClassificacoesService;
 import com.tgcoord.service.FuncionariosService;
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Logger;
 
 /**
  *
@@ -28,8 +26,7 @@ import java.util.logging.Logger;
 @Controller
 @RequestMapping("/funcionarios")
 public class FuncionariosController {
-    
-    @SuppressWarnings("unused")
+
     private static final Logger LOG = Logger.getLogger(FuncionariosController.class.getName());
 
     @Autowired
@@ -46,6 +43,7 @@ public class FuncionariosController {
 
     /**
      *
+     * @param service
      */
     public FuncionariosController(FuncionariosService service) {
         this.service = service;
@@ -55,11 +53,10 @@ public class FuncionariosController {
      *
      * @return
      */
-    @GetMapping
-    public ModelAndView listAll() {
-        ModelAndView mv = new ModelAndView("/funcionarios.html");
-        List<Funcionarios> lista = service.findAll();
-        mv.addObject("funcionariolista", lista);
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView index() {
+        ModelAndView mv = new ModelAndView("funcionarios.html");
+        load(mv, new Funcionarios());
         return mv;
     }
     
@@ -76,50 +73,57 @@ public class FuncionariosController {
     
     /**
      *
-     * @param pkFuncionario
-     * @param input
-     */
-    @PutMapping("/{pkFuncionario}")
-    public void update(@PathVariable Long pkFuncionario, @RequestBody Funcionarios input) {
-        service.save(input);
-    }
-    
-    /**
-     *
-     * @param classificacao
-     * @param funcionarios
-     */
-    @RequestMapping(method = RequestMethod.POST,value = "/cadastro")
-    public ModelAndView cadastro(@ModelAttribute Funcionarios funcionarios, @RequestParam(value="classificacao") String classificacao) {
-        Long pkclassificacao = Long.parseLong(classificacao);
-        Classificacoes classificacaoOb = classificacoesService.getByPkClassificacao(pkclassificacao);
-        service.save(funcionarios);
-        return this.listAll();
-    }
-
-    /**
-     *
      * @return
      */
-    @RequestMapping(method = RequestMethod.GET,value = "/cadastro")
+    @RequestMapping(method = RequestMethod.GET, value = "/cadastrofunc")
     public ModelAndView cadastro() {
-        ModelAndView mv = new ModelAndView("/cadastrofuncionario.html");
-        mv.addObject("funcionarios", new Funcionarios());
+        ModelAndView mv = new ModelAndView("funcionarios/cadastro.html");
+        load(mv, new Funcionarios());
         mv.addObject("enderecos", new Enderecos());
         mv.addObject("listaClassificacoes", classificacoesService.listAllOrderByNome());
         return mv;
     }
+    
+    @RequestMapping(method = RequestMethod.POST, value = "**/sfunc")
+    public ModelAndView save(Funcionarios funcionario) {
+        ModelAndView mv = new ModelAndView("funcionarios.html");
+        this.service.save(funcionario);
+        load(mv, new Funcionarios());
+        return mv;
+    }
+    
+    @RequestMapping(method = RequestMethod.GET, value = "/edfunc/{pkFuncionario}")
+    public ModelAndView edit(@PathVariable("pkFuncionario") Long id) {
+        ModelAndView mv = new ModelAndView("funcionarios/cadastro.html");
+        Optional<Funcionarios> funcionario = service.findById(id);
+        load(mv, funcionario.get());
+        return mv;
+    }
+
+//    /**
+//     *
+//     * @param classificacao
+//     * @param funcionarios
+//     */
+//    @RequestMapping(method = RequestMethod.POST, value = "**/sfunc")
+//    public ModelAndView cadastro(@ModelAttribute Funcionarios funcionarios, @RequestParam(value="classificacao") String classificacao) {
+//        Long pkclassificacao = Long.parseLong(classificacao);
+//        Classificacoes classificacaoOb = classificacoesService.getByPkClassificacao(pkclassificacao);
+//        service.save(funcionarios);
+//        return this.index();
+//    } 
     
     /**
      *
      * @param id
      * @return 
      */
-    @RequestMapping(params = {"remover"}, method = RequestMethod.POST)
-    public ModelAndView delete(@RequestParam("remover") String id) {
-        Long pkfuncionario = Long.parseLong(id);
-        service.delete(pkfuncionario);
-        return this.listAll();
+    @RequestMapping(method = RequestMethod.GET, value = "/remfunc/{pkFuncionario}")
+    public ModelAndView delete(@PathVariable("pkFuncionario") Long id) {
+        ModelAndView mv = new ModelAndView("funcionarios.html");
+        service.delete(id);
+        load(mv, new Funcionarios());
+        return mv;
     }
 
     @GetMapping("/class/{fkClassificacao}")
@@ -141,6 +145,12 @@ public class FuncionariosController {
         mv.addObject("funcionarios", input);
         mv.addObject("listacursos", listacursos);
         return mv;
+    }
+    
+    public void load(ModelAndView mv, Funcionarios funcionario) {
+        List<Funcionarios> lista = service.findAll();
+        mv.addObject("funcionariolista", lista);
+        mv.addObject("funcionario", funcionario);
     }
     
     /**

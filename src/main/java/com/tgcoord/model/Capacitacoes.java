@@ -5,15 +5,15 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  *
  * Registro dos cursos concluídos pelos funcionários.
- * @author natal
+ * @author natalia
  */
 @Entity
 @Table(catalog = "tgcoord")
@@ -21,8 +21,6 @@ public class Capacitacoes implements Serializable {
     
     @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Capacitacoes.class.getName());
-
-    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

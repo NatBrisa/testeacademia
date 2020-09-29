@@ -5,12 +5,13 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
- * @author natal
+ * @author natalia
  */
 @Entity
 @Table(catalog = "tgcoord", uniqueConstraints = {
@@ -20,7 +21,6 @@ import java.util.logging.Logger;
 })
 public class Instituicoes implements Serializable {
 
-    @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(Instituicoes.class.getName());
 
     /**
@@ -143,5 +143,35 @@ public class Instituicoes implements Serializable {
 
     public void setTpInst(String tpInst) {
         this.tpInst = tpInst;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.pkInstituicao);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Instituicoes other = (Instituicoes) obj;
+        if (!Objects.equals(this.pkInstituicao, other.pkInstituicao)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.nomeCompleto;
     }
 }

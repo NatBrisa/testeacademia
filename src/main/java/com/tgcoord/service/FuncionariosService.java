@@ -6,21 +6,19 @@ import com.tgcoord.model.Enderecos;
 import com.tgcoord.model.Funcionarios;
 import com.tgcoord.repository.CapacitacoesRepository;
 import com.tgcoord.repository.FuncionariosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Service
 public class FuncionariosService {
 
-    @SuppressWarnings("unused")
     private static final Logger LOG = Logger.getLogger(FuncionariosService.class.getName());
 
     @Autowired

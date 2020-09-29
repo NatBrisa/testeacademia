@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head th:insert="~{template :: head_default}"></head>
-<body>
-    <header>
-        <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
-        <h2>Apresentação</h2></hgroup>
-    </header>
+      lang="pt">
+    <head th:replace="~{fragments :: head_default}">
+        <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link href="../static/css/materialize.css" th:href="@{/css/materialize.css}" rel="stylesheet" type="text/css" media="screen,projection"/>
+        <link href="../static/css/materialize.min.css" th:href="@{/css/materialize.min.css}" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
+            <h2>Apresentação</h2></hgroup>
+        </header>
 
-    <nav th:insert="~{template :: nav_default}"></nav>
+        <nav th:replace="~{fragments :: nav_default}"></nav>
 
-    <section>
-        <h3>Apresentação</h3>
-        <p th:text="'Hello ' + ${name} + '!'"/>
-    </section>
-</body>
+        <section>
+            <h3>Apresentação</h3>
+            <p th:text="'Hello ' + ${name} + '!'"/>
+        </section>
+    </body>
 </html>

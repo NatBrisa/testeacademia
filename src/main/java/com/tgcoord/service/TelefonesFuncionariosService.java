@@ -9,15 +9,15 @@ import com.tgcoord.model.Funcionarios;
 import com.tgcoord.model.TelefonesFuncionarios;
 import com.tgcoord.repository.FuncionariosRepository;
 import com.tgcoord.repository.TelefonesFuncionariosRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Service
 public class TelefonesFuncionariosService {
@@ -70,4 +70,5 @@ public class TelefonesFuncionariosService {
     public void delete(Long pkTelefone) {
         telefonesRepository.deleteById(pkTelefone);
     }
+    private static final Logger LOG = Logger.getLogger(TelefonesFuncionariosService.class.getName());
 }

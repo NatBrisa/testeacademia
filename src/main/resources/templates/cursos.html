@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head th:insert="~{template :: head_default}"></head>
+      lang="pt">
+<head th:insert="~{fragments :: head_default}"></head>
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
             <h2>Cursos</h2></hgroup>
     </header>
 
-    <nav th:insert="~{template :: nav_default}"></nav>
+    <nav th:insert="~{fragments :: nav_default}"></nav>
 
     <section>
     <h3>Cursos</h3>
-    <form action="#" th:action="@{/cursos}" th:object="${cursos}" method="post">
         <table>
             <thead>
                 <tr>
@@ -32,15 +31,14 @@
                     <td th:text="${cursos.fkInstituicao}"></td>
                     <td>
                         <a>Mais Informações</a>
-                        <br><button name="editar" th:value="${cursos.pkCurso}">Editar</button>
-                        <br><button name="remover" th:value="${cursos.pkCurso}">Remover</button>
+                        <br/><a class="btn-small" th:href="@{/cursos/edcurso/{pkCurso}(pkCurso=${cursos.pkCurso})}">Editar</a>
+                        <br/><a class="btn-small" th:href="@{/cursos/remcurso/{pkCurso}(pkCurso=${cursos.pkCurso})}">Remover</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-    </form>
-        <p><a class="button"  th:href="@{/cursos/cadastro}">Cadastrar novo curso</a></p>
-        <p><button>Vincular curso com funcionário</button></p>
+    <p><a class="btn-small" th:href="@{/cursos/cadastrocurso}">Novo Curso</a></p>
+    <p><button>Vincular curso com funcionário</button></p>
     </section>
 </body>
 </html>

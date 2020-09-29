@@ -5,22 +5,20 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Entity
 @Table(catalog = "tgcoord")
 public class Classificacoes implements Serializable {
-    
-    @SuppressWarnings("unused")
+
     private static final Logger LOG = Logger.getLogger(Classificacoes.class.getName());
-    private static final long serialVersionUID = -2824971306687887981L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

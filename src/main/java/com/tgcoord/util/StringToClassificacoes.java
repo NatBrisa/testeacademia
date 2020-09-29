@@ -7,6 +7,7 @@ package com.tgcoord.util;
 
 import com.tgcoord.model.Classificacoes;
 import com.tgcoord.service.ClassificacoesService;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -21,7 +22,11 @@ public class StringToClassificacoes implements Converter<String, Classificacoes>
     @Autowired
     private ClassificacoesService classificacoesService;
     
-    
+    /**
+     *
+     * @param source
+     * @return
+     */
     @Override
     public Classificacoes convert(String source) {
         try {
@@ -31,4 +36,5 @@ public class StringToClassificacoes implements Converter<String, Classificacoes>
             return null;
         }
     }
+    private static final Logger LOG = Logger.getLogger(StringToClassificacoes.class.getName());
 }

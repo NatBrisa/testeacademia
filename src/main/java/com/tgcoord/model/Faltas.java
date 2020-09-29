@@ -5,19 +5,18 @@
  */
 package com.tgcoord.model;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
- * @author natal
+ * @author natalia
  */
 @Entity
 public class Faltas implements Serializable {
-    
-    @SuppressWarnings("unused")
+
     private static final Logger LOG = Logger.getLogger(Faltas.class.getName());
 
     private static final long serialVersionUID = 1L;

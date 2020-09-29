@@ -2,9 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       lang="pt">
-    <head th:insert="~{template :: head_default}">
-        <link href="../static/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
-        <link href="../static/css/materialize.min.css" rel="stylesheet" type="text/css"/>
+    <head th:insert="~{fragments :: head_default}">
     </head>
 <body>
     <header>
@@ -12,7 +10,7 @@
             <h2>Funcionários</h2></hgroup>
     </header>
 
-    <nav th:insert="~{template :: nav_default}"></nav>
+    <nav th:insert="~{fragments :: nav_default}"></nav>
 
     <section>
     <h3>Funcionários</h3>
@@ -35,14 +33,14 @@
                 <td style="text-align: center" th:text="${funcionarios.cpf}"></td>
                 <td th:text="${funcionarios.fkClassificacao}"></td>
                 <td>
-                    <a th:href="@{/${funcionarios.pkFuncionario}/listacurso}">Mais Informações</a>
-                    <br /><button name="editar" th:value="${funcionarios.pkFuncionario}">Editar</button>
-                    <br /><button name="remover" th:value="${funcionarios.pkFuncionario}">Remover</button>
+                    <a class="btn-small" th:href="@{/funcionarios/listacurso/{pkFuncionario}(pkFuncionario=${funcionarios.pkFuncionario})}">Mais Informações</a>
+                    <br /><a class="btn-small" name="editar" th:value="${funcionarios.pkFuncionario}">Editar</a>
+                    <br /><a class="btn-small" name="remover" th:value="${funcionarios.pkFuncionario}">Remover</a>
                 </td>
             </tr>
         </tbody>
     </table>
-        <p><a class="waves-effect waves-light btn" th:href="@{/funcionarios/cadastro}">Cadastrar novo funcionário</a></p>
+        <p><a class="waves-effect waves-light btn" th:href="@{/funcionarios/cadastrofunc}">Cadastrar novo funcionário</a></p>
         <p><a class="waves-effect waves-light btn">Vincular curso com funcionário</a></p>
     </section>
 </body>

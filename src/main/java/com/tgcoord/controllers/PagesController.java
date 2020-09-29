@@ -6,7 +6,7 @@
 package com.tgcoord.controllers;
 
 import com.tgcoord.model.Classificacoes;
-import com.tgcoord.model.Cursos;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.logging.Logger;
-
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Controller
 public class PagesController {
@@ -92,18 +90,6 @@ public class PagesController {
     public ModelAndView cadastroclassificacao() {
         ModelAndView mv = new ModelAndView("/cadastroclassificacao.html");
         mv.addObject("classificacoes", new Classificacoes());
-        return mv;
-    }
-
-    /**
-     *
-     * @param curso
-     * @return
-     */
-    @GetMapping("/editarcurso")
-    public static ModelAndView editarcurso(@RequestParam Cursos curso) {
-        ModelAndView mv = new ModelAndView("/editarcurso.html");
-        mv.addObject(curso);
         return mv;
     }
 }

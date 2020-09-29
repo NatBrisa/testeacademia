@@ -2,12 +2,16 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Instituicoes;
 import com.tgcoord.repository.InstituicoesRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
+/**
+ *
+ * @author natalia
+ */
 @Service
 public class InstituicoesService {
 
@@ -24,6 +28,7 @@ public class InstituicoesService {
 
     /**
      *
+     * @param pkInstituicao
      * @return
      */
     public Optional<Instituicoes> findById(Long pkInstituicao) {
@@ -41,6 +46,7 @@ public class InstituicoesService {
 
     /**
      *
+     * @param instituicao
      * @return
      */
     public Instituicoes save(Instituicoes instituicao) {
@@ -49,8 +55,10 @@ public class InstituicoesService {
 
     /**
      *
+     * @param pkInstituicao
      */
     public void delete(Long pkInstituicao) {
         repository.deleteById(pkInstituicao);
     }
+    private static final Logger LOG = Logger.getLogger(InstituicoesService.class.getName());
 }

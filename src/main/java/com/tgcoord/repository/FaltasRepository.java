@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Repository
 public interface FaltasRepository extends JpaRepository<Faltas, Long> {

@@ -2,22 +2,20 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Gestores;
 import com.tgcoord.repository.GestoresRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Service
 public class GestoresService {
-    
-    @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(GestoresService.class.getName());
+
+    private static final Logger LOG = Logger.getLogger(GestoresService.class.getName());
 
     @Autowired
     private GestoresRepository repository;

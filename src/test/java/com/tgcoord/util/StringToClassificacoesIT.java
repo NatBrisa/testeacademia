@@ -6,16 +6,24 @@
 package com.tgcoord.util;
 
 import com.tgcoord.model.Classificacoes;
-import org.junit.*;
+import org.junit.Test;
+
+import java.util.logging.Logger;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 public class StringToClassificacoesIT {
-    
+
+    private static final Logger LOG = Logger.getLogger(StringToClassificacoesIT.class.getName());
+
+    /**
+     *
+     */
     public StringToClassificacoesIT() {
     }
 
@@ -33,5 +41,5 @@ public class StringToClassificacoesIT {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }

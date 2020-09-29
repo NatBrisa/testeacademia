@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      lang="pt" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
-<head th:insert="~{template :: head_default}"></head>
+      lang="pt">
+<head th:insert="~{fragments :: head_default}"></head>
 <body>
     <header>
         <hgroup><h1>Coordenadoria de Educação de Fartura</h1>
             <h2>Cursos</h2></hgroup>
     </header>
 
-    <nav th:insert="~{template :: nav_default}"></nav>
+    <nav th:insert="~{fragments :: nav_default}"></nav>
 
     <section>
         <h3>Cadastro</h3>
-        <form action="#" th:action="@{/cursos/cadastro}" th:object="${cursos}" method="post">
-            <p><label>Nome do curso: <input type="text" name="txnome" th:field="*{nome}" autofocus="autofocus" required></label></p>
+        <form action="scurso" th:object="${curso}" method="post">
+            <p><label>Nome do curso: <input type="text" name="txnome" th:field="*{nome}" autofocus="autofocus" required /></label></p>
 
             <p><label>Tipo do curso: <select name="tp_curso" th:field="*{tpCurso}" required>
                 <option value="Graduação">Graduação</option>
@@ -24,14 +24,17 @@
 
             <p><label>Carga horária: <input type="number" name="cargahoraria" th:field="*{cargaHoraria}"></label></p>
 
-            <p><label>Instituição em que o curso foi realizado: <select name="instituicao" th:name="instituicao" required>
+            <div class="input-field"
+            <p><label class="select-label">Instituição em que o curso foi realizado: <select class="select" name="instituicao" required>
                 <option th:each="instituicoes : ${instList}" th:value="${instituicoes.pkInstituicao}" th:text="${instituicoes.nomeCompleto}"></option>
-            </select></label><br><a class="button">Cadastrar nova instituição</a></p>
+            </select></label>
+            </div>
+                <br><a class="btn-small">Cadastrar nova instituição</a></p>
 
             <p><label>Cidade em que o curso foi realizado: <input type="text" name="cidade" th:field="*{cidade}"></label></p>
 
-            <input type="submit" name="save" value="Cadastrar">
-            <input type="reset" value="Cancelar">
+            <button type="submit" class="btn waves-effect waves-light">Salvar</button></p>
+            <input class="btn waves-effect waves-light" type="reset" value="Cancelar" />
         </form>
     </section>
 </body>

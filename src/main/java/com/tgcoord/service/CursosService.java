@@ -2,11 +2,10 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Cursos;
 import com.tgcoord.repository.CursosRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
@@ -15,8 +14,7 @@ import java.util.logging.Logger;
 @Service
 public class CursosService {
 
-    @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(CursosService.class.getName());
+    private static final Logger LOG = Logger.getLogger(CursosService.class.getName());
 
     @Autowired
     private CursosRepository repository;

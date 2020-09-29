@@ -2,21 +2,19 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Faltas;
 import com.tgcoord.repository.FaltasRepository;
+import java.util.List;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.logging.Logger;
-
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Service
 public class FaltasService {
-    
-    @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(FaltasService.class.getName());
+
+    private static final Logger LOG = Logger.getLogger(FaltasService.class.getName());
 
     @Autowired
     private FaltasRepository repository;

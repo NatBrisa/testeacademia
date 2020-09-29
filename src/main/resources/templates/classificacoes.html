@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       lang="pt">
-    <head th:insert="~{template :: head_default}">
+    <head th:insert="~{fragments :: head_default}">
         <link href="../static/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
         <link href="../static/css/materialize.min.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -12,16 +12,17 @@
                 <h2>Classificacoes</h2></hgroup>
         </header>
 
-        <nav th:insert="~{template :: nav_default}"></nav>
+        <nav th:insert="~{fragments :: nav_default}"></nav>
 
         <section>
             <h3>Classificacoes</h3>
-            <form action="classificacoes/save" method="post">
-                <p><label>Nome: <input type="text" name="nome" autofocus="autofocus" /></label>
-                <button type="submit" class="btn waves-effect waves-light">Adicionar</button></p>
+            <form action="sclass" method="post" th:object="${classificacoes}">
+                <input th:field="*{pkClassificacao}" readonly="readonly" />
+                <p><label>Nome: <input type="text" name="nome" th:field="*{nome}" autofocus="autofocus" /></label>
+                <button type="submit" class="btn waves-effect waves-light">Salvar</button></p>
             </form>
             <form>
-                <table>
+                <table class="striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -33,7 +34,8 @@
                         <tr th:each="classificacoes : ${classificacoeslista}">
                             <td th:text="${classificacoes.pkClassificacao}"></td>
                             <td th:text="${classificacoes.nome}"></td>
-                            <td><button><a class="buttonLink" th:href="@{/classificacoes/editar/{pkClassificacao}(pkClassificacao=${classificacoes.pkClassificacao})}">Editar</a></button><button name="remover" th:value="${classificacoes.pkClassificacao}">Remover</button><button name="alterar" th:value="${classificacoes.pkClassificacao}">Alterar</button></td>
+                            <td><a class="btn-small" th:href="@{/classificacoes/edclass/{pkClassificacao}(pkClassificacao=${classificacoes.pkClassificacao})}">Editar</a>
+                                <a class="btn-small" th:href="@{/classificacoes/remclass/{pkClassificacao}(pkClassificacao=${classificacoes.pkClassificacao})}">Remover</a></td>
                         </tr>
                     </tbody>
                 </table>  

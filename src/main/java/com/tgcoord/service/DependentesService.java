@@ -2,21 +2,19 @@ package com.tgcoord.service;
 
 import com.tgcoord.model.Dependentes;
 import com.tgcoord.repository.DependentesRepository;
+import java.util.List;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.logging.Logger;
-
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Service
 public class DependentesService {
-    
-    @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(DependentesService.class.getName());
+
+    private static final Logger LOG = Logger.getLogger(DependentesService.class.getName());
 
     @Autowired
     private DependentesRepository repository;

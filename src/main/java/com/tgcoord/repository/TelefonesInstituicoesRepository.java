@@ -7,10 +7,15 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Repository
 public interface TelefonesInstituicoesRepository extends JpaRepository<TelefonesInstituicoes, Long> {
 
+    /**
+     *
+     * @param fkInstituicao
+     * @return
+     */
     TelefonesInstituicoes findByFkInstituicao(Instituicoes fkInstituicao);
 }

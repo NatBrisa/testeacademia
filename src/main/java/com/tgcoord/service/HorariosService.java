@@ -1,18 +1,16 @@
 package com.tgcoord.service;
 
-import org.springframework.stereotype.Service;
-
 import java.util.logging.Logger;
+import org.springframework.stereotype.Service;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Service
 public class HorariosService {
 
-    @SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(HorariosService.class.getName());
+    private static final Logger LOG = Logger.getLogger(HorariosService.class.getName());
 
     private HorariosService() {
     }

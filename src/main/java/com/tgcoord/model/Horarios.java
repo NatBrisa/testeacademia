@@ -6,22 +6,20 @@
 package com.tgcoord.model;
 
 import com.tgcoord.enums.DiaSemana;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.logging.Logger;
+import javax.persistence.*;
 
 /**
  *
- * @author natal
+ * @author natalia
  */
 @Entity
 @Table(catalog = "tgcoord")
 public class Horarios implements Serializable {
-	
-	@SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(Horarios.class.getName());
+
+    private static final Logger LOG = Logger.getLogger(Horarios.class.getName());
 
     private static final long serialVersionUID = 1L;
     
