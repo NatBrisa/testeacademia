@@ -24,70 +24,12 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/RestfulAPI" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3758f9ec-41f5-436c-8c9a-7136e9b45016" name="Default Changelist" comment="Desenvolvimento das telas e dos controllers com thymeleaf">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/natal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nb-configuration.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nb-configuration.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/BasicApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/BasicApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/config/ConversionConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/config/ConversionConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CapacitacoesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CapacitacoesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/ClassificacoesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/ClassificacoesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CursosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/CursosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/DisciplinasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/DisciplinasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/FuncionariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/FuncionariosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/GestoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/GestoresController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/InstituicoesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/InstituicoesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/controllers/PagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Capacitacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Capacitacoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Classificacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Classificacoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Cursos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Cursos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Dependentes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Dependentes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Disciplinas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Disciplinas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Enderecos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Enderecos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Faltas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Faltas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Funcionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Funcionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/FuncsExtras.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/FuncsExtras.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Gestores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Gestores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Horarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Horarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Instituicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Instituicoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Telefones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/Telefones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesFuncionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesInstituicoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/model/TelefonesInstituicoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CapacitacoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CapacitacoesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/ClassificacoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/ClassificacoesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CursosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/CursosRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/DependentesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/DependentesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FaltasRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FaltasRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncionariosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncionariosRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncsExtrasRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/FuncsExtrasRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/GestoresRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/GestoresRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/HorariosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/HorariosRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/InstituicoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/InstituicoesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesFuncionariosRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesFuncionariosRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesInstituicoesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/repository/TelefonesInstituicoesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CapacitacoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CapacitacoesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/ClassificacoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/ClassificacoesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CursosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/CursosService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/DependentesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/DependentesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FaltasService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FaltasService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncionariosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncionariosService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncsExtrasService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/FuncsExtrasService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/GestoresService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/GestoresService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/HorariosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/HorariosService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/InstituicoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/InstituicoesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/TelefonesFuncionariosService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/TelefonesFuncionariosService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/TelefonesInstituicoesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/service/TelefonesInstituicoesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/util/StringToClassificacoes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/util/StringToClassificacoes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/util/StringToFuncionarios.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/util/StringToFuncionarios.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tgcoord/util/StringToInstituicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tgcoord/util/StringToInstituicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tgcoord/BasicApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tgcoord/BasicApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/tgcoord/util/StringToClassificacoesIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/tgcoord/util/StringToClassificacoesIT.java" afterDir="false" />
-    </list>
+    <list default="true" id="3758f9ec-41f5-436c-8c9a-7136e9b45016" name="Default Changelist" comment="Desenvolvimento das telas e dos controllers com thymeleaf" />
     <option name="SHOW_DIALOG" value="true" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,6 +51,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -288,7 +231,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/RestfulAPI" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -397,10 +340,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="242" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1602292667887" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1601395940919">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1602530885630">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1601395940919" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1602530885630" />
     <state x="151" y="47" key="com.intellij.javaee.MapExternalResourceDialog" timestamp="1601346310849">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
